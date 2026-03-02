@@ -1,130 +1,85 @@
-# Architecture
+# Architecture — Composable by Design
 
-The Education Skill Library is Layer 1 of a three-layer system designed for progressive enhancement — each layer adds capability without requiring changes to the layers below.
-
----
-
-## Layer 1: Skills (this library)
-
-Atomic, callable units. Each skill takes a defined input, applies evidence-based processing, and returns a structured output.
-
-### Design principles
-
-- **Standalone and composable.** Every skill works when a teacher invokes it directly. Every skill also works when an orchestrator chains it with other skills.
-- **Machine-readable schema.** Every skill file begins with a YAML header that defines inputs, outputs, evidence strength, and chaining relationships. This enables automated discovery, selection, and sequencing.
-- **Evidence encoded in the prompt.** The research criteria are inside the prompt itself — Claude evaluates its own output against named research standards, not just against plausibility.
-- **Context-engine ready.** Input schemas include optional fields that the context engine can inject. Skills produce high-quality generic output without context; they produce tailored output with it.
-
-### Schema header format
-
-Every skill file begins with a YAML front matter block containing:
-
-```yaml
----
-skill_id: "domain/skill-name"
-skill_name: "Human-Readable Name"
-domain: "domain-name"
-version: "1.0"
-evidence_strength: "strong"        # strong | moderate | emerging
-evidence_sources: [...]            # Specific citations with dates
-input_schema:
-  required: [...]                  # What the teacher must provide
-  optional: [...]                  # What the context engine can inject
-output_schema:
-  type: "object"
-  fields: [...]                    # Structured output description
-chains_well_with: [...]            # Related skill IDs
-teacher_time: "X minutes"         # Time to use this skill
-tags: [...]                        # For discovery and filtering
----
-```
-
-### File structure
-
-```
-education-skills/
-  README.md
-  EVIDENCE.md
-  EXCLUSIONS.md
-  ARCHITECTURE.md
-  LICENSE
-  schemas/
-    skill-schema.yaml
-  memory-learning-science/         # Domain 1: 8 skills
-  self-regulated-learning/         # Domain 2: 5 skills
-  explicit-instruction/            # Domain 3: 5 skills
-  questioning-discussion/          # Domain 4: 4 skills
-  literacy-critical-thinking/      # Domain 5: 7 skills
-  eal-language-development/        # Domain 6: 5 skills
-  curriculum-assessment/           # Domain 7: 9 skills
-  wellbeing-motivation-agency/     # Domain 8: 5 skills
-  professional-learning/           # Domain 9: 4 skills
-```
+The library works standalone today. Any educator with access to Claude can use any skill immediately. Everything else in this document describes where the system is going — not where it needs to be before you can use it.
 
 ---
 
-## Layer 2: Context Engine (not built yet)
+## How the Skills Are Structured
 
-The layer that makes outputs specific rather than generic. When connected, a skill doesn't just know "Year 8 EAL students" — it knows *these* students.
+Each skill is a single markdown file with two parts: a YAML header and a plain-English prompt.
 
-### What the context engine provides
+The **YAML header** contains machine-readable metadata: skill ID, domain, evidence strength rating, evidence sources with named citations, input schema (what the educator provides), output schema (what comes back), chaining metadata (which skills compose well together), estimated educator time, and discovery tags.
 
-- **Student profiles:** language proficiency levels, prior knowledge gaps, working memory profiles, learning preferences (evidence-based, not learning styles), IEP/504 accommodations
-- **Curriculum data:** what's been taught, what's coming, scope and sequence, standards alignment
-- **Assessment data:** recent results, growth trajectories, specific gaps identified
-- **School context:** competency framework, reporting system, assessment calendar, house/pastoral structure
-- **Class context:** group dynamics, seating, timetable constraints
+The **prompt** section contains the full Claude prompt — including the expert role framing, the evidence-based criteria Claude checks its output against, the structured output format, and a self-check instruction.
 
-### How it connects to skills
+This dual structure means every skill can be:
 
-Context engine data flows into skills through the `optional` fields in each skill's input schema. Skills are designed to use this data when available and produce quality output without it.
+- **Read by an educator** who opens the file, copies the prompt, fills in the input fields, and gets a useful output
+- **Parsed by a machine** that reads the YAML header to discover the skill's capabilities, validate inputs, route outputs to other skills, and make decisions about when to invoke it
 
-```
-Teacher input (required fields)
-       +
-Context engine data (optional fields)
-       ↓
-    Skill prompt
-       ↓
-  Tailored output
-```
+The YAML schemas are not documentation. They are the interface definition. Any system that can read YAML can discover what this library offers, what each skill needs, and what it returns.
 
 ---
 
-## Layer 3: Orchestrator (not built yet)
+## The Three-Layer Architecture
 
-An agent that receives a high-level teacher goal and fulfils it by selecting, sequencing, and chaining skills.
+### Layer 1 — The Skill Library (this repository)
 
-### Example orchestration
+100 skills across 14 domains. Each skill encodes a specific, evidence-grounded instructional or curriculum design decision — retrieval practice scheduling, rubric construction, scaffolded task modification, adaptive hint design, and 96 others.
 
-**Teacher goal:** "Design a 6-week climate change unit for my Year 9 science class"
+An educator uses a skill by providing context through the input fields. Claude returns a structured output ready to use: a spaced practice schedule, a set of retrieval questions, a rubric with co-construction plan, a scaffolded task adapted for a specific language proficiency level.
 
-**Orchestrator sequence:**
-1. Query context engine for: class profile, curriculum requirements, prior learning, upcoming assessments
-2. Invoke `curriculum-assessment/backwards-design-unit-planner` with curriculum standards
-3. For each lesson, invoke `explicit-instruction/lesson-opening-designer`
-4. Invoke `memory-learning-science/spaced-practice-scheduler` across the 6-week timeline
-5. Invoke `memory-learning-science/interleaving-unit-planner` to restructure topic sequence
-6. Invoke `curriculum-assessment/rubric-generator` for the summative assessment
-7. Invoke `eal-language-development/language-demand-analyser` for EAL students
-8. Present complete unit plan for teacher review and modification
+Every skill works today. No dependencies. No setup.
 
-### Orchestrator design principles
+### Layer 2 — Context Engine (in development)
 
-- **Teacher approval gates.** The orchestrator proposes; the teacher decides. No autonomous action on student-facing outputs.
-- **Skill chaining via schemas.** The orchestrator reads `output_schema` from one skill and matches it to `input_schema` of the next. The `chains_well_with` field provides hints but the orchestrator can discover novel chains.
-- **Transparency.** The teacher can see which skills were invoked, in what order, with what inputs. No black box.
+The context engine sits between the library and the orchestrator. It holds persistent information about students, classes, curriculum sequences, prior assessment data, and learning history.
+
+When a skill is called through the context engine, the output is personalised. Not generic advice about spacing — a specific spacing schedule for this class, based on what they studied last term, which topics showed weak retention on the last assessment, and when the next summative assessment falls. Not a generic rubric — a rubric calibrated to this developmental band, this competency framework, and this student's current performance level.
+
+The skill input schemas already accommodate this. Every skill defines `optional` input fields — student profiles, curriculum data, assessment history, school context — that are designed for the context engine to inject. Skills produce quality output without this data. They produce tailored output with it.
+
+The context engine is what transforms a useful general tool into a genuinely intelligent one.
+
+### Layer 3 — Orchestrator (in development)
+
+The orchestrator allows an educator to state a high-level goal and receive a complete, personalised plan.
+
+**Example:** An educator says: *"Design a 6-week unit on climate change for my Year 8 class."*
+
+The orchestrator:
+
+1. Queries the context engine for class profile, curriculum requirements, prior learning, and upcoming assessments
+2. Invokes the **Backwards Design Unit Planner** with curriculum standards and enduring understandings
+3. Invokes the **Spaced Practice Scheduler** to distribute retrieval across the 6-week timeline
+4. Invokes the **Interleaving Unit Planner** to restructure the topic sequence for better discrimination between related concepts
+5. For each lesson, invokes the **Lesson Opening Designer** for retrieval-based starters
+6. Invokes the **Language Demand Analyser** for EAL students in the class
+7. Invokes the **Criterion-Referenced Rubric Generator** for the summative assessment
+8. Invokes the **Ecological Inquiry Anchor Designer** to ground the unit in the local environment
+9. Presents a complete draft unit for the educator to review, edit, and approve
+
+The educator remains in the loop throughout. The orchestrator proposes; the educator decides. This is not AI replacing educators. It is AI doing the time-consuming assembly work so educators can focus on the decisions that require human judgement — what matters for these students, what to prioritise, what to cut, and what to change.
+
+The `chains_well_with` field in every skill's YAML header provides explicit chaining hints. The orchestrator can also discover novel chains by matching output schemas to input schemas across the library.
 
 ---
 
-## Build Sequence
+## MCP Server
 
-1. **Phase 1** (complete): Builder brief and architecture design
-2. **Phase 2** (current): Build all 52 skills as markdown files with YAML headers
-3. **Phase 3**: Test against real classrooms — D2R programme and wellbeing class
-4. **Phase 4**: Build the orchestrator agent
-5. **Phase 5**: Context engine integration (Kaku)
+An MCP (Model Context Protocol) server that exposes the full skill library as callable Claude tools is in development. This will allow skills to be invoked directly by AI agents and Claude Code workflows — removing the manual copy-paste step entirely and making the library natively accessible to any orchestration system that supports MCP.
+
+When complete, any MCP-compatible client will be able to discover all 100 skills, read their input requirements, call them with structured parameters, and receive typed outputs. Contributors building orchestration systems, tutoring platforms, or curriculum tools should watch for this.
 
 ---
 
-*This architecture is designed so that each layer adds value independently. The skills work now. The context engine makes them better. The orchestrator makes them effortless.*
+## Contributing Orchestration-Ready Skills
+
+Skills added to the library should follow the schema specification in [CONTRIBUTING.md](CONTRIBUTING.md). Orchestration-ready means:
+
+- **YAML header complete** — all fields populated, input and output schemas precisely typed
+- **Input and output schemas well-defined** — field names, types, and descriptions that a machine can parse without ambiguity
+- **`chains_well_with` populated** — where relevant, listing the skill IDs that compose naturally with this skill
+- **`evidence_strength` honest** — `strong` for robust quantitative evidence, `moderate` for solid but limited evidence, `emerging` for practitioner frameworks and qualitative traditions
+
+The schema is the contract between the skill and any system that calls it. Precision here is not bureaucracy — it is what makes composability work.
