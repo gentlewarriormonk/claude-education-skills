@@ -1,0 +1,52 @@
+# Claude Education Skills Library
+
+> An open-source library of 100 evidence-based Claude skills for curriculum design, lesson planning, and assessment. Designed for direct educator use and programmatic AI agent access.
+
+Each skill encodes a specific, evidence-grounded instructional or curriculum design decision. Skills include YAML frontmatter with typed input/output schemas, evidence strength ratings, and chaining metadata. This is Layer 1 of a planned three-layer education AI system (skill library → context engine → orchestrator).
+
+## Key Documentation
+
+- [README.md](https://github.com/GarethManning/claude-education-skills/blob/main/README.md): Full overview, architecture, usage, and domain table
+- [ARCHITECTURE.md](https://github.com/GarethManning/claude-education-skills/blob/main/ARCHITECTURE.md): Three-layer system design and MCP server roadmap
+- [EXCLUSIONS.md](https://github.com/GarethManning/claude-education-skills/blob/main/EXCLUSIONS.md): What was excluded and why (learning styles, VAK, unsupported frameworks)
+- [EVIDENCE.md](https://github.com/GarethManning/claude-education-skills/blob/main/EVIDENCE.md): Evidence standards, rating methodology, and source references
+- [IMPLEMENTATIONS.md](https://github.com/GarethManning/claude-education-skills/blob/main/IMPLEMENTATIONS.md): Known implementations and use cases
+
+## Skill Domains (100 skills across 14 domains)
+
+- [memory-learning-science/](https://github.com/GarethManning/claude-education-skills/tree/main/memory-learning-science): 8 skills — retrieval practice, spaced practice, interleaving, cognitive load, dual coding, elaborative interrogation, feedback
+- [self-regulated-learning/](https://github.com/GarethManning/claude-education-skills/tree/main/self-regulated-learning): 5 skills — metacognition, self-regulation scaffolds, goal-setting, study strategy selection, error analysis
+- [explicit-instruction/](https://github.com/GarethManning/claude-education-skills/tree/main/explicit-instruction): 5 skills — gradual release, checking for understanding, lesson openings, think-alouds, practice design
+- [questioning-discussion/](https://github.com/GarethManning/claude-education-skills/tree/main/questioning-discussion): 4 skills — Socratic questioning, discussion protocols, dialogic teaching, hinge questions
+- [literacy-critical-thinking/](https://github.com/GarethManning/claude-education-skills/tree/main/literacy-critical-thinking): 7 skills — argument structure, disciplinary writing, reading comprehension, source evaluation, media literacy
+- [eal-language-development/](https://github.com/GarethManning/claude-education-skills/tree/main/eal-language-development): 5 skills — language demand analysis, vocabulary tiering, scaffolded task modification, sentence frames
+- [curriculum-assessment/](https://github.com/GarethManning/claude-education-skills/tree/main/curriculum-assessment): 9 skills — backwards design, rubric generation, formative assessment, differentiation, learning progressions, PBL
+- [wellbeing-motivation-agency/](https://github.com/GarethManning/claude-education-skills/tree/main/wellbeing-motivation-agency): 12 skills — motivation, self-efficacy, wellbeing-learning connections, student agency, belonging
+- [professional-learning/](https://github.com/GarethManning/claude-education-skills/tree/main/professional-learning): 7 skills — lesson observation, reflective practice, PD design, data interpretation
+- [global-cross-cultural-pedagogies/](https://github.com/GarethManning/claude-education-skills/tree/main/global-cross-cultural-pedagogies): 9 skills — variation theory, CPA sequences, culturally responsive teaching, Ubuntu, place-based inquiry
+- [environmental-experiential-learning/](https://github.com/GarethManning/claude-education-skills/tree/main/environmental-experiential-learning): 6 skills — outdoor learning, biophilic design, experiential learning cycles, service learning
+- [ai-learning-science/](https://github.com/GarethManning/claude-education-skills/tree/main/ai-learning-science): 14 skills — adaptive hints, erroneous examples, AI feedback, cognitive tutoring, metacognitive monitoring, productive failure
+- [montessori-alternative-approaches/](https://github.com/GarethManning/claude-education-skills/tree/main/montessori-alternative-approaches): 4 skills — three-part lessons, prepared environment, mixed-age learning, uninterrupted work cycles
+- [original-frameworks/](https://github.com/GarethManning/claude-education-skills/tree/main/original-frameworks): 5 practitioner frameworks — clearly labelled as original, not research-backed
+
+## For AI Agents
+
+Each skill file opens with a machine-readable YAML header:
+
+```yaml
+skill_id: "domain/skill-name"         # path-format identifier
+evidence_strength: "strong|moderate|emerging|original"
+input_schema:
+  required: [...]                      # typed, described fields
+  optional: [...]                      # context engine fields (Layer 2)
+output_schema: {...}
+chains_well_with: [skill_id, ...]      # composable skill combinations
+teacher_time: "5 minutes"
+tags: [...]
+```
+
+To use programmatically: navigate to the relevant domain folder, select a skill by evidence strength or tags, extract the prompt block, and inject the typed inputs. A full MCP server (list_skills, get_skill, search_skills) is planned — see ARCHITECTURE.md.
+
+## Licence
+
+CC BY-SA 4.0 — open, forkable, share alike.
