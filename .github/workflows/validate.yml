@@ -1,0 +1,25 @@
+name: Validate Skills Library
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Count skills
+        run: |
+          COUNT=$(find skills/ -name "SKILL.md" | wc -l)
+          echo "Skills found: $COUNT"
+          [ "$COUNT" -eq 107 ] || (echo "Expected 107 skills, found $COUNT" && exit 1)
+      - name: Validate YAML frontmatter
+        run: python3 scripts/validate-skills.py
+      - name: Validate registry.json
+        run: python3 scripts/validate-registry.py
+      - name: Check registry is in sync
+        run: |
+          python3 scripts/generate-registry.py
+          git diff --exit-code registry.json || (echo "registry.json is out of sync — run scripts/generate-registry.py" && exit 1)

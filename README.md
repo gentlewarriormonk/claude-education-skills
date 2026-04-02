@@ -1,8 +1,16 @@
 # Claude Education Skills Library
 
+## Install
+
+```
+/plugin install GarethManning/claude-education-skills
+```
+Or browse the [Skills Directory](https://claude.ai) to install individual domain bundles.
+
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-1.0-blue)](https://agentskills.io)
+[![Skills](https://img.shields.io/badge/skills-107-blue)](https://github.com/GarethManning/claude-education-skills)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Last Commit](https://img.shields.io/github/last-commit/GarethManning/claude-education-skills)](https://github.com/GarethManning/claude-education-skills/commits/main)
-[![Skills](https://img.shields.io/badge/skills-106-blue)](https://github.com/GarethManning/claude-education-skills)
 
 An open-source library of 106 evidence-based Claude skills for curriculum design, lesson planning, and assessment — usable today by any educator with access to Claude, and engineered for AI agent orchestration.
 

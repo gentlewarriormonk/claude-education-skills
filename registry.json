@@ -1,0 +1,3505 @@
+{
+  "version": "2.0",
+  "generated": "2026-04-02T07:20:54.322487+00:00",
+  "standard": "agent-skills-1.0",
+  "total_skills": 107,
+  "domains": [
+    {
+      "id": "ai-learning-science",
+      "label": "AI & Learning Science",
+      "skill_count": 14
+    },
+    {
+      "id": "curriculum-assessment",
+      "label": "Curriculum & Assessment",
+      "skill_count": 14
+    },
+    {
+      "id": "eal-language-development",
+      "label": "EAL & Language Development",
+      "skill_count": 5
+    },
+    {
+      "id": "environmental-experiential-learning",
+      "label": "Environmental & Experiential Learning",
+      "skill_count": 6
+    },
+    {
+      "id": "explicit-instruction",
+      "label": "Explicit Instruction",
+      "skill_count": 5
+    },
+    {
+      "id": "global-cross-cultural-pedagogies",
+      "label": "Global & Cross-Cultural Pedagogies",
+      "skill_count": 9
+    },
+    {
+      "id": "literacy-critical-thinking",
+      "label": "Literacy & Critical Thinking",
+      "skill_count": 7
+    },
+    {
+      "id": "memory-learning-science",
+      "label": "Memory & Learning Science",
+      "skill_count": 8
+    },
+    {
+      "id": "montessori-alternative-approaches",
+      "label": "Montessori & Alternative Approaches",
+      "skill_count": 4
+    },
+    {
+      "id": "original-frameworks",
+      "label": "Original Frameworks",
+      "skill_count": 5
+    },
+    {
+      "id": "professional-learning",
+      "label": "Professional Learning",
+      "skill_count": 9
+    },
+    {
+      "id": "questioning-discussion",
+      "label": "Questioning & Discussion",
+      "skill_count": 4
+    },
+    {
+      "id": "self-regulated-learning",
+      "label": "Self-Regulated Learning",
+      "skill_count": 5
+    },
+    {
+      "id": "wellbeing-motivation-agency",
+      "label": "Wellbeing, Motivation & Agency",
+      "skill_count": 12
+    }
+  ],
+  "skills": [
+    {
+      "id": "ai-learning-science/adaptive-hint-sequence-designer",
+      "name": "adaptive-hint-sequence-designer",
+      "display_name": "Adaptive Hint Sequence Designer",
+      "domain": "ai-learning-science",
+      "description": "Generate a cascading hint sequence for a problem type, revealing progressively without giving answers. Use when designing tutoring dialogues or scaffolded worksheets.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "hints",
+        "scaffolding",
+        "ITS",
+        "VanLehn",
+        "Aleven",
+        "adaptive",
+        "tutoring",
+        "cognitive-tutor"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "intelligent-tutoring-dialogue-designer",
+        "productive-failure-desirable-difficulty-designer",
+        "worked-example-fading-designer",
+        "formative-assessment-loop-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/adaptive-hint-sequence-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/ai-facilitated-collaborative-learning-designer",
+      "name": "ai-facilitated-collaborative-learning-designer",
+      "display_name": "AI-Facilitated Collaborative Learning Designer",
+      "domain": "ai-learning-science",
+      "description": "Design AI-supported collaborative tasks that structure group interaction and address participation problems. Use when students struggle to collaborate effectively on group tasks.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "collaboration",
+        "CSCL",
+        "Dillenbourg",
+        "J\u00e4rvel\u00e4",
+        "cooperative-learning",
+        "Slavin",
+        "group-work",
+        "AI-facilitation",
+        "regulation"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "intelligent-tutoring-dialogue-designer",
+        "ai-feedback-design-principles",
+        "metacognitive-monitoring-ai-contexts"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/ai-facilitated-collaborative-learning-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/ai-feedback-design-principles",
+      "name": "ai-feedback-design-principles",
+      "display_name": "AI Feedback Design Principles",
+      "domain": "ai-learning-science",
+      "description": "Audit and redesign AI-generated feedback for pedagogical quality, timing, and learning impact. Use when building or reviewing automated feedback in digital learning tools.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "feedback",
+        "AI-feedback",
+        "formative",
+        "Shute",
+        "Narciss",
+        "Hattie",
+        "LLM",
+        "automated-feedback"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "formative-assessment-loop-designer",
+        "intelligent-tutoring-dialogue-designer",
+        "self-explanation-prompt-designer",
+        "technological-pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/ai-feedback-design-principles/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/cognitive-tutoring-architecture-designer",
+      "name": "cognitive-tutoring-architecture-designer",
+      "display_name": "Cognitive Tutoring Architecture Designer",
+      "domain": "ai-learning-science",
+      "description": "Map knowledge components and skill hierarchies for a cognitive tutoring system or adaptive learning platform. Use when designing intelligent tutoring software or skill-based mastery systems.",
+      "disable_model_invocation": true,
+      "evidence_strength": "strong",
+      "tags": [
+        "cognitive-tutor",
+        "ACT-R",
+        "Anderson",
+        "knowledge-tracing",
+        "Corbett",
+        "mastery",
+        "ITS",
+        "adaptive"
+      ],
+      "teacher_time": "6 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "intelligent-tutoring-dialogue-designer",
+        "formative-assessment-loop-designer",
+        "worked-example-to-problem-solving-transition-designer",
+        "technological-pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/cognitive-tutoring-architecture-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/digital-worked-example-sequence",
+      "name": "digital-worked-example-sequence",
+      "display_name": "Digital Worked Example Sequence",
+      "domain": "ai-learning-science",
+      "description": "Create an interactive digital worked example sequence with fading for online or blended delivery. Use when building e-learning modules, LMS content, or app-based instruction.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "worked-examples",
+        "fading",
+        "digital-learning",
+        "CLT",
+        "Sweller",
+        "Renkl",
+        "self-explanation",
+        "multimedia"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "erroneous-example-designer",
+        "worked-example-to-problem-solving-transition-designer",
+        "cognitive-load-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/digital-worked-example-sequence/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/erroneous-example-designer",
+      "name": "erroneous-example-designer",
+      "display_name": "Erroneous Example Designer",
+      "domain": "ai-learning-science",
+      "description": "Design deliberately flawed examples that develop error-detection skills and deepen understanding. Use when students make characteristic errors and need practice spotting mistakes.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "erroneous-examples",
+        "McLaren",
+        "error-detection",
+        "worked-examples",
+        "misconceptions",
+        "self-explanation"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "worked-example-fading-designer",
+        "self-explanation-prompt-designer",
+        "diagnostic-question-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/erroneous-example-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/formative-assessment-loop-designer",
+      "name": "formative-assessment-loop-designer",
+      "display_name": "Formative Assessment Loop Designer for AI Systems",
+      "domain": "ai-learning-science",
+      "description": "Design an adaptive assessment loop where each student response triggers the next instructional move. Use when building technology-enhanced formative assessment cycles.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "formative-assessment",
+        "Black-Wiliam",
+        "assessment-loop",
+        "adaptive",
+        "feedback",
+        "VanLehn",
+        "inner-loop",
+        "outer-loop"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "ai-feedback-design-principles",
+        "learning-analytics-interpretation-guide",
+        "cognitive-tutoring-architecture-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/formative-assessment-loop-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/individual-spacing-algorithm-explainer",
+      "name": "individual-spacing-algorithm-explainer",
+      "display_name": "Individual Spacing Algorithm Explainer",
+      "domain": "ai-learning-science",
+      "description": "Explain and configure individual spacing algorithms using student performance data and forgetting curves. Use when personalising retention schedules in adaptive learning platforms.",
+      "disable_model_invocation": true,
+      "evidence_strength": "strong",
+      "tags": [
+        "spacing",
+        "spaced-repetition",
+        "forgetting-curve",
+        "Ebbinghaus",
+        "Lindsey",
+        "Duolingo",
+        "retention",
+        "memory",
+        "algorithm"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "formative-assessment-loop-designer",
+        "retrieval-practice-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/individual-spacing-algorithm-explainer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/intelligent-tutoring-dialogue-designer",
+      "name": "intelligent-tutoring-dialogue-designer",
+      "display_name": "Intelligent Tutoring Dialogue Designer",
+      "domain": "ai-learning-science",
+      "description": "Script a multi-turn tutoring dialogue with branching responses for anticipated student difficulties. Use when designing AI tutors, chatbot interactions, or structured one-to-one support scripts.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "tutoring",
+        "dialogue",
+        "ITS",
+        "VanLehn",
+        "AutoTutor",
+        "Graesser",
+        "Chi",
+        "ICAP",
+        "mixed-initiative"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "self-explanation-prompt-designer",
+        "ai-feedback-design-principles",
+        "cognitive-tutoring-architecture-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/intelligent-tutoring-dialogue-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/learning-analytics-interpretation-guide",
+      "name": "learning-analytics-interpretation-guide",
+      "display_name": "Learning Analytics Interpretation Guide",
+      "domain": "ai-learning-science",
+      "description": "Interpret learning analytics data and translate dashboard findings into actionable teaching decisions. Use when reviewing LMS data, quiz patterns, or engagement metrics.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "analytics",
+        "data",
+        "formative",
+        "Siemens",
+        "Wiliam",
+        "data-literacy",
+        "assessment",
+        "interpretation"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "formative-assessment-loop-designer",
+        "ai-feedback-design-principles",
+        "retrieval-practice-designer",
+        "diagnostic-question-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/learning-analytics-interpretation-guide/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/metacognitive-monitoring-ai-contexts",
+      "name": "metacognitive-monitoring-ai-contexts",
+      "display_name": "Metacognitive Monitoring in AI Contexts",
+      "domain": "ai-learning-science",
+      "description": "Design metacognitive checkpoints that prevent AI-assisted learning from bypassing genuine understanding. Use when students use AI tools and may overestimate their own comprehension.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "metacognition",
+        "self-regulation",
+        "Dunning-Kruger",
+        "overconfidence",
+        "AI-literacy",
+        "Winne",
+        "Thiede",
+        "calibration"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "self-explanation-prompt-designer",
+        "ai-feedback-design-principles",
+        "productive-failure-desirable-difficulty-designer",
+        "formative-assessment-loop-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/metacognitive-monitoring-ai-contexts/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/productive-failure-desirable-difficulty-designer",
+      "name": "productive-failure-desirable-difficulty-designer",
+      "display_name": "Productive Failure & Desirable Difficulty Designer",
+      "domain": "ai-learning-science",
+      "description": "Redesign a direct instruction sequence to include productive struggle before the explanation phase. Use when teaching concepts that benefit from failure-first approaches.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "productive-failure",
+        "desirable-difficulty",
+        "Kapur",
+        "Bjork",
+        "struggle",
+        "generation",
+        "consolidation",
+        "cognitive-offloading"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "adaptive-hint-sequence-designer",
+        "worked-example-to-problem-solving-transition-designer",
+        "self-explanation-prompt-designer",
+        "intelligent-tutoring-dialogue-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/productive-failure-desirable-difficulty-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/self-explanation-prompt-designer",
+      "name": "self-explanation-prompt-designer",
+      "display_name": "Self-Explanation Prompt Designer",
+      "domain": "ai-learning-science",
+      "description": "Create self-explanation prompts that deepen understanding of worked examples, texts, or diagrams. Use when students read material passively without engaging with underlying principles.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "self-explanation",
+        "Chi",
+        "metacognition",
+        "worked-examples",
+        "comprehension",
+        "deep-learning",
+        "generation"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "digital-worked-example-sequence",
+        "adaptive-hint-sequence-designer",
+        "intelligent-tutoring-dialogue-designer",
+        "metacognitive-monitoring-ai-contexts"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/self-explanation-prompt-designer/SKILL.md"
+    },
+    {
+      "id": "ai-learning-science/worked-example-to-problem-solving-transition-designer",
+      "name": "worked-example-to-problem-solving-transition-designer",
+      "display_name": "Worked Example to Problem Solving Transition Designer",
+      "domain": "ai-learning-science",
+      "description": "Design the transition from worked examples to independent problem-solving using expertise-reversal principles. Use when students follow examples but cannot solve problems alone.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "expertise-reversal",
+        "Kalyuga",
+        "fading",
+        "worked-examples",
+        "Renkl",
+        "transition",
+        "scaffolding",
+        "cognitive-load"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "digital-worked-example-sequence",
+        "adaptive-hint-sequence-designer",
+        "cognitive-tutoring-architecture-designer",
+        "productive-failure-desirable-difficulty-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/ai-learning-science/worked-example-to-problem-solving-transition-designer/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/assessment-validity-checker",
+      "name": "assessment-validity-checker",
+      "display_name": "Assessment Validity Checker",
+      "domain": "curriculum-assessment",
+      "description": "Audit a proposed assessment for construct validity, reliability, and alignment to learning objectives. Use when reviewing or quality-assuring assessments before deployment.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "validity",
+        "reliability",
+        "assessment-design",
+        "quality-assurance",
+        "measurement"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "criterion-referenced-rubric-generator",
+        "formative-assessment-technique-selector",
+        "competency-unpacker",
+        "backwards-design-unit-planner",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/assessment-validity-checker/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/backwards-design-unit-planner",
+      "name": "backwards-design-unit-planner",
+      "display_name": "Backwards Design Unit Planner",
+      "domain": "curriculum-assessment",
+      "description": "Plan a unit using backwards design from desired outcomes through assessment evidence to learning activities. Use when starting a new unit or redesigning an existing one from standards.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "UbD",
+        "backwards-design",
+        "unit-planning",
+        "curriculum",
+        "alignment"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "competency-unpacker",
+        "criterion-referenced-rubric-generator",
+        "formative-assessment-technique-selector",
+        "explicit-instruction-sequence-builder",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper",
+        "critical-thinking-task-designer",
+        "scope-and-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/backwards-design-unit-planner/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/competency-unpacker",
+      "name": "competency-unpacker",
+      "display_name": "Competency Unpacker",
+      "domain": "curriculum-assessment",
+      "description": "Unpack a broad standard or competency descriptor into specific, assessable success criteria and sub-skills. Use when interpreting curriculum standards or writing learning objectives.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "competency",
+        "standards",
+        "success-criteria",
+        "unpacking",
+        "curriculum"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "backwards-design-unit-planner",
+        "criterion-referenced-rubric-generator",
+        "learning-progression-builder",
+        "formative-assessment-technique-selector",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper",
+        "scope-and-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/competency-unpacker/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/criterion-referenced-rubric-generator",
+      "name": "criterion-referenced-rubric-generator",
+      "display_name": "Criterion-Referenced Rubric Generator",
+      "domain": "curriculum-assessment",
+      "description": "Generate a criterion-referenced rubric with descriptive performance levels for a specific task and objective. Use when creating marking guides, setting expectations, or designing assessments.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "rubric",
+        "assessment",
+        "criteria",
+        "descriptive-language",
+        "formative-assessment"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "competency-unpacker",
+        "backwards-design-unit-planner",
+        "gap-analysis-from-student-work",
+        "feedback-quality-analyser",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/criterion-referenced-rubric-generator/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/critical-thinking-task-designer",
+      "name": "critical-thinking-task-designer",
+      "display_name": "Critical Thinking Task Designer",
+      "domain": "curriculum-assessment",
+      "description": "Design discipline-specific critical thinking tasks grounded in knowledge-contingent reasoning rather than generic skills. Use when embedding higher-order thinking into subject content.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "critical-thinking",
+        "disciplinary-thinking",
+        "horizontal-knowledge",
+        "knowledge-contingent",
+        "task-design",
+        "intellectual-resources",
+        "Bailin",
+        "Willingham",
+        "domain-specific"
+      ],
+      "teacher_time": "10 minutes",
+      "chains_with": [
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper",
+        "coherent-rubric-logic-builder",
+        "learning-target-authoring-guide"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/critical-thinking-task-designer/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/curriculum-knowledge-architecture-designer",
+      "name": "curriculum-knowledge-architecture-designer",
+      "display_name": "Curriculum Knowledge Architecture Designer",
+      "domain": "curriculum-assessment",
+      "description": "Map the epistemic structure of a subject to determine knowledge types and inform curriculum sequencing. Use when designing courses, restructuring programmes, or analysing knowledge architecture.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "knowledge-structure",
+        "curriculum-architecture",
+        "Bernstein",
+        "epistemic-design",
+        "hierarchical",
+        "horizontal",
+        "dispositional",
+        "mixed-architecture",
+        "AI-tutoring"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "learning-target-authoring-guide",
+        "competency-framework-mapper",
+        "scope-and-sequence-designer",
+        "d2r-project-cycle-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/curriculum-knowledge-architecture-designer/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/differentiation-adapter",
+      "name": "differentiation-adapter",
+      "display_name": "Differentiation Adapter",
+      "domain": "curriculum-assessment",
+      "description": "Adapt a classroom task for specific learner needs while preserving the core learning objective intact. Use when differentiating for SEND, EAL, gifted, ADHD, dyslexia, or anxiety.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "differentiation",
+        "UDL",
+        "inclusion",
+        "SEND",
+        "adaptation"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "scaffolded-task-modifier",
+        "cognitive-load-analyser",
+        "formative-assessment-technique-selector",
+        "practice-problem-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/differentiation-adapter/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/dispositional-knowledge-assessment-designer",
+      "name": "dispositional-knowledge-assessment-designer",
+      "display_name": "Dispositional Knowledge Assessment Designer",
+      "domain": "curriculum-assessment",
+      "description": "Design multi-informant assessment approaches for dispositional competencies like curiosity or resilience. Use when assessing character strengths or competencies that written tests cannot capture.",
+      "disable_model_invocation": true,
+      "evidence_strength": "moderate",
+      "tags": [
+        "dispositional-knowledge",
+        "assessment",
+        "multi-informant",
+        "coaching-feedback",
+        "developmental-bands",
+        "agency",
+        "collaboration",
+        "self-regulation",
+        "observation",
+        "self-reflection"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "learning-target-authoring-guide",
+        "coherent-rubric-logic-builder",
+        "developmental-band-system-designer",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/dispositional-knowledge-assessment-designer/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/formative-assessment-technique-selector",
+      "name": "formative-assessment-technique-selector",
+      "display_name": "Formative Assessment Technique Selector",
+      "domain": "curriculum-assessment",
+      "description": "Select the right formative assessment technique for a specific learning moment, purpose, and age group. Use when choosing how to check understanding during, between, or after lessons.",
+      "disable_model_invocation": true,
+      "evidence_strength": "strong",
+      "tags": [
+        "formative-assessment",
+        "checking-understanding",
+        "AfL",
+        "feedback",
+        "responsive-teaching"
+      ],
+      "teacher_time": "2 minutes",
+      "chains_with": [
+        "hinge-question-designer",
+        "checking-for-understanding-protocol-designer",
+        "exit-ticket-designer",
+        "explicit-instruction-sequence-builder",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/formative-assessment-technique-selector/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/gap-analysis-from-student-work",
+      "name": "gap-analysis-from-student-work",
+      "display_name": "Gap Analysis from Student Work",
+      "domain": "curriculum-assessment",
+      "description": "Analyse student work against criteria to identify specific gaps between current performance and learning objectives. Use when reviewing submissions, planning feedback, or diagnosing learning needs.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "gap-analysis",
+        "student-work",
+        "formative-assessment",
+        "feedback",
+        "diagnostic"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "feedback-quality-analyser",
+        "criterion-referenced-rubric-generator",
+        "error-analysis-protocol",
+        "practice-problem-sequence-designer",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/gap-analysis-from-student-work/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/kud-knowledge-type-mapper",
+      "name": "kud-knowledge-type-mapper",
+      "display_name": "KUD Knowledge Type Mapper",
+      "domain": "curriculum-assessment",
+      "description": "Classify curriculum content into Know, Understand, and Do categories to align teaching and assessment approaches. Use when planning units, writing objectives, or selecting assessment methods.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "KUD",
+        "knowledge-type",
+        "assessment-routing",
+        "Wiggins-McTighe",
+        "Bernstein",
+        "curriculum-mapping",
+        "hierarchical",
+        "horizontal",
+        "dispositional",
+        "backwards-design"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "curriculum-knowledge-architecture-designer",
+        "learning-target-authoring-guide",
+        "coherent-rubric-logic-builder",
+        "dispositional-knowledge-assessment-designer",
+        "developmental-band-system-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/kud-knowledge-type-mapper/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/learning-progression-builder",
+      "name": "learning-progression-builder",
+      "display_name": "Learning Progression Builder",
+      "domain": "curriculum-assessment",
+      "description": "Build a learning progression showing prerequisite-to-mastery steps for a target skill or understanding. Use when sequencing content, designing diagnostics, or mapping prerequisite gaps.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "learning-progressions",
+        "trajectories",
+        "prerequisites",
+        "diagnostic",
+        "curriculum-mapping"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "competency-unpacker",
+        "formative-assessment-technique-selector",
+        "practice-problem-sequence-designer",
+        "backwards-design-unit-planner",
+        "curriculum-knowledge-architecture-designer",
+        "scope-and-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/learning-progression-builder/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/project-brief-designer",
+      "name": "project-brief-designer",
+      "display_name": "Project Brief Designer (PBL)",
+      "domain": "curriculum-assessment",
+      "description": "Design a project-based learning brief with a driving question, milestones, and assessment criteria. Use when planning PBL units, inquiry projects, or extended investigations.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "PBL",
+        "project-based-learning",
+        "inquiry",
+        "driving-question",
+        "authentic-assessment",
+        "milestones"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "backwards-design-unit-planner",
+        "competency-unpacker",
+        "criterion-referenced-rubric-generator",
+        "differentiation-adapter",
+        "scaffolded-task-modifier",
+        "curriculum-knowledge-architecture-designer",
+        "critical-thinking-task-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/project-brief-designer/SKILL.md"
+    },
+    {
+      "id": "curriculum-assessment/scope-and-sequence-designer",
+      "name": "scope-and-sequence-designer",
+      "display_name": "Scope and Sequence Designer",
+      "domain": "curriculum-assessment",
+      "description": "Design a scope and sequence showing vertical and horizontal curriculum coherence across a programme or year. Use when building new programmes, restructuring subjects, or ensuring progression.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "scope-and-sequence",
+        "curriculum-coherence",
+        "vertical-coherence",
+        "learning-progressions",
+        "programme-design",
+        "Bruner",
+        "spiral-curriculum",
+        "knowledge-types"
+      ],
+      "teacher_time": "15 minutes",
+      "chains_with": [
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper",
+        "learning-target-authoring-guide",
+        "developmental-band-system-designer",
+        "backwards-design-unit-planner",
+        "competency-unpacker",
+        "learning-progression-builder",
+        "gap-analysis-from-student-work"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-assessment/scope-and-sequence-designer/SKILL.md"
+    },
+    {
+      "id": "eal-language-development/academic-language-sentence-frame-generator",
+      "name": "academic-language-sentence-frame-generator",
+      "display_name": "Academic Language Sentence Frame Generator",
+      "domain": "eal-language-development",
+      "description": "Generate tiered sentence frames for academic tasks that scaffold language production across proficiency levels. Use when EAL students need structured language support for classroom discourse.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "sentence-frames",
+        "academic-language",
+        "EAL",
+        "discourse-markers",
+        "scaffolding"
+      ],
+      "teacher_time": "2 minutes",
+      "chains_with": [
+        "language-demand-analyser",
+        "scaffolded-task-modifier",
+        "vocabulary-tiering-tool",
+        "disciplinary-writing-scaffold"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/eal-language-development/academic-language-sentence-frame-generator/SKILL.md"
+    },
+    {
+      "id": "eal-language-development/language-demand-analyser",
+      "name": "language-demand-analyser",
+      "display_name": "Language Demand Analyser",
+      "domain": "eal-language-development",
+      "description": "Analyse the language demands of a classroom task to identify barriers for EAL and multilingual learners. Use when adapting tasks, planning support, or assessing linguistic accessibility.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "EAL",
+        "language-demands",
+        "BICS-CALP",
+        "scaffolding",
+        "academic-language"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "vocabulary-tiering-tool",
+        "scaffolded-task-modifier",
+        "academic-language-sentence-frame-generator",
+        "cognitive-load-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/eal-language-development/language-demand-analyser/SKILL.md"
+    },
+    {
+      "id": "eal-language-development/scaffolded-task-modifier",
+      "name": "scaffolded-task-modifier",
+      "display_name": "Scaffolded Task Modifier",
+      "domain": "eal-language-development",
+      "description": "Modify a classroom task with language scaffolds that preserve cognitive demand for EAL learners. Use when adapting existing tasks for students at different English proficiency levels.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "scaffolding",
+        "EAL",
+        "differentiation",
+        "cognitive-demand",
+        "task-modification"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "language-demand-analyser",
+        "vocabulary-tiering-tool",
+        "academic-language-sentence-frame-generator",
+        "cognitive-load-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/eal-language-development/scaffolded-task-modifier/SKILL.md"
+    },
+    {
+      "id": "eal-language-development/sheltered-instruction-lesson-modifier",
+      "name": "sheltered-instruction-lesson-modifier",
+      "display_name": "Sheltered Instruction Lesson Modifier",
+      "domain": "eal-language-development",
+      "description": "Modify a lesson plan using SIOP sheltered instruction principles to support language learners across all four skills. Use when planning lessons for classes that include EAL students.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "SIOP",
+        "sheltered-instruction",
+        "EAL",
+        "lesson-planning",
+        "content-language-integration"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "language-demand-analyser",
+        "vocabulary-tiering-tool",
+        "scaffolded-task-modifier",
+        "academic-language-sentence-frame-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/eal-language-development/sheltered-instruction-lesson-modifier/SKILL.md"
+    },
+    {
+      "id": "eal-language-development/vocabulary-tiering-tool",
+      "name": "vocabulary-tiering-tool",
+      "display_name": "Vocabulary Tiering Tool",
+      "domain": "eal-language-development",
+      "description": "Tier vocabulary from a text or topic into everyday, academic, and technical categories with teaching priorities. Use when pre-teaching vocabulary or identifying language barriers in a text.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "vocabulary",
+        "tiering",
+        "Tier-2",
+        "academic-language",
+        "EAL",
+        "word-teaching"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "language-demand-analyser",
+        "scaffolded-task-modifier",
+        "text-complexity-analyser",
+        "academic-language-sentence-frame-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/eal-language-development/vocabulary-tiering-tool/SKILL.md"
+    },
+    {
+      "id": "environmental-experiential-learning/biophilic-learning-environment-designer",
+      "name": "biophilic-learning-environment-designer",
+      "display_name": "Biophilic Learning Environment Designer",
+      "domain": "environmental-experiential-learning",
+      "description": "Redesign a learning space using biophilic design principles to improve focus, calm, and wellbeing. Use when classroom environment contributes to restlessness, poor attention, or stress.",
+      "disable_model_invocation": false,
+      "evidence_strength": "emerging",
+      "tags": [
+        "biophilic-design",
+        "Kellert",
+        "Kaplan",
+        "attention-restoration",
+        "classroom-environment",
+        "nature",
+        "wellbeing"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "outdoor-learning-sequence-designer",
+        "flow-state-condition-designer",
+        "belonging-classroom-culture-designer",
+        "ecological-inquiry-anchor-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/environmental-experiential-learning/biophilic-learning-environment-designer/SKILL.md"
+    },
+    {
+      "id": "environmental-experiential-learning/ecological-inquiry-anchor-designer",
+      "name": "ecological-inquiry-anchor-designer",
+      "display_name": "Ecological Inquiry Anchor Designer",
+      "domain": "environmental-experiential-learning",
+      "description": "Design an inquiry sequence anchored in a local ecosystem that embeds science or geography curriculum content. Use when teaching through local living systems like gardens, ponds, or hedgerows.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "ecological-literacy",
+        "Sobel",
+        "Orr",
+        "place-based",
+        "environmental-education",
+        "inquiry",
+        "stewardship"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "outdoor-learning-sequence-designer",
+        "place-based-inquiry-anchor",
+        "phenomenon-based-unit-anchor",
+        "biophilic-learning-environment-designer",
+        "critical-thinking-task-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/environmental-experiential-learning/ecological-inquiry-anchor-designer/SKILL.md"
+    },
+    {
+      "id": "environmental-experiential-learning/experiential-learning-cycle-designer",
+      "name": "experiential-learning-cycle-designer",
+      "display_name": "Experiential Learning Cycle Designer",
+      "domain": "environmental-experiential-learning",
+      "description": "Structure a direct experience into a full learning cycle with concrete experience, reflection, and conceptual transfer. Use when planning field trips, simulations, or practical tasks.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "experiential-learning",
+        "simulation",
+        "service-learning",
+        "Dewey",
+        "reflection",
+        "direct-experience"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "service-learning-project-designer",
+        "outdoor-learning-sequence-designer",
+        "reflective-practice-prompt-generator",
+        "agency-scaffold-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/environmental-experiential-learning/experiential-learning-cycle-designer/SKILL.md"
+    },
+    {
+      "id": "environmental-experiential-learning/interdisciplinary-real-world-connection-mapper",
+      "name": "interdisciplinary-real-world-connection-mapper",
+      "display_name": "Interdisciplinary Real-World Connection Mapper",
+      "domain": "environmental-experiential-learning",
+      "description": "Map curriculum connections across multiple subjects for a real-world problem or authentic context. Use when planning cross-curricular projects or connecting content to real issues.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "interdisciplinary",
+        "cross-curricular",
+        "Barron",
+        "Drake",
+        "integrated-curriculum",
+        "real-world",
+        "PBL"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "phenomenon-based-unit-anchor",
+        "project-brief-designer",
+        "service-learning-project-designer",
+        "ecological-inquiry-anchor-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/environmental-experiential-learning/interdisciplinary-real-world-connection-mapper/SKILL.md"
+    },
+    {
+      "id": "environmental-experiential-learning/outdoor-learning-sequence-designer",
+      "name": "outdoor-learning-sequence-designer",
+      "display_name": "Outdoor Learning Sequence Designer",
+      "domain": "environmental-experiential-learning",
+      "description": "Design a structured outdoor learning sequence embedding curriculum objectives in an available outdoor space. Use when planning lessons in school grounds, parks, or local natural environments.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "outdoor-learning",
+        "EEF",
+        "Rickinson",
+        "outside-classroom",
+        "fieldwork",
+        "nature",
+        "experiential"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "ecological-inquiry-anchor-designer",
+        "place-based-inquiry-anchor",
+        "biophilic-learning-environment-designer",
+        "awe-wonder-experience-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/environmental-experiential-learning/outdoor-learning-sequence-designer/SKILL.md"
+    },
+    {
+      "id": "environmental-experiential-learning/service-learning-project-designer",
+      "name": "service-learning-project-designer",
+      "display_name": "Service Learning Project Designer",
+      "domain": "environmental-experiential-learning",
+      "description": "Design a service-learning project connecting genuine community need with embedded curriculum learning. Use when planning community projects, civic engagement, or social action units.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "service-learning",
+        "Billig",
+        "community",
+        "civic-engagement",
+        "experiential",
+        "reflection",
+        "social-responsibility"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "experiential-learning-cycle-designer",
+        "interdisciplinary-real-world-connection-mapper",
+        "ubuntu-collective-knowledge-task-designer",
+        "agency-scaffold-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/environmental-experiential-learning/service-learning-project-designer/SKILL.md"
+    },
+    {
+      "id": "explicit-instruction/checking-for-understanding-protocol-designer",
+      "name": "checking-for-understanding-protocol-designer",
+      "display_name": "Checking for Understanding Protocol Designer",
+      "domain": "explicit-instruction",
+      "description": "Design a checking-for-understanding protocol with specific techniques for each lesson stage. Use when planning systematic comprehension checks during explicit or direct instruction.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "formative-assessment",
+        "checking-understanding",
+        "questioning",
+        "cold-calling",
+        "feedback"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "explicit-instruction-sequence-builder",
+        "hinge-question-designer",
+        "formative-assessment-technique-selector",
+        "retrieval-practice-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/explicit-instruction/checking-for-understanding-protocol-designer/SKILL.md"
+    },
+    {
+      "id": "explicit-instruction/explicit-instruction-sequence-builder",
+      "name": "explicit-instruction-sequence-builder",
+      "display_name": "Explicit Instruction Sequence Builder (I Do / We Do / You Do)",
+      "domain": "explicit-instruction",
+      "description": "Build a complete explicit instruction sequence from teacher modelling through guided practice to independent work. Use when teaching new skills, procedures, or concepts through direct instruction.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "explicit-instruction",
+        "gradual-release",
+        "modelling",
+        "direct-instruction",
+        "scaffolding"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "checking-for-understanding-protocol-designer",
+        "worked-example-fading-designer",
+        "think-aloud-script-generator",
+        "practice-problem-sequence-designer",
+        "pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/explicit-instruction/explicit-instruction-sequence-builder/SKILL.md"
+    },
+    {
+      "id": "explicit-instruction/lesson-opening-designer",
+      "name": "lesson-opening-designer",
+      "display_name": "Lesson Opening Designer",
+      "domain": "explicit-instruction",
+      "description": "Design a lesson opening that activates prior knowledge and connects previous learning to today's content. Use when planning lesson starters, retrieval openers, or advance organisers.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "lesson-opening",
+        "retrieval",
+        "prior-knowledge",
+        "advance-organiser",
+        "lesson-planning"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "retrieval-practice-generator",
+        "explicit-instruction-sequence-builder",
+        "spaced-practice-scheduler",
+        "checking-for-understanding-protocol-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/explicit-instruction/lesson-opening-designer/SKILL.md"
+    },
+    {
+      "id": "explicit-instruction/practice-problem-sequence-designer",
+      "name": "practice-problem-sequence-designer",
+      "display_name": "Practice Problem Sequence Designer",
+      "domain": "explicit-instruction",
+      "description": "Generate a scaffolded sequence of practice problems with graduated difficulty and strategic variability. Use when creating worksheets, homework sets, or independent practice materials.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "practice",
+        "problem-design",
+        "scaffolding",
+        "variability",
+        "desirable-difficulty"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "explicit-instruction-sequence-builder",
+        "worked-example-fading-designer",
+        "interleaving-unit-planner",
+        "cognitive-load-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/explicit-instruction/practice-problem-sequence-designer/SKILL.md"
+    },
+    {
+      "id": "explicit-instruction/think-aloud-script-generator",
+      "name": "think-aloud-script-generator",
+      "display_name": "Think-Aloud Script Generator",
+      "domain": "explicit-instruction",
+      "description": "Script a teacher think-aloud demonstrating expert reasoning processes for a specific task. Use when modelling problem-solving, writing, reading comprehension, or analytical processes.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "think-aloud",
+        "modelling",
+        "expert-thinking",
+        "cognitive-apprenticeship",
+        "comprehension"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "explicit-instruction-sequence-builder",
+        "worked-example-fading-designer",
+        "metacognitive-prompt-library",
+        "reading-comprehension-strategy-selector",
+        "pedagogical-content-knowledge-developer",
+        "critical-thinking-task-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/explicit-instruction/think-aloud-script-generator/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/cpa-sequence-designer",
+      "name": "cpa-sequence-designer",
+      "display_name": "Concrete-Pictorial-Abstract Sequence Designer",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Design a Concrete-Pictorial-Abstract learning sequence for a mathematical concept using manipulatives. Use when teaching maths through Singapore method or when students struggle with abstraction.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "CPA",
+        "Singapore-maths",
+        "Bruner",
+        "manipulatives",
+        "bar-model",
+        "concreteness-fading",
+        "mathematics"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "variation-theory-task-designer",
+        "worked-example-fading-designer",
+        "explicit-instruction-sequence-builder",
+        "diagnostic-question-generator",
+        "pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/cpa-sequence-designer/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/cross-cultural-task-validity-checker",
+      "name": "cross-cultural-task-validity-checker",
+      "display_name": "Cross-Cultural Task Validity Checker",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Check an educational practice or task for cultural bias, WEIRD assumptions, and cross-cultural validity. Use when adapting resources for diverse contexts or questioning universal claims.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "WEIRD-bias",
+        "Henrich",
+        "cross-cultural",
+        "cultural-assumptions",
+        "validity",
+        "decolonising",
+        "global-pedagogy"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "culturally-responsive-teaching-designer",
+        "ubuntu-collective-knowledge-task-designer",
+        "belonging-classroom-culture-designer",
+        "phenomenon-based-unit-anchor"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/cross-cultural-task-validity-checker/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/culturally-responsive-teaching-designer",
+      "name": "culturally-responsive-teaching-designer",
+      "display_name": "Culturally Responsive Teaching Designer",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Redesign a lesson to centre students' cultural backgrounds, community knowledge, and lived experience. Use when making curriculum relevant and inclusive for diverse student populations.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "culturally-responsive",
+        "Gay",
+        "Ladson-Billings",
+        "equity",
+        "culturally-sustaining",
+        "Hammond",
+        "inclusion"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "ubuntu-collective-knowledge-task-designer",
+        "place-based-inquiry-anchor",
+        "belonging-classroom-culture-designer",
+        "phenomenon-based-unit-anchor"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/culturally-responsive-teaching-designer/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/emergent-project-design-scaffold",
+      "name": "emergent-project-design-scaffold",
+      "display_name": "Emergent Project Design Scaffold",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Scaffold an emergent project from observed children's interests using Reggio-inspired approaches. Use when following children's fascinations into deeper inquiry in early years or primary settings.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "Reggio-Emilia",
+        "emergent-curriculum",
+        "project-approach",
+        "Rinaldi",
+        "Malaguzzi",
+        "provocations",
+        "early-years",
+        "primary"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "reggio-documentation-protocol",
+        "awe-wonder-experience-designer",
+        "agency-scaffold-generator",
+        "place-based-inquiry-anchor"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/emergent-project-design-scaffold/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/phenomenon-based-unit-anchor",
+      "name": "phenomenon-based-unit-anchor",
+      "display_name": "Phenomenon-Based Unit Anchor",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Anchor a multidisciplinary unit in a real-world phenomenon that requires multiple subject lenses to understand. Use when designing integrated or phenomenon-based units across disciplines.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "phenomenon-based-learning",
+        "Finland",
+        "POPS-2016",
+        "Lonka",
+        "cross-curricular",
+        "interdisciplinary",
+        "transversal-competences"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "project-brief-designer",
+        "culturally-responsive-teaching-designer",
+        "place-based-inquiry-anchor",
+        "agency-scaffold-generator",
+        "curriculum-knowledge-architecture-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/phenomenon-based-unit-anchor/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/place-based-inquiry-anchor",
+      "name": "place-based-inquiry-anchor",
+      "display_name": "Place-Based Inquiry Anchor",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Anchor curriculum learning in a specific local place with connections to community, culture, and identity. Use when connecting academic content to students' local environment and heritage.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "place-based",
+        "Indigenous-education",
+        "Castagno-Brayboy",
+        "Gruenewald",
+        "local",
+        "land",
+        "stewardship",
+        "decolonising"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "culturally-responsive-teaching-designer",
+        "ubuntu-collective-knowledge-task-designer",
+        "phenomenon-based-unit-anchor",
+        "awe-wonder-experience-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/place-based-inquiry-anchor/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/reggio-documentation-protocol",
+      "name": "reggio-documentation-protocol",
+      "display_name": "Reggio Documentation Protocol",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Design a pedagogical documentation protocol for making children's learning processes visible and shareable. Use when documenting learning, communicating with families, or planning next steps.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "Reggio-Emilia",
+        "documentation",
+        "Rinaldi",
+        "Malaguzzi",
+        "visible-learning-processes",
+        "early-years",
+        "primary",
+        "observation"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "emergent-project-design-scaffold",
+        "awe-wonder-experience-designer",
+        "reflective-practice-prompt-generator",
+        "lesson-observation-protocol-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/reggio-documentation-protocol/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/ubuntu-collective-knowledge-task-designer",
+      "name": "ubuntu-collective-knowledge-task-designer",
+      "display_name": "Ubuntu Collective Knowledge Task Designer",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Design learning tasks built on Ubuntu philosophy emphasising collective knowledge-building and mutual responsibility. Use when fostering collaboration that values community over individual competition.",
+      "disable_model_invocation": false,
+      "evidence_strength": "emerging",
+      "tags": [
+        "Ubuntu",
+        "Mkabela",
+        "African-philosophy",
+        "collective-knowledge",
+        "communalism",
+        "community",
+        "collaboration"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "culturally-responsive-teaching-designer",
+        "belonging-classroom-culture-designer",
+        "place-based-inquiry-anchor",
+        "agency-scaffold-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/ubuntu-collective-knowledge-task-designer/SKILL.md"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/variation-theory-task-designer",
+      "name": "variation-theory-task-designer",
+      "display_name": "Variation Theory Task Designer",
+      "domain": "global-cross-cultural-pedagogies",
+      "description": "Design a variation theory task using contrast, separation, and fusion to teach critical features of a concept. Use when students confuse similar concepts or fail to discern key distinctions.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "variation-theory",
+        "Marton",
+        "discernment",
+        "contrast",
+        "critical-features",
+        "Hong-Kong",
+        "Sweden",
+        "mathematics-education"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "explicit-instruction-sequence-builder",
+        "worked-example-fading-designer",
+        "cpa-sequence-designer",
+        "diagnostic-question-generator",
+        "curriculum-knowledge-architecture-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/global-cross-cultural-pedagogies/variation-theory-task-designer/SKILL.md"
+    },
+    {
+      "id": "literacy-critical-thinking/argument-structure-scaffold-generator",
+      "name": "argument-structure-scaffold-generator",
+      "display_name": "Argument Structure Scaffold Generator",
+      "domain": "literacy-critical-thinking",
+      "description": "Generate argument structure scaffolds using Toulmin, PEEL, or CER frameworks for a specific claim or question. Use when teaching argumentative or analytical writing across any subject.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "argument",
+        "writing",
+        "Toulmin",
+        "PEEL",
+        "scaffold",
+        "critical-thinking"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "disciplinary-writing-scaffold",
+        "critical-thinking-task-designer",
+        "feedback-quality-analyser",
+        "worked-example-fading-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/literacy-critical-thinking/argument-structure-scaffold-generator/SKILL.md"
+    },
+    {
+      "id": "literacy-critical-thinking/critical-thinking-task-designer",
+      "name": "critical-thinking-task-designer",
+      "display_name": "Critical Thinking Task Designer",
+      "domain": "literacy-critical-thinking",
+      "description": "Design a critical thinking task targeting specific skills like evaluating evidence, identifying bias, or analysing arguments. Use when embedding critical analysis into subject lessons.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "critical-thinking",
+        "analysis",
+        "evaluation",
+        "domain-specific",
+        "higher-order-thinking"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "socratic-questioning-sequence-generator",
+        "argument-structure-scaffold-generator",
+        "source-credibility-evaluation-protocol",
+        "discussion-protocol-selector"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/literacy-critical-thinking/critical-thinking-task-designer/SKILL.md"
+    },
+    {
+      "id": "literacy-critical-thinking/disciplinary-writing-scaffold",
+      "name": "disciplinary-writing-scaffold",
+      "display_name": "Disciplinary Writing Scaffold",
+      "domain": "literacy-critical-thinking",
+      "description": "Create a writing scaffold teaching the genre conventions specific to an academic discipline. Use when students write lab reports, historical essays, or other discipline-specific text types.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "disciplinary-literacy",
+        "writing",
+        "genre-pedagogy",
+        "scaffold",
+        "academic-language"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "argument-structure-scaffold-generator",
+        "vocabulary-tiering-tool",
+        "academic-language-sentence-frame-generator",
+        "text-complexity-analyser",
+        "pedagogical-content-knowledge-developer",
+        "critical-thinking-task-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/literacy-critical-thinking/disciplinary-writing-scaffold/SKILL.md"
+    },
+    {
+      "id": "literacy-critical-thinking/media-literacy-deconstruction-protocol",
+      "name": "media-literacy-deconstruction-protocol",
+      "display_name": "Media Literacy Deconstruction Protocol",
+      "domain": "literacy-critical-thinking",
+      "description": "Design a media deconstruction protocol analysing persuasion, bias, or representation in media texts. Use when teaching students to critically read advertisements, news, or social media content.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "media-literacy",
+        "critical-thinking",
+        "representation",
+        "persuasion",
+        "deconstruction"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "source-credibility-evaluation-protocol",
+        "critical-thinking-task-designer",
+        "argument-structure-scaffold-generator",
+        "socratic-questioning-sequence-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/literacy-critical-thinking/media-literacy-deconstruction-protocol/SKILL.md"
+    },
+    {
+      "id": "literacy-critical-thinking/reading-comprehension-strategy-selector",
+      "name": "reading-comprehension-strategy-selector",
+      "display_name": "Reading Comprehension Strategy Selector",
+      "domain": "literacy-critical-thinking",
+      "description": "Select and sequence reading comprehension strategies matched to a specific text's challenges and demands. Use when students struggle with a text or need targeted reading support.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "reading",
+        "comprehension",
+        "strategy-instruction",
+        "reciprocal-teaching",
+        "metacognition"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "text-complexity-analyser",
+        "think-aloud-script-generator",
+        "vocabulary-tiering-tool",
+        "scaffolded-task-modifier"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/literacy-critical-thinking/reading-comprehension-strategy-selector/SKILL.md"
+    },
+    {
+      "id": "literacy-critical-thinking/source-credibility-evaluation-protocol",
+      "name": "source-credibility-evaluation-protocol",
+      "display_name": "Source Credibility Evaluation Protocol",
+      "domain": "literacy-critical-thinking",
+      "description": "Design a source evaluation protocol using lateral reading and credibility checks for digital information. Use when students need to evaluate websites, online sources, or social media claims.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "source-evaluation",
+        "lateral-reading",
+        "SIFT",
+        "digital-literacy",
+        "critical-thinking"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "critical-thinking-task-designer",
+        "media-literacy-deconstruction-protocol",
+        "reading-comprehension-strategy-selector",
+        "socratic-questioning-sequence-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/literacy-critical-thinking/source-credibility-evaluation-protocol/SKILL.md"
+    },
+    {
+      "id": "literacy-critical-thinking/text-complexity-analyser",
+      "name": "text-complexity-analyser",
+      "display_name": "Text Complexity Analyser & Scaffold Designer",
+      "domain": "literacy-critical-thinking",
+      "description": "Analyse text complexity across quantitative, qualitative, and reader-task dimensions with scaffolding recommendations. Use when selecting texts, assessing readability, or planning reading support.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "text-complexity",
+        "reading",
+        "scaffolding",
+        "vocabulary",
+        "differentiation"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "reading-comprehension-strategy-selector",
+        "vocabulary-tiering-tool",
+        "scaffolded-task-modifier",
+        "cognitive-load-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/literacy-critical-thinking/text-complexity-analyser/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/cognitive-load-analyser",
+      "name": "cognitive-load-analyser",
+      "display_name": "Cognitive Load Analyser",
+      "domain": "memory-learning-science",
+      "description": "Analyse a learning task for cognitive load problems and recommend specific design improvements. Use when tasks overwhelm students, instructions feel complex, or materials need simplifying.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "cognitive-load",
+        "task-design",
+        "scaffolding",
+        "instructional-design",
+        "working-memory"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "worked-example-fading-designer",
+        "explicit-instruction-sequence-builder",
+        "scaffolded-task-modifier",
+        "text-complexity-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/cognitive-load-analyser/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/dual-coding-designer",
+      "name": "dual-coding-designer",
+      "display_name": "Dual Coding Designer",
+      "domain": "memory-learning-science",
+      "description": "Design a visual complement to verbal content using dual coding principles for stronger encoding. Use when creating slides, diagrams, posters, or visual explanations of complex concepts.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "dual-coding",
+        "visual-representation",
+        "multimedia",
+        "cognitive-load",
+        "diagrams"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "cognitive-load-analyser",
+        "worked-example-fading-designer",
+        "text-complexity-analyser",
+        "explicit-instruction-sequence-builder"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/dual-coding-designer/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/elaborative-interrogation-generator",
+      "name": "elaborative-interrogation-generator",
+      "display_name": "Elaborative Interrogation Prompt Generator",
+      "domain": "memory-learning-science",
+      "description": "Generate elaborative interrogation prompts that deepen encoding through targeted why and how questions. Use when students memorise without understanding or need deeper processing of content.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "elaboration",
+        "encoding",
+        "comprehension",
+        "deep-processing",
+        "questioning"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "retrieval-practice-generator",
+        "self-regulation-scaffold-generator",
+        "metacognitive-prompt-library",
+        "reading-comprehension-strategy-selector"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/elaborative-interrogation-generator/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/feedback-quality-analyser",
+      "name": "feedback-quality-analyser",
+      "display_name": "Feedback Quality Analyser & Rewriter",
+      "domain": "memory-learning-science",
+      "description": "Analyse existing written feedback for quality, specificity, actionability, and impact on student learning. Use when reviewing teacher or peer feedback to improve feedback practices.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "feedback",
+        "formative-assessment",
+        "metacognition",
+        "writing",
+        "assessment"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "gap-analysis-from-student-work",
+        "criterion-referenced-rubric-generator",
+        "self-regulation-scaffold-generator",
+        "metacognitive-prompt-library",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/feedback-quality-analyser/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/interleaving-unit-planner",
+      "name": "interleaving-unit-planner",
+      "display_name": "Interleaving Unit Planner",
+      "domain": "memory-learning-science",
+      "description": "Redesign a blocked topic sequence into an interleaved plan with mixed practice across related topics. Use when planning units, homework schedules, or revision programmes.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "interleaving",
+        "desirable-difficulty",
+        "planning",
+        "memory",
+        "practice"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "spaced-practice-scheduler",
+        "retrieval-practice-generator",
+        "practice-problem-sequence-designer",
+        "cognitive-load-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/interleaving-unit-planner/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/retrieval-practice-generator",
+      "name": "retrieval-practice-generator",
+      "display_name": "Retrieval Practice Question Generator",
+      "domain": "memory-learning-science",
+      "description": "Generate retrieval practice questions at varied difficulty levels for a topic or concept. Use when creating quiz starters, revision activities, or low-stakes testing materials.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "retrieval",
+        "memory",
+        "assessment",
+        "spaced-practice",
+        "testing-effect"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "spaced-practice-scheduler",
+        "formative-assessment-technique-selector",
+        "gap-analysis-from-student-work",
+        "cognitive-load-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/retrieval-practice-generator/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/spaced-practice-scheduler",
+      "name": "spaced-practice-scheduler",
+      "display_name": "Spaced Practice Schedule Builder",
+      "domain": "memory-learning-science",
+      "description": "Design a spaced retrieval schedule for any topic list and timeline. Use when planning units, term sequences, or revision programmes.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "spacing",
+        "memory",
+        "planning",
+        "forgetting-curve",
+        "distributed-practice"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "retrieval-practice-generator",
+        "interleaving-unit-planner",
+        "formative-assessment-technique-selector",
+        "lesson-opening-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/spaced-practice-scheduler/SKILL.md"
+    },
+    {
+      "id": "memory-learning-science/worked-example-fading-designer",
+      "name": "worked-example-fading-designer",
+      "display_name": "Worked Example Designer with Completion Fading",
+      "domain": "memory-learning-science",
+      "description": "Design a worked example fading sequence from fully worked examples through to independent practice. Use when teaching procedures, algorithms, or multi-step processes to novice learners.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "worked-examples",
+        "scaffolding",
+        "fading",
+        "cognitive-load",
+        "novice-learning"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "cognitive-load-analyser",
+        "explicit-instruction-sequence-builder",
+        "practice-problem-sequence-designer",
+        "checking-for-understanding-protocol-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/memory-learning-science/worked-example-fading-designer/SKILL.md"
+    },
+    {
+      "id": "montessori-alternative-approaches/mixed-age-learning-task-designer",
+      "name": "mixed-age-learning-task-designer",
+      "display_name": "Mixed-Age Learning Task Designer",
+      "domain": "montessori-alternative-approaches",
+      "description": "Design a learning task where mixed-age students work together with mutual benefit for all age groups. Use when planning cross-age tutoring, vertical grouping, or multi-year group activities.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "mixed-age",
+        "Montessori",
+        "peer-tutoring",
+        "Vygotsky",
+        "ZPD",
+        "Hattie",
+        "Lillard",
+        "cross-age",
+        "interdependence"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "three-part-lesson-designer",
+        "prepared-environment-designer",
+        "uninterrupted-work-cycle-designer",
+        "peer-tutoring-protocol-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/montessori-alternative-approaches/mixed-age-learning-task-designer/SKILL.md"
+    },
+    {
+      "id": "montessori-alternative-approaches/prepared-environment-designer",
+      "name": "prepared-environment-designer",
+      "display_name": "Prepared Environment Designer",
+      "domain": "montessori-alternative-approaches",
+      "description": "Redesign a classroom as a prepared environment optimised for independent learning, calm transitions, and material access. Use when classroom layout hinders independence or self-directed work.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "Montessori",
+        "prepared-environment",
+        "classroom-design",
+        "Lillard",
+        "Cossentino",
+        "accessibility",
+        "order",
+        "beauty",
+        "materials"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "three-part-lesson-designer",
+        "uninterrupted-work-cycle-designer",
+        "mixed-age-learning-task-designer",
+        "biophilic-learning-environment-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/montessori-alternative-approaches/prepared-environment-designer/SKILL.md"
+    },
+    {
+      "id": "montessori-alternative-approaches/three-part-lesson-designer",
+      "name": "three-part-lesson-designer",
+      "display_name": "Three-Part Lesson Designer (Montessori)",
+      "domain": "montessori-alternative-approaches",
+      "description": "Design a Montessori three-period lesson for introducing concepts through concrete materials and naming. Use when teaching vocabulary, classifications, or concepts through hands-on materials.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "Montessori",
+        "three-period-lesson",
+        "Lillard",
+        "naming",
+        "recognition",
+        "recall",
+        "vocabulary",
+        "classification",
+        "concrete"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "prepared-environment-designer",
+        "mixed-age-learning-task-designer",
+        "uninterrupted-work-cycle-designer",
+        "retrieval-practice-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/montessori-alternative-approaches/three-part-lesson-designer/SKILL.md"
+    },
+    {
+      "id": "montessori-alternative-approaches/uninterrupted-work-cycle-designer",
+      "name": "uninterrupted-work-cycle-designer",
+      "display_name": "Uninterrupted Work Cycle Designer",
+      "domain": "montessori-alternative-approaches",
+      "description": "Design an uninterrupted work cycle with choice-based activities structured within a realistic time block. Use when planning Montessori-style independent work periods or extended choice time.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "Montessori",
+        "work-cycle",
+        "uninterrupted",
+        "flow",
+        "Csikszentmihalyi",
+        "time-on-task",
+        "Rosenshine",
+        "executive-function",
+        "choice"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "prepared-environment-designer",
+        "three-part-lesson-designer",
+        "mixed-age-learning-task-designer",
+        "self-regulated-learning-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/montessori-alternative-approaches/uninterrupted-work-cycle-designer/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/coherent-rubric-logic-builder",
+      "name": "coherent-rubric-logic-builder",
+      "display_name": "Coherent Rubric Logic Builder",
+      "domain": "original-frameworks",
+      "description": "Build a five-level rubric with internally coherent logic for a specific learning target within a developmental band. Use when creating rubrics for competency-based assessment systems.",
+      "disable_model_invocation": true,
+      "evidence_strength": "emerging",
+      "tags": [
+        "rubric",
+        "Manning",
+        "competency",
+        "five-level",
+        "co-construction",
+        "Sadler",
+        "formative",
+        "Competent",
+        "assessment"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "learning-target-authoring-guide",
+        "developmental-band-system-designer",
+        "self-determined-project-design-protocol",
+        "ai-feedback-design-principles",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/coherent-rubric-logic-builder/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/developmental-band-system-designer",
+      "name": "developmental-band-system-designer",
+      "display_name": "Developmental Band System Designer",
+      "domain": "original-frameworks",
+      "description": "Design a developmental band system mapping student growth from early childhood through upper secondary. Use when building competency-based curriculum architecture for a school or programme.",
+      "disable_model_invocation": true,
+      "evidence_strength": "emerging",
+      "tags": [
+        "developmental-bands",
+        "competency",
+        "Manning",
+        "curriculum-design",
+        "Piaget",
+        "backwards-design",
+        "mixed-age",
+        "band-system"
+      ],
+      "teacher_time": "6 minutes",
+      "chains_with": [
+        "learning-target-authoring-guide",
+        "coherent-rubric-logic-builder",
+        "self-determined-project-design-protocol",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper",
+        "scope-and-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/developmental-band-system-designer/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/learning-target-authoring-guide",
+      "name": "learning-target-authoring-guide",
+      "display_name": "Purpose-Driven Learning Target Authoring Guide",
+      "domain": "original-frameworks",
+      "description": "Author learning targets for a competency across developmental bands with precise, observable progression language. Use when writing 'I can' statements for competency-based programmes.",
+      "disable_model_invocation": true,
+      "evidence_strength": "emerging",
+      "tags": [
+        "learning-targets",
+        "Manning",
+        "competency",
+        "authoring",
+        "backwards-design",
+        "observable-verbs",
+        "band-statements",
+        "progression",
+        "knowledge-type",
+        "observation-indicators",
+        "Type-3",
+        "multi-informant"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "developmental-band-system-designer",
+        "coherent-rubric-logic-builder",
+        "self-determined-project-design-protocol",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper",
+        "critical-thinking-task-designer",
+        "dispositional-knowledge-assessment-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/learning-target-authoring-guide/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/seeds-regenerative-inquiry-cycle",
+      "name": "seeds-regenerative-inquiry-cycle",
+      "display_name": "SEEDS Regenerative Inquiry Cycle",
+      "domain": "original-frameworks",
+      "description": "Design a SEEDS regenerative inquiry cycle connecting place-based learning to ecological awareness for young learners. Use when building early childhood or primary inquiry around ecosystems and community.",
+      "disable_model_invocation": true,
+      "evidence_strength": "emerging",
+      "tags": [
+        "SEEDS",
+        "regenerative",
+        "inquiry",
+        "place-based",
+        "Manning",
+        "bio-empathy",
+        "stewardship",
+        "cyclical",
+        "documentation"
+      ],
+      "teacher_time": "6 minutes",
+      "chains_with": [
+        "place-based-inquiry-anchor",
+        "reggio-documentation-protocol",
+        "ecological-inquiry-anchor-designer",
+        "ubuntu-collective-knowledge-task-designer",
+        "critical-thinking-task-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/seeds-regenerative-inquiry-cycle/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/self-determined-project-design-protocol",
+      "name": "self-determined-project-design-protocol",
+      "display_name": "Self-Determined Project Design Protocol",
+      "domain": "original-frameworks",
+      "description": "Structure a student's self-determined project with mentoring checkpoints, competency alignment, and reflection. Use when guiding student-led projects within a competency-based framework.",
+      "disable_model_invocation": true,
+      "evidence_strength": "emerging",
+      "tags": [
+        "self-determined",
+        "project",
+        "Manning",
+        "mentoring",
+        "SRL",
+        "Zimmerman",
+        "Bandura",
+        "feasibility",
+        "deliberate-practice",
+        "tracking"
+      ],
+      "teacher_time": "6 minutes",
+      "chains_with": [
+        "learning-target-authoring-guide",
+        "coherent-rubric-logic-builder",
+        "developmental-band-system-designer",
+        "self-regulated-learning-designer",
+        "curriculum-knowledge-architecture-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/self-determined-project-design-protocol/SKILL.md"
+    },
+    {
+      "id": "professional-learning/competency-framework-translator",
+      "name": "competency-framework-translator",
+      "display_name": "Competency Framework Translator",
+      "domain": "professional-learning",
+      "description": "Translate an external competency framework like DigComp, GreenComp, or ISTE into classroom-ready activities. Use when implementing framework standards in specific teaching contexts.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "competency-frameworks",
+        "DigComp",
+        "GreenComp",
+        "ISTE",
+        "UNESCO-AI",
+        "translation",
+        "observable-indicators"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "competency-unpacker",
+        "criterion-referenced-rubric-generator",
+        "backwards-design-unit-planner",
+        "project-brief-designer",
+        "curriculum-knowledge-architecture-designer",
+        "scope-and-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/competency-framework-translator/SKILL.md"
+    },
+    {
+      "id": "professional-learning/instructional-coaching-conversation-guide",
+      "name": "instructional-coaching-conversation-guide",
+      "display_name": "Instructional Coaching Conversation Guide",
+      "domain": "professional-learning",
+      "description": "Generate a coaching conversation guide with questions, protocols, and follow-up actions for a teaching focus. Use when preparing for coaching sessions, mentoring, or peer feedback conversations.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "coaching",
+        "instructional-coaching",
+        "Knight",
+        "professional-learning",
+        "feedback",
+        "dialogue"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "lesson-study-cycle-designer",
+        "lesson-observation-protocol-designer",
+        "reflective-practice-prompt-generator",
+        "teacher-inquiry-cycle-designer",
+        "pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/instructional-coaching-conversation-guide/SKILL.md"
+    },
+    {
+      "id": "professional-learning/lesson-observation-protocol-designer",
+      "name": "lesson-observation-protocol-designer",
+      "display_name": "Lesson Observation Protocol Designer",
+      "domain": "professional-learning",
+      "description": "Design a focused lesson observation protocol with specific look-fors and evidence collection methods. Use when planning peer observations, coaching visits, or developmental classroom visits.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "observation",
+        "look-fors",
+        "feedback",
+        "professional-development",
+        "evidence-based"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "instructional-coaching-conversation-guide",
+        "lesson-study-cycle-designer",
+        "reflective-practice-prompt-generator",
+        "explicit-instruction-sequence-builder",
+        "pedagogical-content-knowledge-developer",
+        "technological-pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/lesson-observation-protocol-designer/SKILL.md"
+    },
+    {
+      "id": "professional-learning/lesson-study-cycle-designer",
+      "name": "lesson-study-cycle-designer",
+      "display_name": "Lesson Study Cycle Designer",
+      "domain": "professional-learning",
+      "description": "Design a complete lesson study cycle from research question through collaborative planning to research lesson. Use when planning jugyou kenkyuu or collaborative teacher inquiry into practice.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "lesson-study",
+        "jugyou-kenkyuu",
+        "collaborative-planning",
+        "research-lesson",
+        "professional-learning"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "instructional-coaching-conversation-guide",
+        "lesson-observation-protocol-designer",
+        "reflective-practice-prompt-generator",
+        "teacher-inquiry-cycle-designer",
+        "pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/lesson-study-cycle-designer/SKILL.md"
+    },
+    {
+      "id": "professional-learning/pedagogical-content-knowledge-developer",
+      "name": "pedagogical-content-knowledge-developer",
+      "display_name": "Pedagogical Content Knowledge Developer",
+      "domain": "professional-learning",
+      "description": "Develop pedagogical content knowledge for a topic by surfacing common misconceptions and effective representations. Use when preparing to teach unfamiliar content or improving teaching of hard topics.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "PCK",
+        "pedagogical-content-knowledge",
+        "teacher-development",
+        "content-knowledge",
+        "misconceptions",
+        "Shulman",
+        "professional-learning",
+        "knowledge-contingent"
+      ],
+      "teacher_time": "10 minutes",
+      "chains_with": [
+        "curriculum-knowledge-architecture-designer",
+        "critical-thinking-task-designer",
+        "lesson-observation-protocol-designer",
+        "reflective-practice-prompt-generator",
+        "technological-pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/pedagogical-content-knowledge-developer/SKILL.md"
+    },
+    {
+      "id": "professional-learning/professional-development-session-designer",
+      "name": "professional-development-session-designer",
+      "display_name": "Professional Development Session Designer",
+      "domain": "professional-learning",
+      "description": "Design a professional development session using adult learning principles with active teacher engagement. Use when planning INSET days, CPD workshops, or staff training sessions.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "CPD",
+        "professional-development",
+        "Timperley",
+        "adult-learning",
+        "INSET",
+        "staff-training"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "instructional-coaching-conversation-guide",
+        "lesson-study-cycle-designer",
+        "teacher-inquiry-cycle-designer",
+        "reflective-practice-prompt-generator",
+        "pedagogical-content-knowledge-developer",
+        "technological-pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/professional-development-session-designer/SKILL.md"
+    },
+    {
+      "id": "professional-learning/reflective-practice-prompt-generator",
+      "name": "reflective-practice-prompt-generator",
+      "display_name": "Reflective Practice Prompt Generator",
+      "domain": "professional-learning",
+      "description": "Generate structured reflection prompts for a specific teaching experience or professional learning challenge. Use when debriefing lessons, journaling, or preparing for coaching conversations.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "reflection",
+        "Sch\u00f6n",
+        "Timperley",
+        "reflective-practice",
+        "professional-learning",
+        "journaling"
+      ],
+      "teacher_time": "2 minutes",
+      "chains_with": [
+        "instructional-coaching-conversation-guide",
+        "lesson-observation-protocol-designer",
+        "teacher-inquiry-cycle-designer",
+        "lesson-study-cycle-designer",
+        "pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/reflective-practice-prompt-generator/SKILL.md"
+    },
+    {
+      "id": "professional-learning/teacher-inquiry-cycle-designer",
+      "name": "teacher-inquiry-cycle-designer",
+      "display_name": "Teacher Inquiry Cycle Designer",
+      "domain": "professional-learning",
+      "description": "Design a practitioner inquiry cycle from research question through data collection to evidence-informed action. Use when starting action research, teacher-led investigation, or professional inquiry.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "inquiry",
+        "Timperley",
+        "practitioner-research",
+        "action-research",
+        "data-informed",
+        "professional-learning"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "reflective-practice-prompt-generator",
+        "lesson-study-cycle-designer",
+        "instructional-coaching-conversation-guide",
+        "professional-development-session-designer",
+        "pedagogical-content-knowledge-developer",
+        "technological-pedagogical-content-knowledge-developer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/teacher-inquiry-cycle-designer/SKILL.md"
+    },
+    {
+      "id": "professional-learning/technological-pedagogical-content-knowledge-developer",
+      "name": "technological-pedagogical-content-knowledge-developer",
+      "display_name": "Technological Pedagogical Content Knowledge Developer",
+      "domain": "professional-learning",
+      "description": "Develop TPACK for integrating a specific technology or AI tool into subject teaching with pedagogical alignment. Use when adopting new ed-tech, reviewing AI tools, or planning technology integration.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "TPACK",
+        "technology-integration",
+        "AI-in-education",
+        "pedagogical-content-knowledge",
+        "Mishra-Koehler",
+        "professional-learning",
+        "ed-tech"
+      ],
+      "teacher_time": "10 minutes",
+      "chains_with": [
+        "pedagogical-content-knowledge-developer",
+        "curriculum-knowledge-architecture-designer",
+        "critical-thinking-task-designer",
+        "lesson-observation-protocol-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/technological-pedagogical-content-knowledge-developer/SKILL.md"
+    },
+    {
+      "id": "questioning-discussion/dialogic-teaching-move-generator",
+      "name": "dialogic-teaching-move-generator",
+      "display_name": "Dialogic Teaching Move Generator",
+      "domain": "questioning-discussion",
+      "description": "Generate follow-up teaching moves that extend student thinking after a specific classroom response. Use when a student says something worth exploring and the teacher wants to deepen the dialogue.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "dialogic-teaching",
+        "teacher-moves",
+        "revoicing",
+        "classroom-talk",
+        "accountable-talk"
+      ],
+      "teacher_time": "2 minutes",
+      "chains_with": [
+        "socratic-questioning-sequence-generator",
+        "discussion-protocol-selector",
+        "checking-for-understanding-protocol-designer",
+        "think-aloud-script-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/questioning-discussion/dialogic-teaching-move-generator/SKILL.md"
+    },
+    {
+      "id": "questioning-discussion/discussion-protocol-selector",
+      "name": "discussion-protocol-selector",
+      "display_name": "Discussion Protocol Selector & Facilitation Guide",
+      "domain": "questioning-discussion",
+      "description": "Select and configure a structured discussion protocol matched to the purpose, topic, and group readiness. Use when planning classroom discussions, Socratic seminars, or structured debate.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "discussion",
+        "dialogue",
+        "accountable-talk",
+        "protocols",
+        "oracy"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "socratic-questioning-sequence-generator",
+        "dialogic-teaching-move-generator",
+        "academic-language-sentence-frame-generator",
+        "hinge-question-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/questioning-discussion/discussion-protocol-selector/SKILL.md"
+    },
+    {
+      "id": "questioning-discussion/hinge-question-designer",
+      "name": "hinge-question-designer",
+      "display_name": "Hinge Question Designer",
+      "domain": "questioning-discussion",
+      "description": "Design a diagnostic hinge question that reveals whether students understand enough to move on. Use when planning key checkpoints mid-lesson during explicit or direct instruction.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "hinge-question",
+        "formative-assessment",
+        "misconceptions",
+        "diagnostic",
+        "checking-understanding"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "checking-for-understanding-protocol-designer",
+        "explicit-instruction-sequence-builder",
+        "practice-problem-sequence-designer",
+        "retrieval-practice-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/questioning-discussion/hinge-question-designer/SKILL.md"
+    },
+    {
+      "id": "questioning-discussion/socratic-questioning-sequence-generator",
+      "name": "socratic-questioning-sequence-generator",
+      "display_name": "Socratic Questioning Sequence Generator",
+      "domain": "questioning-discussion",
+      "description": "Generate a Socratic questioning sequence that develops conceptual understanding through guided inquiry. Use when facilitating philosophical discussions, concept exploration, or critical examination.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "questioning",
+        "Socratic",
+        "critical-thinking",
+        "dialogue",
+        "reasoning"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "discussion-protocol-selector",
+        "dialogic-teaching-move-generator",
+        "hinge-question-designer",
+        "elaborative-interrogation-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/questioning-discussion/socratic-questioning-sequence-generator/SKILL.md"
+    },
+    {
+      "id": "self-regulated-learning/error-analysis-protocol",
+      "name": "error-analysis-protocol",
+      "display_name": "Error Analysis Protocol",
+      "domain": "self-regulated-learning",
+      "description": "Design an error analysis protocol to diagnose the root cause of student mistakes and misconceptions. Use when error patterns appear in student work and targeted feedback is needed.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "error-analysis",
+        "formative-assessment",
+        "misconceptions",
+        "diagnosis",
+        "feedback"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "feedback-quality-analyser",
+        "gap-analysis-from-student-work",
+        "metacognitive-prompt-library",
+        "worked-example-fading-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/self-regulated-learning/error-analysis-protocol/SKILL.md"
+    },
+    {
+      "id": "self-regulated-learning/goal-setting-protocol-designer",
+      "name": "goal-setting-protocol-designer",
+      "display_name": "Goal-Setting Protocol Designer",
+      "domain": "self-regulated-learning",
+      "description": "Design a structured goal-setting protocol using SMART or implementation-intention frameworks for students. Use when launching units, projects, or developing student self-direction habits.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "goal-setting",
+        "motivation",
+        "self-regulation",
+        "planning",
+        "self-efficacy"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "self-regulation-scaffold-generator",
+        "metacognitive-prompt-library",
+        "agency-scaffold-generator",
+        "self-efficacy-builder-sequence"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/self-regulated-learning/goal-setting-protocol-designer/SKILL.md"
+    },
+    {
+      "id": "self-regulated-learning/metacognitive-prompt-library",
+      "name": "metacognitive-prompt-library",
+      "display_name": "Metacognitive Prompt Library",
+      "domain": "self-regulated-learning",
+      "description": "Build a library of metacognitive prompts targeting planning, monitoring, or evaluation for a specific task. Use when developing students' thinking-about-thinking during independent work.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "metacognition",
+        "monitoring",
+        "thinking-about-thinking",
+        "self-regulation",
+        "comprehension"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "self-regulation-scaffold-generator",
+        "study-strategy-selector",
+        "error-analysis-protocol",
+        "elaborative-interrogation-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/self-regulated-learning/metacognitive-prompt-library/SKILL.md"
+    },
+    {
+      "id": "self-regulated-learning/self-regulation-scaffold-generator",
+      "name": "self-regulation-scaffold-generator",
+      "display_name": "Self-Regulation Scaffold Generator",
+      "domain": "self-regulated-learning",
+      "description": "Generate scaffolds supporting student self-regulation across planning, monitoring, and evaluation phases. Use when students struggle to manage their own learning during extended or independent tasks.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "self-regulation",
+        "metacognition",
+        "scaffolding",
+        "independence",
+        "executive-function"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "metacognitive-prompt-library",
+        "goal-setting-protocol-designer",
+        "agency-scaffold-generator",
+        "feedback-quality-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/self-regulated-learning/self-regulation-scaffold-generator/SKILL.md"
+    },
+    {
+      "id": "self-regulated-learning/study-strategy-selector",
+      "name": "study-strategy-selector",
+      "display_name": "Study Strategy Selector & Guide",
+      "domain": "self-regulated-learning",
+      "description": "Select evidence-based study strategies matched to material type, learning goal, and student habits. Use when advising students on revision techniques, homework, or independent study approaches.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "study-skills",
+        "learning-strategies",
+        "revision",
+        "self-regulation",
+        "metacognition"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "retrieval-practice-generator",
+        "spaced-practice-scheduler",
+        "metacognitive-prompt-library",
+        "goal-setting-protocol-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/self-regulated-learning/study-strategy-selector/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/agency-scaffold-generator",
+      "name": "agency-scaffold-generator",
+      "display_name": "Agency Scaffold Generator",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Generate scaffolds that gradually increase student choice, voice, and ownership within a learning task. Use when students depend heavily on teacher direction and need to develop autonomy.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "agency",
+        "student-voice",
+        "choice",
+        "autonomy",
+        "self-regulation",
+        "gradual-release"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "motivation-diagnostic-task-redesign",
+        "self-efficacy-builder-sequence",
+        "self-regulated-learning-strategy-selector",
+        "metacognitive-prompt-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/agency-scaffold-generator/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/awe-wonder-experience-designer",
+      "name": "awe-wonder-experience-designer",
+      "display_name": "Awe & Wonder Experience Designer",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Design a moment of awe or wonder that hooks curiosity and deepens emotional engagement with content. Use when opening units, introducing surprising material, or reigniting student interest.",
+      "disable_model_invocation": false,
+      "evidence_strength": "emerging",
+      "tags": [
+        "awe",
+        "wonder",
+        "curiosity",
+        "Keltner",
+        "engagement",
+        "positive-emotion"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "perma-based-lesson-designer",
+        "motivation-diagnostic-task-redesign",
+        "lesson-opening-designer",
+        "critical-thinking-task-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/awe-wonder-experience-designer/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/belonging-classroom-culture-designer",
+      "name": "belonging-classroom-culture-designer",
+      "display_name": "Belonging & Classroom Culture Designer",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Design targeted interventions that strengthen belonging and inclusion for specific classroom dynamics. Use when students feel isolated, cliques form, or new students need integrating.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "belonging",
+        "inclusion",
+        "classroom-culture",
+        "relationships",
+        "equity",
+        "marginalisation"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "motivation-diagnostic-task-redesign",
+        "trauma-informed-practice-designer",
+        "ruler-emotional-literacy-sequence",
+        "restorative-practice-protocol-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/belonging-classroom-culture-designer/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/flow-state-condition-designer",
+      "name": "flow-state-condition-designer",
+      "display_name": "Flow State Condition Designer",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Optimise a learning activity for flow by balancing challenge level, skill, clear goals, and immediate feedback. Use when students are bored, anxious, or disengaged during a task.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "flow",
+        "Csikszentmihalyi",
+        "engagement",
+        "optimal-experience",
+        "challenge-skill-balance"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "motivation-diagnostic-task-redesign",
+        "perma-based-lesson-designer",
+        "practice-problem-sequence-designer",
+        "self-efficacy-builder-sequence"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/flow-state-condition-designer/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/implementation-intention-designer",
+      "name": "implementation-intention-designer",
+      "display_name": "Implementation Intention Designer",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Create if-then implementation intentions and WOOP plans for specific student behaviour change goals. Use when students know what to do but struggle to follow through on habits or routines.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "implementation-intentions",
+        "Gollwitzer",
+        "if-then-plans",
+        "WOOP",
+        "habits",
+        "self-regulation",
+        "behaviour-change"
+      ],
+      "teacher_time": "2 minutes",
+      "chains_with": [
+        "self-efficacy-builder-sequence",
+        "agency-scaffold-generator",
+        "self-regulated-learning-strategy-selector",
+        "metacognitive-prompt-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/implementation-intention-designer/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/motivation-diagnostic-task-redesign",
+      "name": "motivation-diagnostic-task-redesign",
+      "display_name": "Motivation Diagnostic & Task Redesign",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Diagnose motivation problems in a task using self-determination theory and redesign for autonomy, competence, and relatedness. Use when students are disengaged, resistant, or going through the motions.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "motivation",
+        "SDT",
+        "self-determination",
+        "autonomy",
+        "engagement",
+        "task-design"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "self-efficacy-builder-sequence",
+        "agency-scaffold-generator",
+        "flow-state-condition-designer",
+        "differentiation-adapter"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/motivation-diagnostic-task-redesign/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/perma-based-lesson-designer",
+      "name": "perma-based-lesson-designer",
+      "display_name": "PERMA-Based Lesson Designer",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Design a lesson that embeds PERMA wellbeing elements alongside academic learning objectives. Use when planning lessons that intentionally support both content mastery and student flourishing.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "PERMA",
+        "positive-education",
+        "Seligman",
+        "flourishing",
+        "wellbeing",
+        "lesson-design"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "wellbeing-learning-connection-mapper",
+        "motivation-diagnostic-task-redesign",
+        "belonging-classroom-culture-designer",
+        "flow-state-condition-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/perma-based-lesson-designer/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/restorative-practice-protocol-designer",
+      "name": "restorative-practice-protocol-designer",
+      "display_name": "Restorative Practice Protocol Designer",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Design a restorative practice protocol for addressing harm, rebuilding trust, and restoring relationships. Use when managing conflict, behavioural incidents, or relationship breakdown between students.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "restorative-practice",
+        "conflict-resolution",
+        "relationships",
+        "accountability",
+        "repair"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "belonging-classroom-culture-designer",
+        "trauma-informed-practice-designer",
+        "ruler-emotional-literacy-sequence",
+        "wellbeing-learning-connection-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/restorative-practice-protocol-designer/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/ruler-emotional-literacy-sequence",
+      "name": "ruler-emotional-literacy-sequence",
+      "display_name": "RULER Emotional Literacy Sequence",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Design a RULER emotional literacy sequence for recognising, understanding, labelling, expressing, and regulating emotions. Use when students struggle with emotional regulation, conflict, or anxiety.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "RULER",
+        "emotional-intelligence",
+        "Brackett",
+        "Yale",
+        "SEL",
+        "emotional-literacy",
+        "mood-meter"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "belonging-classroom-culture-designer",
+        "trauma-informed-practice-designer",
+        "restorative-practice-protocol-designer",
+        "perma-based-lesson-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/ruler-emotional-literacy-sequence/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/self-efficacy-builder-sequence",
+      "name": "self-efficacy-builder-sequence",
+      "display_name": "Self-Efficacy Builder Sequence",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Design a mastery experience sequence that systematically builds student confidence in a skill they avoid. Use when students say 'I can't do this', avoid tasks, or show learned helplessness.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "self-efficacy",
+        "confidence",
+        "Bandura",
+        "mastery-experiences",
+        "attribution",
+        "mindset"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "motivation-diagnostic-task-redesign",
+        "agency-scaffold-generator",
+        "differentiation-adapter",
+        "practice-problem-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/self-efficacy-builder-sequence/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/trauma-informed-practice-designer",
+      "name": "trauma-informed-practice-designer",
+      "display_name": "Trauma-Informed Practice Designer",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Design trauma-informed classroom practices that prioritise safety, predictability, connection, and regulation. Use when student behaviour may be trauma-related or the class needs a sensitive approach.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "trauma-informed",
+        "ACEs",
+        "safety",
+        "regulation",
+        "attachment",
+        "behaviour"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "belonging-classroom-culture-designer",
+        "restorative-practice-protocol-designer",
+        "ruler-emotional-literacy-sequence",
+        "differentiation-adapter"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/trauma-informed-practice-designer/SKILL.md"
+    },
+    {
+      "id": "wellbeing-motivation-agency/wellbeing-learning-connection-mapper",
+      "name": "wellbeing-learning-connection-mapper",
+      "display_name": "Wellbeing-Learning Connection Mapper",
+      "domain": "wellbeing-motivation-agency",
+      "description": "Map evidence-based connections between a wellbeing initiative and specific academic learning outcomes. Use when justifying wellbeing programmes, integrating SEL, or linking pastoral and academic work.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "wellbeing",
+        "positive-psychology",
+        "broaden-and-build",
+        "SEL",
+        "school-leadership",
+        "evidence-rationale"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "perma-based-lesson-designer",
+        "belonging-classroom-culture-designer",
+        "trauma-informed-practice-designer",
+        "ruler-emotional-literacy-sequence"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/wellbeing-motivation-agency/wellbeing-learning-connection-mapper/SKILL.md"
+    }
+  ]
+}

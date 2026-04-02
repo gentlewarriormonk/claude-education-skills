@@ -77,6 +77,39 @@ Source code and setup instructions: [`mcp-server/`](mcp-server/)
 
 ---
 
+## Agent Skills Compliance (v2)
+
+### Plugin Structure
+
+The library is packaged as an Agent Skills 1.0–compliant plugin. The entry point is `plugin.json`, which declares the library metadata and points to the `skills/` directory. Each skill lives at `skills/{domain}/{skill-name}/SKILL.md`.
+
+### Progressive Disclosure
+
+The platform does not load all 107 skill files into context at once. Instead it uses metadata-first loading:
+
+1. **Discovery** — `registry.json` provides a lightweight index of all skills with descriptions, tags, and domain grouping. An orchestrator or the platform itself reads this to decide which skills are relevant.
+2. **Activation** — Only when a skill is selected (by the model, the user, or an orchestrator) is the full SKILL.md loaded into context.
+3. **Invocation control** — Skills with `disable-model-invocation: true` are never auto-activated by the model. They must be explicitly invoked by the user or an orchestrator. This prevents broad-trigger skills (e.g. `formative-assessment-technique-selector`) and contextually specific original frameworks from misfiring.
+
+### registry.json
+
+The registry is the machine-readable skill index. It is generated from SKILL.md frontmatter by `scripts/generate-registry.py` and validated in CI. It enables:
+
+- Programmatic skill discovery and filtering
+- Domain-level browsing
+- Chain graph traversal via `chains_with` arrays
+- Description-based semantic matching for auto-activation
+
+### Typed Chain Edges (v2 placeholder)
+
+Each skill entry in `registry.json` includes a `chain_edges` object with four fields: `receives_from`, `feeds_into`, `output_field`, and `input_field`. All are null in v2 — these are placeholder slots for typed chain edges that will be populated in a dedicated chaining design session. The `chains_with` array (derived from the existing `chains_well_with` metadata) provides untyped chaining hints in the interim.
+
+### Conflict Resolution
+
+When multiple skills auto-activate based on conversation context, the platform should surface them as suggestions rather than auto-firing more than one. The user selects which skill to invoke. This prevents conflicting or redundant outputs from competing skills.
+
+---
+
 ## Contributing Orchestration-Ready Skills
 
 Skills added to the library should follow the schema specification in [CONTRIBUTING.md](CONTRIBUTING.md). Orchestration-ready means:
