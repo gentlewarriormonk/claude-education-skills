@@ -22,4 +22,4 @@ jobs:
       - name: Check registry is in sync
         run: |
           python3 scripts/generate-registry.py
-          git diff --exit-code registry.json || (echo "registry.json is out of sync — run scripts/generate-registry.py" && exit 1)
+          git diff --ignore-matching-lines='"generated"' --exit-code registry.json || (echo "registry.json is out of sync — run scripts/generate-registry.py" && exit 1)
