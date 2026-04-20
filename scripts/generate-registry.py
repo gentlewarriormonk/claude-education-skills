@@ -11,6 +11,7 @@ from collections import Counter
 
 DOMAIN_LABELS = {
     "ai-learning-science": "AI & Learning Science",
+    "curriculum-alignment": "Curriculum Alignment",
     "curriculum-assessment": "Curriculum & Assessment",
     "eal-language-development": "EAL & Language Development",
     "environmental-experiential-learning": "Environmental & Experiential Learning",

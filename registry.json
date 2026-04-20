@@ -1,13 +1,18 @@
 {
   "version": "2.0",
-  "generated": "2026-04-20T14:15:21.266088+00:00",
+  "generated": "2026-04-20T18:26:29.269061+00:00",
   "standard": "agent-skills-1.0",
-  "total_skills": 109,
+  "total_skills": 110,
   "domains": [
     {
       "id": "ai-learning-science",
       "label": "AI & Learning Science",
       "skill_count": 14
+    },
+    {
+      "id": "curriculum-alignment",
+      "label": "Curriculum Alignment",
+      "skill_count": 3
     },
     {
       "id": "curriculum-assessment",
@@ -52,7 +57,7 @@
     {
       "id": "original-frameworks",
       "label": "Original Frameworks",
-      "skill_count": 7
+      "skill_count": 5
     },
     {
       "id": "professional-learning",
@@ -537,6 +542,102 @@
         "input_field": null
       },
       "path": "skills/ai-learning-science/worked-example-to-problem-solving-transition-designer/SKILL.md"
+    },
+    {
+      "id": "curriculum-alignment/coverage-audit",
+      "name": "coverage-audit",
+      "display_name": "Coverage Audit",
+      "domain": "curriculum-alignment",
+      "description": "Takes a curriculum framework and a statutory or accreditation requirement list; produces a coverage table, gap summary, and CSV showing which framework content covers each requirement and where gaps exist.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "coverage-audit",
+        "accreditation",
+        "statutory-compliance",
+        "curriculum-alignment",
+        "gap-analysis"
+      ],
+      "teacher_time": "15 minutes",
+      "chains_with": [
+        "curriculum-crosswalk",
+        "developmental-band-translator",
+        "scope-and-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-alignment/coverage-audit/SKILL.md"
+    },
+    {
+      "id": "curriculum-alignment/curriculum-crosswalk",
+      "name": "curriculum-crosswalk",
+      "display_name": "Curriculum Crosswalk",
+      "domain": "curriculum-alignment",
+      "description": "Compares two or more band-tagged frameworks and produces a PLC-ready document showing convergence, divergence, unique content, sequencing differences, and questions for teacher discussion.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "curriculum-alignment",
+        "crosswalk",
+        "framework-comparison",
+        "Webb-alignment",
+        "Porter-content-analysis",
+        "PLC",
+        "source-voice-preservation"
+      ],
+      "teacher_time": "30 minutes",
+      "chains_with": [
+        "developmental-band-translator",
+        "learning-progression-builder",
+        "scope-and-sequence-designer",
+        "curriculum-knowledge-architecture-designer",
+        "gap-analysis-from-student-work"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-alignment/curriculum-crosswalk/SKILL.md"
+    },
+    {
+      "id": "curriculum-alignment/developmental-band-translator",
+      "name": "developmental-band-translator",
+      "display_name": "Developmental Band Translator",
+      "domain": "curriculum-alignment",
+      "description": "Tags harness-decomposed curriculum items (KUDs, LTs, criteria) with a school's developmental band metadata while preserving source voice and labels. Supply the band schema; the skill derives mapping rules from it.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "developmental-bands",
+        "curriculum-alignment",
+        "band-mapping",
+        "source-voice-preservation",
+        "Wiggins-McTighe",
+        "Vygotsky",
+        "ZPD",
+        "framework-translation"
+      ],
+      "teacher_time": "10 minutes",
+      "chains_with": [
+        "curriculum-crosswalk",
+        "kud-knowledge-type-mapper",
+        "learning-progression-builder",
+        "competency-framework-translator",
+        "scope-and-sequence-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/curriculum-alignment/developmental-band-translator/SKILL.md"
     },
     {
       "id": "curriculum-assessment/assessment-validity-checker",
@@ -2494,75 +2595,6 @@
         "input_field": null
       },
       "path": "skills/original-frameworks/learning-target-authoring-guide/SKILL.md"
-    },
-    {
-      "id": "original-frameworks/real-band-translation",
-      "name": "REAL Band Translation",
-      "display_name": "REAL Band Translation",
-      "domain": "original-frameworks",
-      "description": "Tag a harness-decomposed external curriculum (KUDs, LTs, progression structure) with REAL developmental-band metadata (A\u2013F) while preserving source voice and source-band labels unchanged. Use when a framework produced by the curriculum harness needs to enter REAL School's internal planning system or be crosswalked against REAL's own framework.",
-      "disable_model_invocation": false,
-      "evidence_strength": "moderate",
-      "tags": [
-        "REAL-bands",
-        "developmental-bands",
-        "curriculum-alignment",
-        "band-mapping",
-        "source-voice-preservation",
-        "Wiggins-McTighe",
-        "Vygotsky",
-        "ZPD",
-        "framework-translation"
-      ],
-      "teacher_time": "10 minutes",
-      "chains_with": [
-        "real-crosswalk",
-        "kud-knowledge-type-mapper",
-        "learning-progression-builder",
-        "competency-framework-translator",
-        "scope-and-sequence-designer"
-      ],
-      "chain_edges": {
-        "receives_from": [],
-        "feeds_into": [],
-        "output_field": null,
-        "input_field": null
-      },
-      "path": "skills/original-frameworks/real-band-translation/SKILL.md"
-    },
-    {
-      "id": "original-frameworks/real-crosswalk",
-      "name": "REAL Crosswalk",
-      "display_name": "REAL Crosswalk",
-      "domain": "original-frameworks",
-      "description": "Compare two or more band-tagged frameworks (produced by REAL Band Translation) against REAL's own band-tagged framework to produce a PLC-ready document showing convergence, divergence, unique content, sequencing differences, and open questions. Use when preparing a cross-framework review for a PLC or when integrating an external framework into REAL planning.",
-      "disable_model_invocation": false,
-      "evidence_strength": "moderate",
-      "tags": [
-        "curriculum-alignment",
-        "crosswalk",
-        "framework-comparison",
-        "Webb-alignment",
-        "Porter-content-analysis",
-        "PLC",
-        "REAL-bands",
-        "source-voice-preservation"
-      ],
-      "teacher_time": "30 minutes",
-      "chains_with": [
-        "real-band-translation",
-        "learning-progression-builder",
-        "scope-and-sequence-designer",
-        "curriculum-knowledge-architecture-designer",
-        "gap-analysis-from-student-work"
-      ],
-      "chain_edges": {
-        "receives_from": [],
-        "feeds_into": [],
-        "output_field": null,
-        "input_field": null
-      },
-      "path": "skills/original-frameworks/real-crosswalk/SKILL.md"
     },
     {
       "id": "original-frameworks/seeds-regenerative-inquiry-cycle",
