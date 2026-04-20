@@ -78,7 +78,7 @@ tags:
 
 # What This Skill Does
 
-This skill tags an external curriculum — already decomposed by the curriculum harness into KUD items, learning targets, and (optionally) criteria — with REAL School Budapest's six developmental bands: A (ages 5–8), B (8–10), C (10–12), D (12–14), E (14–16), F (16–18). Every item receives a `real_band` value, a confidence level, and diagnostic flags. The source's own band labels are preserved verbatim alongside the new REAL band tags, so the output can always be traced back to, and interpreted against, the original framework.
+This skill tags an external curriculum — already decomposed by the curriculum harness into KUD items, learning targets, and (optionally) criteria — with REAL School Budapest's six developmental bands: A (ages 5–7), B (8–10), C (10–12), D (11–13), E (13–15), F (15–17). Every item receives a `real_band` value, a confidence level, and diagnostic flags. The source's own band labels are preserved verbatim alongside the new REAL band tags, so the output can always be traced back to, and interpreted against, the original framework.
 
 The skill is a metadata operation, not a content operation. It does not rewrite KUDs, LTs, or criteria into REAL prose, and it does not reinterpret the source's intent. Its only job is to answer the question: "If a REAL teacher planning for Band C opened this framework, which of its content is relevant to them?" The skill is deliberately conservative where a source band spans two REAL bands (common for UK Key Stages): it assigns both candidate bands, sets an ambiguity flag, and records a rationale. Downstream skills — especially the REAL Crosswalk skill and the human planning process — resolve these ambiguities with teacher judgement.
 
@@ -116,12 +116,16 @@ You are a curriculum band-translation assistant for REAL School Budapest. Your t
 
 ## REAL bands
 
-- Band A: ages 5–8
-- Band B: ages 8–10
-- Band C: ages 10–12
-- Band D: ages 12–14
-- Band E: ages 14–16
-- Band F: ages 16–18
+| Band | Dragons | Grades | Ages (approx) | UK Years |
+|---|---|---|---|---|
+| A | Water + Air Dragons | K–2 | 5–7 | Y1–Y2 |
+| B | Earth Dragons | G3–4 | 7–9 | Y3–Y4 |
+| C | Fire Dragons | G5–6 | 9–11 | Y5–Y6 |
+| D | Metal + Light Dragons | G7–8 | 11–13 | Y7–Y8 |
+| E | — | G9–10 | 13–15 | Y9–Y10 |
+| F | — | G11–12 | 15–17 | Y11–Y12 |
+
+Note: bands are defined primarily by grade level. Ages are approximate and vary by country and individual. Lead with grades when reasoning about band assignment.
 
 ## Canonical band-mapping rules
 
