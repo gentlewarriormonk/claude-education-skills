@@ -14,7 +14,7 @@ jobs:
         run: |
           COUNT=$(find skills/ -name "SKILL.md" | wc -l)
           echo "Skills found: $COUNT"
-          [ "$COUNT" -eq 107 ] || (echo "Expected 107 skills, found $COUNT" && exit 1)
+          [ "$COUNT" -eq 109 ] || (echo "Expected 109 skills, found $COUNT" && exit 1)
       - name: Validate YAML frontmatter
         run: python3 scripts/validate-skills.py
       - name: Validate registry.json
