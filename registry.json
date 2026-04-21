@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "generated": "2026-04-20T18:26:29.269061+00:00",
+  "generated": "2026-04-21T07:50:28.329747+00:00",
   "standard": "agent-skills-1.0",
   "total_skills": 110,
   "domains": [
@@ -577,7 +577,7 @@
       "name": "curriculum-crosswalk",
       "display_name": "Curriculum Crosswalk",
       "domain": "curriculum-alignment",
-      "description": "Compares two or more band-tagged frameworks and produces a PLC-ready document showing convergence, divergence, unique content, sequencing differences, and questions for teacher discussion.",
+      "description": "Compares two or more band-tagged frameworks and produces a framework-neutral topic matrix showing coverage and gaps across all inputs, plus an optional reference-centric PLC crosswalk document when a reference framework is supplied.",
       "disable_model_invocation": false,
       "evidence_strength": "moderate",
       "tags": [
