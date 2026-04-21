@@ -1,11 +1,11 @@
 # Claude Education Skills Library
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-1.0-blue)](https://agentskills.io)
-[![Skills](https://img.shields.io/badge/skills-110-blue)](https://github.com/GarethManning/claude-education-skills)
+[![Skills](https://img.shields.io/badge/skills-111-blue)](https://github.com/GarethManning/claude-education-skills)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Last Commit](https://img.shields.io/github/last-commit/GarethManning/claude-education-skills)](https://github.com/GarethManning/claude-education-skills/commits/main)
 
-An open-source library of 110 evidence-based pedagogical skills for curriculum design, lesson planning, and assessment — usable today by any educator with access to Claude, and engineered for AI agent orchestration.
+An open-source library of 111 evidence-based pedagogical skills for curriculum design, lesson planning, and assessment — usable today by any educator with access to Claude, and engineered for AI agent orchestration.
 
 ---
 
@@ -51,7 +51,7 @@ Three ways to use the library, depending on your setup:
 
 ### Claude.ai / Claude Desktop / Cowork
 
-Connect via the MCP server to access all 110 skills in any Claude conversation — add `https://mcp-server-sigma-sooty.vercel.app/mcp` under **Settings → Connectors**. Skills activate when your conversation matches their topic. A dedicated Skills Directory listing is in progress.
+Connect via the MCP server to access all 111 skills in any Claude conversation — add `https://mcp-server-sigma-sooty.vercel.app/mcp` under **Settings → Connectors**. Skills activate when your conversation matches their topic. A dedicated Skills Directory listing is in progress.
 
 ### Claude Code CLI
 
@@ -161,7 +161,7 @@ YAML schema headers, typed input and output fields, chaining metadata, and compo
 The library is Layer 1 of a three-layer system. See [ARCHITECTURE.md](ARCHITECTURE.md) for the full design.
 
 **Layer 1 — Skill Library** (this repository, complete and available now)
-110 skills across 15 domains. Each skill encodes a specific, evidence-grounded instructional or curriculum design decision. Works standalone today.
+111 skills across 15 domains. Each skill encodes a specific, evidence-grounded instructional or curriculum design decision. Works standalone today.
 
 **Layer 2 — Context Engine** *(in design)*
 Holds persistent information about students, classes, curriculum sequences, and assessment history. When connected, skill outputs become personalised — not generic advice about retrieval practice, but a specific retrieval schedule for this class based on what they have already learned and been assessed on.
@@ -227,7 +227,7 @@ An orchestrator calls `search_skills("retrieval practice")`, gets back candidate
 
 ### MCP Server
 
-The skill library is available as a live MCP server. Any MCP-compatible client can discover, search, and invoke all 110 skills programmatically.
+The skill library is available as a live MCP server. Any MCP-compatible client can discover, search, and invoke all 111 skills programmatically.
 
 **Production URL:** `https://mcp-server-sigma-sooty.vercel.app/mcp`
 
@@ -245,7 +245,7 @@ Connect from Claude.ai by adding the URL under **Integrations > MCP Servers**. C
 ```
 
 The server exposes:
-- **114 tools** (110 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
+- **115 tools** (111 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
 - **109 prompts** (for clients that surface MCP prompts)
 
 Source code, local setup, and development instructions: [`mcp-server/`](mcp-server/)
