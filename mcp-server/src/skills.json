@@ -1479,6 +1479,477 @@
   },
   {
     "metadata": {
+      "name": "coverage-audit",
+      "description": "Takes a curriculum framework and a statutory or accreditation requirement list; produces a coverage table, gap summary, and CSV showing which framework content covers each requirement and where gaps exist.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "curriculum-alignment/coverage-audit",
+      "skill_name": "Coverage Audit",
+      "domain": "curriculum-alignment",
+      "version": "1.0",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Webb, N. L. (1997) — Criteria for Alignment of Expectations and Assessments in Mathematics and Science Education, CCSSO Research Monograph No. 6: canonical alignment framework defining coverage dimensions (categorical concurrence, depth-of-knowledge, range, balance) used in this skill's classification of match strength.",
+        "Porter, A. C. et al. (2002) — Measuring the content of instruction: Uses in research and practice, Educational Researcher 31(7), 3–14: curriculum mapping methodology for comparing intended vs enacted curricula across frameworks — the basis for this skill's row-per-requirement approach."
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "framework",
+            "type": "string",
+            "description": "The curriculum framework being audited. Accepts band-tagged JSON from Developmental Band Translator, or plain markdown/text with competencies and learning targets identified."
+          },
+          {
+            "field": "requirements",
+            "type": "string",
+            "description": "The statutory or accreditation requirement list. Accepts markdown, CSV, or plain text. Each requirement should be identifiable by number or label."
+          }
+        ],
+        "optional": [
+          {
+            "field": "framework_name",
+            "type": "string",
+            "description": "Human-readable name of the framework being audited."
+          },
+          {
+            "field": "requirements_source",
+            "type": "string",
+            "description": "Name of the statutory or accreditation body."
+          },
+          {
+            "field": "band_filter",
+            "type": "string",
+            "description": "Restrict audit to specific bands only."
+          }
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "fields": [
+          {
+            "field": "coverage_table",
+            "type": "string",
+            "description": "Markdown table — columns are Requirement ID, Requirement text, Covered by (framework LT or competency), Band(s), Evidence strength (direct/partial/indirect/none), Notes."
+          },
+          {
+            "field": "coverage_csv",
+            "type": "string",
+            "description": "Same data as coverage_table in flat CSV format for Google Sheets use."
+          },
+          {
+            "field": "gap_summary",
+            "type": "string",
+            "description": "Prose paragraph summarising requirements with no or only indirect coverage."
+          },
+          {
+            "field": "coverage_statistics",
+            "type": "object",
+            "description": "Counts — total requirements, directly covered, partially covered, not covered."
+          }
+        ]
+      },
+      "chains_well_with": [
+        "curriculum-crosswalk",
+        "developmental-band-translator",
+        "scope-and-sequence-designer"
+      ],
+      "teacher_time": "15 minutes",
+      "tags": [
+        "coverage-audit",
+        "accreditation",
+        "statutory-compliance",
+        "curriculum-alignment",
+        "gap-analysis"
+      ]
+    },
+    "prompt": "",
+    "description": "Takes a curriculum framework and a statutory or accreditation requirement list; produces a coverage table, gap summary, and CSV showing which framework content covers each requirement and where gaps exist.",
+    "toolName": "coverage-audit"
+  },
+  {
+    "metadata": {
+      "name": "curriculum-crosswalk",
+      "description": "Compares two or more band-tagged frameworks and produces a framework-neutral topic matrix showing coverage and gaps across all inputs, plus an optional reference-centric PLC crosswalk document when a reference framework is supplied.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "high",
+      "skill_id": "curriculum-alignment/curriculum-crosswalk",
+      "skill_name": "Curriculum Crosswalk",
+      "domain": "curriculum-alignment",
+      "version": "2.0",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Webb, N. L. (1997) — Criteria for Alignment of Expectations and Assessments in Mathematics and Science Education, CCSSO Research Monograph No. 6: the canonical four-dimension alignment framework (categorical concurrence, depth-of-knowledge consistency, range-of-knowledge correspondence, balance of representation); this skill operationalises categorical concurrence and range at the school-band level.",
+        "Porter, A. C. (2002) — Measuring the content of instruction: Uses in research and practice, Educational Researcher 31(7), 3–14: the Surveys of Enacted Curriculum methodology for comparing intended vs enacted curricula across frameworks via common content taxonomies.",
+        "Porter, A. C., Smithson, J., Blank, R. & Zeidner, T. (2007) — Alignment as a teacher variable, Applied Measurement in Education 20(1), 27–51: alignment indices and content-matrix methodology applied across standards documents.",
+        "Case, B. J., Jorgensen, M. A. & Zucker, S. (2004) — Alignment in Educational Assessment, Pearson Assessment Report: practical alignment procedures that surface rather than hide framework differences — the rationale for the divergence and unique-content tables in this skill's output.",
+        "Martone, A. & Sireci, S. G. (2009) — Evaluating alignment between curriculum, assessment, and instruction, Review of Educational Research 79(4), 1332–1361: literature review establishing that alignment studies should preserve framework distinctiveness rather than collapse to a lowest-common-denominator schema — the design principle behind this skill's refusal to produce a merged mega-framework."
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "comparison_frameworks_band_tagged",
+            "type": "string",
+            "description": "Array of two or more frameworks, each produced by the Developmental Band Translator. Each entry must include source_metadata, band_tagged_kud (or equivalent content-bearing items), and band_tagged_lts. All frameworks are treated as equals in the primary matrix output."
+          }
+        ],
+        "optional": [
+          {
+            "field": "reference_framework_band_tagged",
+            "type": "string",
+            "description": "An optional designated reference framework, already band-tagged using the Developmental Band Translator. If supplied, the skill produces both the framework-neutral matrix AND the secondary reference-centric crosswalk document. If omitted, only the framework-neutral matrix outputs are produced."
+          },
+          {
+            "field": "reference_framework_name",
+            "type": "string",
+            "description": "Human-readable name of the reference framework for output labelling. Defaults to source_name from reference_framework_band_tagged metadata if omitted."
+          },
+          {
+            "field": "theme_taxonomy",
+            "type": "string",
+            "description": "An optional pre-defined list of theme labels. If supplied, the skill maps all framework content to these themes rather than deriving themes from the input. Overrides model-derived theme grouping. Use when running the skill repeatedly on changing inputs and needing consistent row labels across runs."
+          },
+          {
+            "field": "focus_bands",
+            "type": "string",
+            "description": "Restrict the crosswalk to a subset of school bands (e.g. \"D,E\" for secondary-focused PLC). If omitted, all bands are covered."
+          },
+          {
+            "field": "focus_themes",
+            "type": "string",
+            "description": "Restrict to specific thematic areas (e.g. \"consent, relationships\"). If omitted, all content is compared."
+          },
+          {
+            "field": "plc_context",
+            "type": "string",
+            "description": "A short description of the PLC context (e.g. \"Band D/E wellbeing team preparing for September 2026 planning\"). Used to tune the Questions for PLC section in the secondary crosswalk_document when a reference framework is supplied."
+          }
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "fields": [
+          {
+            "field": "framework_neutral_matrix",
+            "type": "string",
+            "description": "Primary output. A Markdown matrix with one row per theme × band. Rows are derived by scanning ALL input frameworks — no theme is excluded because one framework lacks it. Columns are one per framework (all on equal footing). Empty cells are marked \"—\" explicitly; an empty cell for any framework is a visible gap, not an omission."
+          },
+          {
+            "field": "framework_neutral_matrix_csv",
+            "type": "string",
+            "description": "Primary CSV at band level. Columns — theme, band, then for each framework one content column and one band_confidence column, plus gap_count (number of frameworks with empty cell for that theme × band), notes. One row per theme × band combination."
+          },
+          {
+            "field": "framework_neutral_summary_matrix",
+            "type": "string",
+            "description": "Summary-grain CSV. One row per theme (not per band), showing which frameworks cover it and at which band range. Designed for a scannable overview of cross-framework coverage."
+          },
+          {
+            "field": "theme_grouping_flags",
+            "type": "array",
+            "description": "Array of ambiguous theme groupings flagged for human review. Each entry includes — theme label, source topics grouped under it, rationale for the grouping decision. Surfaces interpretive uncertainty rather than hiding it in Known Limitations."
+          },
+          {
+            "field": "crosswalk_document",
+            "type": "string",
+            "description": "Secondary output — only produced if reference_framework_band_tagged was supplied. A Markdown document for direct use by a teacher or PLC facilitator. Contains the five required sections (Convergence, Divergence, Unique Content, Sequencing Differences, Questions for PLC) plus a short preamble identifying the frameworks and scope."
+          },
+          {
+            "field": "crosswalk_convergence_csv",
+            "type": "string",
+            "description": "Secondary output — only produced if reference_framework_band_tagged was supplied. Flat CSV with one row per LT × band × comparison framework pairing. Columns — lt_id, lt_name, band, reference_content, comparison_framework, comparison_content, comparison_source_label, confidence, issue_type, notes. Empty comparison_content means no equivalent found."
+          },
+          {
+            "field": "skill_flags",
+            "type": "array",
+            "description": "Skill-level warnings (insufficient overlap to produce meaningful convergence, framework with >50% ambiguity upstream, focus_bands exclude all content in one framework, too many frameworks for readable output, etc.)."
+          },
+          {
+            "field": "internal_trace",
+            "type": "object",
+            "description": "Non-prose metadata retained for debugging and for skill chaining — framework ids compared, item counts per section, band-coverage matrix, theme derivation log. Not included in primary or secondary output documents."
+          }
+        ]
+      },
+      "chains_well_with": [
+        "developmental-band-translator",
+        "learning-progression-builder",
+        "scope-and-sequence-designer",
+        "curriculum-knowledge-architecture-designer",
+        "gap-analysis-from-student-work"
+      ],
+      "teacher_time": "30 minutes",
+      "tags": [
+        "curriculum-alignment",
+        "crosswalk",
+        "framework-comparison",
+        "Webb-alignment",
+        "Porter-content-analysis",
+        "PLC",
+        "source-voice-preservation"
+      ]
+    },
+    "prompt": "",
+    "description": "Compares two or more band-tagged frameworks and produces a framework-neutral topic matrix showing coverage and gaps across all inputs, plus an optional reference-centric PLC crosswalk document when a reference framework is supplied.",
+    "toolName": "curriculum-crosswalk"
+  },
+  {
+    "metadata": {
+      "name": "developmental-band-translator",
+      "description": "Tags harness-decomposed curriculum items (KUDs, LTs, criteria) with a school's developmental band metadata while preserving source voice and labels. Supply the band schema; the skill derives mapping rules from it.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "curriculum-alignment/developmental-band-translator",
+      "skill_name": "Developmental Band Translator",
+      "domain": "curriculum-alignment",
+      "version": "1.0",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Wiggins, G. & McTighe, J. (2005) — Understanding by Design (2nd ed.), ASCD: backward design establishes the principle that curriculum alignment begins from stated outcomes and works backward through learning targets; band-tagging is an alignment operation on that model.",
+        "Wiggins, G. & McTighe, J. (2011) — The Understanding by Design Guide to Creating High-Quality Units, ASCD: KUD as the canonical unit of translation between frameworks.",
+        "Vygotsky, L. S. (1978) — Mind in Society: The Development of Higher Psychological Processes, Harvard University Press: the Zone of Proximal Development provides the theoretical basis for developmental banding as an age-and-readiness construct rather than a pure age construct.",
+        "Heritage, M. (2008) — Learning Progressions: Supporting Instruction and Formative Assessment, CCSSO: progressions are developmental rather than age-deterministic; band mappings must preserve this.",
+        "Webb, N. L. (1997) — Criteria for Alignment of Expectations and Assessments in Mathematics and Science Education, CCSSO Research Monograph No. 6: alignment is multi-dimensional (categorical concurrence, depth-of-knowledge, range, balance) — band translation addresses only the age-range dimension and must not be mistaken for full alignment."
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "band_schema",
+            "type": "string",
+            "description": "The school or programme's developmental band definitions. Must include band labels, approximate age or grade ranges, and any named groupings. Example: REAL School Budapest uses Bands A-F — A (Water+Air Dragons, K-2, ages 5-7), B (Earth Dragons, G3-4, ages 7-9), C (Fire Dragons, G5-6, ages 9-11), D (Metal+Light Dragons, G7-8, ages 11-13), E (G9-10, ages 13-15), F (G11-12, ages 15-17)."
+          },
+          {
+            "field": "kud_json",
+            "type": "string",
+            "description": "The harness-produced KUD file (kud.json). Each item must include at minimum item_id, content_statement, knowledge_type, and source_block_id."
+          },
+          {
+            "field": "lts_json",
+            "type": "string",
+            "description": "The harness-produced LT file (lts.json). Each LT must include lt_id, lt_name, lt_definition, kud_item_ids, and knowledge_type."
+          },
+          {
+            "field": "progression_structure_json",
+            "type": "string",
+            "description": "The harness-produced progression_structure.json for the source. Must include band_labels, source_type, and age_range_hint (or per-band approximate_age_range). If both age-range fields are absent, the skill returns request_age_range_context in skill_flags and halts."
+          }
+        ],
+        "optional": [
+          {
+            "field": "criterion_bank_json",
+            "type": "string",
+            "description": "The harness-produced criterion_bank.json if criterion-level band tagging is also required. Optional — if omitted the skill tags only KUD items and LTs."
+          },
+          {
+            "field": "source_name",
+            "type": "string",
+            "description": "Human-readable source name (e.g. \"UK DfE Statutory RSHE, July 2025\") for output provenance. Defaults to progression_structure.source_slug if omitted."
+          },
+          {
+            "field": "user_age_range_override",
+            "type": "string",
+            "description": "Explicit age-range mapping supplied by the user when a source has no native band structure (flat list). Required only when the skill emits a request_age_range_context error."
+          }
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "fields": [
+          {
+            "field": "source_metadata",
+            "type": "object",
+            "description": "Source name, source_type, source_band_labels (unchanged), and skill run provenance (version, timestamp, invoker)."
+          },
+          {
+            "field": "band_tagged_kud",
+            "type": "array",
+            "description": "Every KUD item with school_band (string or array), band_confidence, source_band_preserved, source_voice_preserved (always true), ambiguity_flag, teacher_review_flag, and band_rationale."
+          },
+          {
+            "field": "band_tagged_lts",
+            "type": "array",
+            "description": "Every LT with school_band (string or array), band_confidence, source_band_preserved, source_voice_preserved (always true), ambiguity_flag, teacher_review_flag, and band_rationale. Band is assigned from the LT's constituent KUD items using the aggregation rule described in the prompt."
+          },
+          {
+            "field": "band_tagged_criteria",
+            "type": "array",
+            "description": "Present only if criterion_bank_json was supplied. Same field set as LTs. Inherit band from parent LT unless a criterion explicitly narrows the age range."
+          },
+          {
+            "field": "summary_counts",
+            "type": "object",
+            "description": "Counts of items per school band, ambiguity flags, teacher review flags, and low-confidence tags. For rapid quality scanning."
+          },
+          {
+            "field": "skill_flags",
+            "type": "array",
+            "description": "Any skill-level warnings (missing age range, CASEL-style frameworks requiring full teacher review, source-voice preservation warnings if any rewriting was detected)."
+          }
+        ]
+      },
+      "chains_well_with": [
+        "curriculum-crosswalk",
+        "kud-knowledge-type-mapper",
+        "learning-progression-builder",
+        "competency-framework-translator",
+        "scope-and-sequence-designer"
+      ],
+      "teacher_time": "10 minutes",
+      "tags": [
+        "developmental-bands",
+        "curriculum-alignment",
+        "band-mapping",
+        "source-voice-preservation",
+        "Wiggins-McTighe",
+        "Vygotsky",
+        "ZPD",
+        "framework-translation"
+      ]
+    },
+    "prompt": "",
+    "description": "Tags harness-decomposed curriculum items (KUDs, LTs, criteria) with a school's developmental band metadata while preserving source voice and labels. Supply the band schema; the skill derives mapping rules from it.",
+    "toolName": "developmental-band-translator"
+  },
+  {
+    "metadata": {
+      "name": "kud-chart-author",
+      "description": "Authors or reviews Know/Understand/Do charts for competency-based learning targets across developmental bands. Handles seven input types from raw curriculum documents to existing LT sets. Routes to upstream skills when stronger inputs are available.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "high",
+      "skill_id": "curriculum-alignment/kud-chart-author",
+      "skill_name": "KUD Chart Author",
+      "domain": "curriculum-alignment",
+      "version": "1.0",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Wiggins, G. & McTighe, J. (2005) — Understanding by Design (2nd ed.), ASCD: KUD (Know/Understand/Do) as the canonical unit-level planning architecture; backward design from desired results.",
+        "Wiggins, G. & McTighe, J. (2011) — The Understanding by Design Guide to Creating High-Quality Units, ASCD: KUD as the bridge from standards to assessment; distinction between teaching layer and assessment layer.",
+        "Black, P. & Wiliam, D. (1998) — Inside the Black Box: Raising Standards Through Classroom Assessment, Phi Delta Kappan 80(2): formative assessment and the critical distinction between content students need to hold (Know), conceptual understanding they carry forward (Understand), and demonstrated capability (Do).",
+        "Anderson, L. W. & Krathwohl, D. R. (2001) — A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy, Longman: the Know/Understand distinction maps directly onto the remembering/understanding levels of the revised taxonomy.",
+        "Bandura, A. (1997) — Self-Efficacy: The Exercise of Control, Freeman: dispositional capabilities develop through enactment over time and cannot be adequately evidenced in a single performance occasion — the theoretical basis for the performance vs disposition distinction in Do cells.",
+        "Heritage, M. (2008) — Learning Progressions: Supporting Instruction and Formative Assessment, CCSSO: progressions are developmental trajectories, not content calendars; progression levers must describe what learners can do with content, not just harder content."
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "input_type",
+            "type": "string",
+            "description": "One of: existing_lt_with_do, competency_only, harness_output, crosswalk_data, unit_plan, existing_kud_upgrade, raw_curriculum_document. Determines routing check and authoring approach."
+          },
+          {
+            "field": "primary_input",
+            "type": "string",
+            "description": "The main input content. For existing_lt_with_do — the existing Do statements/observation indicators. For competency_only — the competency definition and programme purpose. For harness_output — the structured KUD/LT JSON or markdown from the harness pipeline. For crosswalk_data — the relevant rows from a framework-neutral matrix. For unit_plan — the unit plan document. For existing_kud_upgrade — the existing KUD chart. For raw_curriculum_document — the source curriculum text."
+          }
+        ],
+        "optional": [
+          {
+            "field": "lt_name",
+            "type": "string",
+            "description": "LT name if known. e.g. \"Self-Awareness & Regulation\""
+          },
+          {
+            "field": "lt_definition",
+            "type": "string",
+            "description": "LT definition if known. One sentence beginning \"I can...\""
+          },
+          {
+            "field": "knowledge_type",
+            "type": "string",
+            "description": "T1, T2, or T3 if already classified. If not supplied, the skill classifies it."
+          },
+          {
+            "field": "band_scope",
+            "type": "string",
+            "description": "Which bands to author. Default A-F. Use N/A notation for developmentally inappropriate bands. e.g. \"A-F\" or \"B-F (Band A N/A — content inappropriate before age 8)\""
+          },
+          {
+            "field": "competency_context",
+            "type": "string",
+            "description": "Which competency this LT belongs to, and whether Know content lives in a designated knowledge competency by design rather than in this LT. e.g. \"Competency 1 — Emotional Intelligence. Know content lives in Competency 6 by design — cross-reference, do not duplicate.\""
+          },
+          {
+            "field": "crosswalk_data",
+            "type": "string",
+            "description": "Relevant rows from a framework-neutral crosswalk matrix for this theme. Used to inform band-level progression against field consensus. Paste the relevant CSV rows or table excerpt."
+          },
+          {
+            "field": "prerequisite_lts",
+            "type": "string",
+            "description": "Known prerequisite LTs by ID and suspected type. e.g. \"LT 6.1 — suspected soft enabler\""
+          },
+          {
+            "field": "programme_purpose",
+            "type": "string",
+            "description": "Why this competency matters for this school or programme's mission. Informs the Understand layer."
+          },
+          {
+            "field": "mode",
+            "type": "string",
+            "description": "author (default) — produce a new KUD chart. review — assess an existing KUD chart against quality checks and propose specific cell-level improvements."
+          }
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "fields": [
+          {
+            "field": "routing_note",
+            "type": "string",
+            "description": "If a better upstream skill would produce stronger inputs, states which skill and why, and what the current draft's likely limitations are as a result. Null if proceeding directly is appropriate. Always produced alongside the draft output — never blocks execution."
+          },
+          {
+            "field": "kud_chart",
+            "type": "object",
+            "description": "Full KUD chart per band in the standard table format with Know, Understand, Do, Progression lever, and Disciplinary warrant columns."
+          },
+          {
+            "field": "prerequisite_map",
+            "type": "array",
+            "description": "Prerequisite relationships typed as hard, soft enabler, or conceptual accelerator. Per LT at header level and per band where specific K/U items have band-level dependencies."
+          },
+          {
+            "field": "quality_check_results",
+            "type": "object",
+            "description": "Results of all six quality checks with specific cell-level flags. Each check reports PASS or FLAG with the specific cell and the required fix."
+          },
+          {
+            "field": "authoring_notes",
+            "type": "string",
+            "description": "Decisions made during authoring that the teacher should review — ambiguous classification calls, cells where the warrant is thin, bands where the progression logic is uncertain."
+          }
+        ]
+      },
+      "chains_well_with": [
+        "learning-target-authoring-guide",
+        "developmental-band-translator",
+        "curriculum-crosswalk",
+        "coherent-rubric-logic-builder",
+        "criterion-referenced-rubric-generator",
+        "learning-progression-builder",
+        "competency-unpacker"
+      ],
+      "teacher_time": "15 minutes",
+      "tags": [
+        "KUD",
+        "curriculum-design",
+        "learning-targets",
+        "Wiggins-McTighe",
+        "backward-design",
+        "progression",
+        "assessment-design",
+        "competency-based"
+      ]
+    },
+    "prompt": "",
+    "description": "Authors or reviews Know/Understand/Do charts for competency-based learning targets across developmental bands. Handles seven input types from raw curriculum documents to existing LT sets. Routes to upstream skills when stronger inputs are available.",
+    "toolName": "kud-chart-author"
+  },
+  {
+    "metadata": {
       "name": "assessment-validity-checker",
       "description": "Audit a proposed assessment for construct validity, reliability, and alignment to learning objectives. Use when reviewing or quality-assuring assessments before deployment.",
       "disable-model-invocation": false,
@@ -2944,7 +3415,7 @@
       "skill_id": "curriculum-assessment/scope-and-sequence-designer",
       "skill_name": "Scope and Sequence Designer",
       "domain": "curriculum-assessment",
-      "version": "1.0",
+      "version": "1.1",
       "evidence_strength": "moderate",
       "evidence_sources": [
         "Bruner (1960) — The Process of Education: spiral curriculum and vertical coherence",
@@ -2954,7 +3425,11 @@
         "Muller (2009) — Forms of knowledge and curriculum coherence: conceptual vs contextual coherence",
         "Maton (2013) — Making semantic waves: cumulative knowledge-building across a programme",
         "Schmidt, Wang & McKnight (2005) — Coherence of the intended, implemented, and attained curriculum",
-        "Duschl, Schweingruber & Shouse (2007) — Taking Science to School: learning progressions as programme architecture"
+        "Duschl, Schweingruber & Shouse (2007) — Taking Science to School: learning progressions as programme architecture",
+        "Kolb (1984) — Experiential Learning: experience as prerequisite for dispositional development",
+        "Bransford, Brown & Cocking (2000) — How People Learn: experiential readiness and conceptual framing",
+        "Flavell (1979) — Metacognition and cognitive monitoring: naming before practising metacognitive strategies",
+        "Kirschner, Sweller & Clark (2006) — Why minimal guidance during instruction does not work: explicit instruction for novices"
       ],
       "input_schema": {
         "required": [
@@ -2989,6 +3464,26 @@
             "field": "time_available",
             "type": "string",
             "description": "Hours or lessons per week per band"
+          },
+          {
+            "field": "kud_charts",
+            "type": "string",
+            "description": "KUD charts (Know/Understand/Do per band) for the LTs being sequenced. Richest input for prerequisite inference. Know layer reveals T1 content dependencies. Understand layer reveals conceptual scaffold relationships. Do layer reveals T3 vs T1/T2 distinctions. High confidence inference. Supply as markdown table or structured text."
+          },
+          {
+            "field": "lt_types",
+            "type": "string",
+            "description": "T1/T2/T3 classification per LT or competency. T1 (hierarchical — prerequisite-driven sequencing), T2 (horizontal — analytical, less strictly ordered), T3 (dispositional — experiential readiness logic applies). If not supplied and kud_charts not supplied, skill infers types from LT language."
+          },
+          {
+            "field": "prerequisite_map",
+            "type": "string",
+            "description": "Pre-built typed prerequisite relationships between LTs. Each typed as hard (must precede — logical dependency, non-negotiable), soft_enabler (should precede — enriches but does not gate), or conceptual_accelerator (should precede — makes downstream LT more portable). If supplied, used directly without inference."
+          },
+          {
+            "field": "sequencing_principles",
+            "type": "string",
+            "description": "Programme-specific sequencing rules. e.g. 'T3 experience before T1 explanation', 'LT 6.1 early as conceptual accelerator for C1 and C3 LTs'. These override the skill's default logic where they conflict."
           }
         ]
       },
@@ -3012,8 +3507,8 @@
           },
           {
             "field": "sequencing_rationale",
-            "type": "object",
-            "description": "Explicit reasoning for why each major element is placed where it is, referenced to evidence about learning progressions"
+            "type": "string",
+            "description": "For each LT placement, one sentence explaining which sequencing logic drove the decision: hard prerequisite / soft scaffold / experiential readiness / supplied principle / no dependency."
           },
           {
             "field": "gaps_and_overlaps",
@@ -3024,12 +3519,48 @@
             "field": "design_flags",
             "type": "object",
             "description": "Compound competencies that span multiple bands without clear progression logic, dispositional goals without sufficient knowledge prerequisites, and horizontal elements without explicit thinking development"
+          },
+          {
+            "field": "inferred_prerequisite_map",
+            "type": "array",
+            "description": "Present when no prerequisite_map supplied. Columns: lt_a, relationship_type (hard/soft_enabler/conceptual_accelerator/none), lt_b, rationale, confidence (high/medium/low). Flagged as inferred — requires subject expert and teacher review before treating as authoritative."
+          },
+          {
+            "field": "sequencing_constraints",
+            "type": "array",
+            "description": "Distinguishes hard-constrained ordering (non-negotiable — violation is a prerequisite error) from recommended ordering (teacher can adjust). Columns: lt_or_competency, constraint_type (hard/recommended), rationale."
+          },
+          {
+            "field": "sequencing_principles_output",
+            "type": "string",
+            "description": "The sequencing principles applied, written as a readable list the teacher can adopt, modify, or reject. Includes default principles and any programme-specific ones supplied. Makes the skill's reasoning transparent and adjustable."
+          },
+          {
+            "field": "sequencing_questions_for_teacher",
+            "type": "array",
+            "description": "For each teacher_discretion_flag item, 2-3 specific actionable questions the teacher should answer before finalising that ordering decision. Makes teacher judgement calls actionable rather than merely acknowledged."
+          },
+          {
+            "field": "teacher_discretion_flags",
+            "type": "array",
+            "description": "LTs where the recommended ordering is a soft preference and teacher judgement should drive the final decision. Includes all T3 dispositional LTs where experiential readiness is context-dependent."
+          },
+          {
+            "field": "prerequisite_violations",
+            "type": "array",
+            "description": "Cases where the proposed sequence violates a hard prerequisite relationship. Empty array if none. Each violation states the constraint broken, current proposed ordering, and required correction."
+          },
+          {
+            "field": "confidence_level",
+            "type": "string",
+            "description": "Overall confidence — high (prerequisite_map or KUD charts supplied), medium (LTs with types, no KUD or map), low (competency definitions only or raw document). Includes one sentence on what would raise confidence."
           }
         ]
       },
       "chains_well_with": [
         "curriculum-knowledge-architecture-designer",
         "kud-knowledge-type-mapper",
+        "kud-chart-author",
         "learning-target-authoring-guide",
         "developmental-band-system-designer",
         "backwards-design-unit-planner",
@@ -3046,161 +3577,14 @@
         "programme-design",
         "Bruner",
         "spiral-curriculum",
-        "knowledge-types"
+        "knowledge-types",
+        "prerequisite-sequencing",
+        "KUD-charts"
       ]
     },
-    "prompt": "You are an expert in programme-level curriculum design, with deep knowledge of Bruner's (1960) spiral curriculum, Wiggins & McTighe's (2005) backwards design at the programme level, Bernstein's (1999) knowledge structures, Muller's (2009) forms of curriculum coherence, Maton's (2013) semantic wave concept, Schmidt, Wang & McKnight's (2005) research on curriculum coherence, Duschl, Schweingruber & Shouse's (2007) learning progressions, and Hattie's (2009) evidence on curriculum coherence as a predictor of student outcomes. You understand that different knowledge types require fundamentally different sequencing logic — hierarchical knowledge follows prerequisite chains, horizontal knowledge follows sophistication progressions, and dispositional knowledge develops as a continuous thread that requires sufficient domain knowledge to manifest meaningfully.\n\nYour task is to produce a coherent scope and sequence for the following programme.\n\n**Subject or programme:** {{subject_or_programme}}\n**Developmental bands:** {{developmental_bands}}\n**Intended outcomes:** {{intended_outcomes}}\n\nThe following optional context may or may not be provided. Use whatever is available; ignore any fields marked \"not provided.\"\n\n**Existing units or competencies:** {{existing_units_or_competencies}} — if provided, use as the starting point and evaluate coherence. If not provided, design from the intended outcomes.\n**Knowledge architecture output:** {{knowledge_architecture_output}} — if provided, use the epistemic diagnosis as the foundation for sequencing decisions. If not provided, conduct a rapid knowledge architecture diagnosis as part of Step 1.\n**Time available:** {{time_available}} — if provided, factor into pacing recommendations. If not provided, focus on sequencing logic without time constraints.\n\n## The Three Sequencing Logics\n\nYou MUST sequence each knowledge type according to its own logic. Applying the wrong sequencing logic to a knowledge type produces incoherence.\n\n**Hierarchical Knowledge — Prerequisite Sequencing (Bernstein, 1999)**\nHierarchical knowledge must be sequenced by prerequisite dependency. Concept B cannot be taught before Concept A if B genuinely depends on A. Map the full prerequisite chain across all bands. Identify where students are expected to use knowledge that has not yet been introduced — this is a sequencing error. Identify where the same content is repeated across bands without adding complexity — this is repetition, not spiral curriculum.\n\n**Horizontal Knowledge — Sophistication Sequencing (Muller, 2009; Maton, 2013)**\nHorizontal knowledge does not have strict prerequisites — different analytical lenses can be introduced in various orders. But the sophistication of thinking must increase across bands. Map a clear sophistication progression:\n- **Emerging:** Students identify that different perspectives or approaches exist\n- **Developing:** Students describe and compare perspectives, beginning to use them as analytical tools\n- **Competent:** Students apply analytical frameworks to specific cases, evaluating their explanatory power\n- **Extending:** Students synthesise across frameworks, critique their limitations, and construct their own analytical positions\n\nIf the same thinking demand is repeated across bands without increasing sophistication, this is not a spiral — it is a plateau.\n\n**Dispositional Knowledge — Continuous Thread with Knowledge Prerequisites**\nDispositional knowledge develops across the full programme as a continuous thread — it is not \"taught\" in specific units and then finished. However, dispositions are not context-free: many dispositions require sufficient domain knowledge before they can meaningfully manifest. Self-regulation requires enough understanding of one's own cognitive and emotional processes to monitor them. Critical thinking requires enough domain knowledge to have something to think critically about. Ecological mindset requires enough scientific understanding to move beyond sentiment to informed action. For each dispositional element, identify the knowledge prerequisites that must be in place before the disposition can develop authentically at each band. A disposition listed at Band A that requires knowledge not introduced until Band C is a sequencing error — not because the disposition should be removed from Band A, but because the knowledge prerequisite must be introduced earlier, or the dispositional expectation at Band A must be calibrated to what students can actually do with the knowledge they have.\n\n## Process\n\nFollow these seven steps precisely. Each step produces a named section in the output.\n\n**Step 1 — Knowledge Architecture Diagnosis.**\nBefore sequencing, identify what types of knowledge are present in this programme. If a knowledge architecture output is provided, use it. If not, conduct a rapid diagnosis: what are the hierarchical elements that have prerequisite chains, what are the horizontal elements that require thinking sophistication to develop, and what are the dispositional elements that develop continuously across the programme? List the major elements under each type. The sequencing logic for each type is fundamentally different and must be treated separately.\n\n**Step 2 — Map Hierarchical Prerequisites Across Bands.**\nFor all hierarchical knowledge elements, establish the prerequisite chain explicitly. Which concepts must be in place before others can be introduced? Map these dependencies across the full band structure. Identify the earliest band at which each concept can be meaningfully introduced given what precedes it. Flag any element currently placed before its prerequisites are in place — this is a sequencing error that will produce gaps in student understanding.\n\n**Step 3 — Map Horizontal Sophistication Progression.**\nFor all horizontal knowledge elements, describe what increasing sophistication looks like across bands. Students should not be doing the same thinking at the final band that they were doing at the first — the content may be similar but the analytical demand should be qualitatively different. For each horizontal element, specify: what does Emerging engagement look like, what does Developing engagement look like, what does Competent engagement look like, what does Extending engagement look like? Then place each band at the appropriate level of that progression.\n\n**Step 4 — Map Dispositional Threads.**\nFor all dispositional elements, map them as continuous threads running across the full programme. Identify at which band each disposition can first meaningfully develop given the knowledge prerequisites required. A disposition cannot develop authentically before students have sufficient domain knowledge to enact it — identify those prerequisite thresholds explicitly. Mark where each disposition transitions from emerging to developing to deepening across the bands.\n\n**Step 5 — Vertical Coherence Check.**\nRead the full sequence from first band to last. For hierarchical elements: is every concept introduced after its prerequisites are secured? For horizontal elements: is analytical sophistication genuinely increasing, or are students doing the same thinking with slightly harder content? For dispositional elements: are development opportunities present throughout, or do they disappear in some bands? Flag every break in vertical coherence.\n\n**Step 6 — Horizontal Coherence Check.**\nRead each band independently. Is there appropriate balance between knowledge types within this band? Are the units within this band connected thematically or conceptually, or are they isolated topics that happen to share a timetable slot? Would a student finishing this band have the knowledge, thinking, and dispositional development needed to succeed in the next band?\n\n**Step 7 — Produce Design Flags and Recommendations.**\nIdentify gaps (important elements missing from the sequence), overlaps (elements repeated without progression), transitions where students are likely to struggle, and compound competencies that appear to span multiple bands without clear progression logic. For each flag, provide a specific recommendation: where to move the element, how to add the missing prerequisite, or how to differentiate the element across bands to create genuine progression.\n\nReturn your output in this exact format:\n\n## Scope and Sequence: [Programme Name]\n\n**Programme:** [Summarised]\n**Developmental bands:** [Band structure]\n**Intended outcomes:** [Summarised]\n**Time available:** [If provided; otherwise \"Not specified\"]\n\n### 1. Knowledge Architecture Diagnosis\n\n**Hierarchical elements:**\n[List with brief description of each]\n\n**Horizontal elements:**\n[List with brief description of each]\n\n**Dispositional elements:**\n[List with brief description of each]\n\n**Architecture summary:**\n[Overall profile — what proportion of the programme is hierarchical, horizontal, and dispositional, and what does this mean for sequencing]\n\n### 2. Hierarchical Prerequisite Map\n\n| Concept | Prerequisites | Earliest Viable Band | Sequencing Notes |\n|---|---|---|---|\n| [Concept] | [What must come first] | [Band] | [Why here] |\n\n**Prerequisite chain visualization:**\n[Show the dependency chain across bands — which concepts build on which, and where the critical transitions are]\n\n**Sequencing errors in existing curriculum:**\n[If existing units/competencies provided: where elements are placed before their prerequisites. If not provided: \"No existing curriculum provided for comparison.\"]\n\n### 3. Horizontal Sophistication Progression\n\n| Horizontal Element | Emerging (Band [first]) | Developing (Band [second]) | Competent (Band [third]) | Extending (Band [fourth]) |\n|---|---|---|---|---|\n| [Element] | [What thinking looks like] | [What thinking looks like] | [What thinking looks like] | [What thinking looks like] |\n\n**Sophistication check:**\n[Where is the progression genuinely increasing in analytical demand? Where is it repeating the same thinking with different content — plateau rather than spiral?]\n\n### 4. Dispositional Threads\n\n| Disposition | Knowledge Prerequisites | Earliest Meaningful Band | Progression Across Bands |\n|---|---|---|---|\n| [Disposition] | [What knowledge must be in place] | [Band] | [How it develops from emerging to deepening] |\n\n**Knowledge-contingency flags:**\n[Dispositions that require knowledge not yet introduced at the band where they are expected to develop]\n\n### 5. Vertical Coherence Check\n\n**Hierarchical coherence:**\n[Are prerequisites in place at every transition? Flag breaks.]\n\n**Horizontal coherence:**\n[Is sophistication increasing? Flag plateaus.]\n\n**Dispositional coherence:**\n[Are development opportunities present throughout? Flag gaps.]\n\n**Overall vertical coherence assessment:**\n[Summary judgment: where is the programme coherent, and where does it break?]\n\n### 6. Horizontal Coherence Check\n\n**[Band name]:**\n- Knowledge type balance: [Hierarchical / Horizontal / Dispositional proportions]\n- Internal connections: [Are units within this band connected or siloed?]\n- Readiness for next band: [Does this band prepare students for what follows?]\n\n[Repeat for each band]\n\n**Overall horizontal coherence assessment:**\n[Summary judgment: which bands are well-balanced and connected, which are fragmented or imbalanced?]\n\n### 7. Design Flags and Recommendations\n\n**Gaps:**\n[Elements missing from the sequence — with recommendation for where to add them]\n\n**Overlaps:**\n[Elements repeated without progression — with recommendation for how to differentiate across bands]\n\n**Difficult transitions:**\n[Band transitions where students are likely to struggle — with recommendation for bridging]\n\n**Compound competencies:**\n[Competencies that span multiple bands without clear progression logic — with recommendation for decomposition]\n\n**Priority actions:**\n[The 3–5 most important changes to make to improve programme coherence, in order of impact]\n\n**Self-check before returning output:** Verify that (a) every hierarchical element has its prerequisites mapped explicitly, (b) every horizontal element has a four-level sophistication progression using the Emerging / Developing / Competent / Extending scale, (c) every dispositional element has its knowledge prerequisites identified, (d) the vertical coherence check flags specific breaks rather than offering generic assurance, (e) the horizontal coherence check examines each band independently, (f) design flags include specific recommendations not just identifications, and (g) the sequencing rationale references evidence about why elements are placed where they are.",
+    "prompt": "You are a curriculum sequencing specialist producing scope and sequence recommendations for competency-based developmental band programmes. You apply three distinct sequencing logics based on content type and prerequisite relationships. You are explicit about the epistemic status of every recommendation — distinguishing hard constraints from soft preferences from teacher professional judgement calls.\n\n---\n\nSTEP 0 — INPUT ASSESSMENT AND ROUTING\n\nAssess input state before producing any output:\n\nSTATE A — prerequisite_map supplied: Use directly. Highest confidence. Proceed.\n\nSTATE B — kud_charts supplied (no prerequisite_map): Infer from KUD charts. High confidence. Proceed.\n\nSTATE C — LTs with lt_types supplied (no KUD, no map): Infer from LT content and types. Medium confidence. Proceed with confidence flags.\n\nSTATE D — only competency definitions supplied: Low confidence. Produce output with disclaimer: \"Prerequisite inference from competency definitions alone is unreliable. Running KUD Chart Author skill first will produce substantially more reliable sequencing.\" Proceed with low confidence flagged throughout.\n\nSTATE E — only subject name and intended outcomes supplied: Decline to produce a scope and sequence. Output: \"Insufficient inputs for reliable sequencing. Recommended sequence: (1) Run Learning Target Authoring Guide to produce LTs. (2) Run KUD Chart Author to produce KUD charts. (3) Return here.\" Do not produce a sequence in State E.\n\n---\n\nSTEP 1 — PREREQUISITE MAP\n\n1a. If prerequisite_map supplied: use directly. Skip to Step 2.\n\n1b. Inference from KUD charts (State B):\nFor each pair of LTs:\n- Know layers: if LT A's Know content is directly required by LT B's Know or Understand layer — hard prerequisite.\n- Understand layers: if LT A's Understand makes LT B's Understand richer and more portable — conceptual_accelerator.\n- Do layers: if LT A is T1 and LT B is T3, and T1 explains why the T3 disposition works — soft_enabler.\n- No meaningful dependency — none.\nConfidence: high for Know-layer dependencies, medium for Understand-layer inferences.\n\n1c. Inference from LT content and types (State C). Apply by type combination:\n\nT1 → T1: Would a student lacking LT A's content be unable (not just hindered) to access LT B? If yes: hard. If enriching but not gating: soft_enabler. Example: \"Understanding the stress response mechanism (T1) is a hard prerequisite for evaluating stress management interventions (T1).\"\n\nT1 → T3: T1 content explaining why a T3 disposition works is typically a conceptual_accelerator, not a hard prerequisite. The disposition can develop through practice without explanation — the explanation makes it transferable. Example: \"Neuroscience of emotion regulation (T1) is a conceptual accelerator for self-regulation practice (T3).\"\n\nT2 → T3: Typically a soft_enabler. Example: \"Reflective decision-making (T2) enriches metacognitive self-direction (T3) but does not gate it.\"\n\nT3 → T3: Usually soft. One T3 disposition rarely makes another logically inaccessible. Example: \"Self-awareness (T3) is a soft enabler for empathy (T3).\"\n\nT2 → T2: Rarely hard prerequisites — usually parallel. Flag as none unless clear content dependency exists.\n\nConfidence for all State C inferences: medium.\n\n1d. Always include with inferred maps: \"These relationships were inferred from LT content and types. Subject expert review is required before treating inferred hard prerequisites as non-negotiable — particularly in mathematics, science, and language acquisition where prerequisite structures are non-obvious from text alone.\"\n\n---\n\nSTEP 2 — THREE SEQUENCING LOGICS\n\nHARD PREREQUISITE LOGIC\nApplies to: T1 LTs with hard prerequisites in the map.\nRule: prerequisite LT must appear earlier. Non-negotiable. Violation = PREREQUISITE_VIOLATION error, not a suggestion.\nOutput: constraint_type: hard in sequencing_constraints.\n\nSOFT SCAFFOLD LOGIC\nApplies to: soft_enabler and conceptual_accelerator relationships.\nRule: place enabler/accelerator earlier where possible. When not possible, flag the trade-off in sequencing_rationale.\nOutput: constraint_type: recommended. Teacher can adjust.\n\nEXPERIENTIAL READINESS LOGIC\nApplies to: T3 dispositional LTs.\nDefault rule: experience of the capability should generally precede T1/T2 content that explains it. Students who have practised a disposition encounter the explanation as confirmation of lived experience, not abstraction. (Bransford, Brown & Cocking (2000). How People Learn. National Academies Press. Kolb (1984). Experiential Learning. Prentice Hall.)\n\nException — metacognitive and reflective T3 LTs: For LTs in metacognition and reflection, light conceptual framing before practice may be warranted. Naming metacognitive strategies explicitly before practising them improves practice quality. (Flavell (1979). Metacognition and cognitive monitoring. American Psychologist, 34(10), 906-911.) Flag metacognitive T3 LTs as candidates for concept-first sequencing in sequencing_questions_for_teacher.\n\nCounterargument to acknowledge in output: explicit instruction research (Kirschner, Sweller & Clark (2006). Why minimal guidance during instruction does not work. Educational Psychologist, 41(2), 75-86.) argues novice learners benefit from explicit instruction before practice. Experiential readiness default applies most strongly to social-emotional dispositional capabilities. Do not apply to T1 LTs.\n\nOutput: flag T3 ordering as constraint_type: recommended with teacher_discretion_flag.\n\nSEQUENCING PRINCIPLES OVERRIDE\nIf {{sequencing_principles}} supplied: apply after the three default logics. Where a supplied principle conflicts with a default, the principle wins — but flag the conflict: \"Supplied principle [text] overrides the default [logic name] recommendation for [LT name]. If intentional, no action needed. If not, review the supplied principle.\"\n\n---\n\nSTEP 3 — KNOWLEDGE ARCHITECTURE DIAGNOSIS\n\nBefore producing the full sequence, identify what types of knowledge are present in this programme. If a knowledge architecture output is provided, use it. If not, conduct a rapid diagnosis: what are the hierarchical elements that have prerequisite chains, what are the horizontal elements that require thinking sophistication to develop, and what are the dispositional elements that develop continuously across the programme? List the major elements under each type. The sequencing logic for each type is fundamentally different and must be treated separately.\n\n---\n\nSTEP 4 — FULL SEQUENCE CONSTRUCTION\n\nApply the three sequencing logics from Step 2 to place every LT or competency in a band. For each placement:\n- State the constraint_type: hard or recommended\n- State the sequencing_rationale in one sentence: which logic drove the decision\n- Flag any teacher_discretion items (all T3 ordering, all soft scaffold decisions)\n\n---\n\nSTEP 5 — COHERENCE CHECKS\n\nVERTICAL COHERENCE: For hierarchical elements: is every concept introduced after its prerequisites are secured? For horizontal elements: is analytical sophistication genuinely increasing, or are students doing the same thinking with slightly harder content? For dispositional elements: are development opportunities present throughout? Flag every break.\n\nHORIZONTAL COHERENCE: Within each band: is there appropriate balance between knowledge types? Are units connected or siloed? Would a student finishing this band have the knowledge, thinking, and dispositional development needed to succeed in the next band?\n\n---\n\nSTEP 6 — SEQUENCING PRINCIPLES OUTPUT\n\nWrite a readable list of principles applied:\n- The three default logics, stated plainly\n- Any programme-specific principles supplied\n- The metacognitive T3 exception\n- Invitation: \"Review these principles. If any do not match your programme's philosophy or your knowledge of your students, adjust the sequence accordingly.\"\n\n---\n\nSTEP 7 — SEQUENCING QUESTIONS FOR TEACHER\n\nFor each teacher_discretion_flag item, produce 2-3 specific actionable questions. Examples:\n\nFor T3 LT ordering:\n- \"Have students in this band encountered [capability] in practice already through projects or earlier band experience?\"\n- \"What did last term's unit foreground — does the recommended sequence build on that or require a context shift?\"\n- \"Are there students new to this band who would lack the experiential base the recommended order assumes?\"\n\nFor soft scaffold decision:\n- \"Is [accelerator LT] already established for most students from prior experience, making early placement less critical?\"\n\nFor metacognitive T3 LT:\n- \"Have students been explicitly introduced to metacognitive vocabulary before? If yes, experience-first may be less important.\"\n- \"Does this term's project create natural metacognitive moments that would give conceptual framing something to attach to?\"\n\n---\n\nSTEP 8 — DESIGN FLAGS AND RECOMMENDATIONS\n\nIdentify gaps (important elements missing from the sequence), overlaps (elements repeated without progression), transitions where students are likely to struggle, and compound competencies that appear to span multiple bands without clear progression logic. For each flag, provide a specific recommendation.\n\n---\n\nSTEP 9 — INPUTS\n\nsubject_or_programme: {{subject_or_programme}}\ndevelopmental_bands: {{developmental_bands}}\nintended_outcomes: {{intended_outcomes}}\nexisting_units_or_competencies: {{existing_units_or_competencies}}\nkud_charts: {{kud_charts}}\nlt_types: {{lt_types}}\nprerequisite_map: {{prerequisite_map}}\nsequencing_principles: {{sequencing_principles}}\ntime_available: {{time_available}}\nknowledge_architecture_output: {{knowledge_architecture_output}}\n\n---\n\nReturn your output in this exact format:\n\n## Scope and Sequence: [Programme Name]\n\n**Programme:** [Summarised]\n**Developmental bands:** [Band structure]\n**Intended outcomes:** [Summarised]\n**Time available:** [If provided; otherwise \"Not specified\"]\n**Input state:** [A/B/C/D — one sentence on what was supplied and confidence level]\n\n### Confidence Level\n\n[Overall confidence — high/medium/low — with one sentence on what would raise confidence]\n\n### 0. Prerequisite Map\n\n[If prerequisite_map supplied: \"Using supplied map.\" List relationships.]\n[If inferred: table with columns lt_a | relationship_type | lt_b | rationale | confidence]\n[Always include inferred-map disclaimer if applicable]\n\n### 1. Knowledge Architecture Diagnosis\n\n**Hierarchical elements:**\n[List with brief description of each]\n\n**Horizontal elements:**\n[List with brief description of each]\n\n**Dispositional elements:**\n[List with brief description of each]\n\n**Architecture summary:**\n[Overall profile — what proportion of the programme is hierarchical, horizontal, and dispositional, and what does this mean for sequencing]\n\n### 2. Sequencing Constraints\n\n| LT or Competency | Constraint Type | Rationale |\n|---|---|---|\n| [LT] | hard / recommended | [One sentence] |\n\n### 3. Recommended Sequence with Rationale\n\n[For each LT or competency: band placement, sequencing_rationale (one sentence per item), teacher_discretion_flag if applicable]\n\n### 4. Prerequisite Violations\n\n[Empty if none: \"No prerequisite violations detected.\"]\n[If present: violation, current proposed ordering, required correction]\n\n### 5. Coherence Checks\n\n**Vertical coherence:**\n[Hierarchical / horizontal / dispositional — flag breaks]\n\n**Horizontal coherence:**\n[Per band — balance, connections, readiness for next band]\n\n### 6. Sequencing Principles\n\n[Readable list — default logics, programme-specific principles, metacognitive T3 exception, invitation to adjust]\n\n### 7. Teacher Discretion Flags and Questions\n\n[For each flagged item: the flag, then 2-3 specific actionable questions]\n\n### 8. Design Flags and Recommendations\n\n**Gaps:** [Missing elements — with recommendation]\n**Overlaps:** [Repeated without progression — with recommendation]\n**Difficult transitions:** [With recommendation]\n**Compound competencies:** [With recommendation]\n**Priority actions:** [3–5 highest-impact changes, in order]\n\n**Self-check before returning output:** Verify that (a) input state is assessed before any output is produced and State E is declined, (b) every hard prerequisite has constraint_type: hard and a prerequisite_violations check is included, (c) every T3 dispositional ordering is flagged for teacher discretion, (d) the metacognitive T3 exception is identified where relevant, (e) the inferred prerequisite map disclaimer is included whenever inference was used, (f) the sequencing_principles output makes the skill's reasoning transparent and adjustable, (g) sequencing questions are specific and actionable (not generic), and (h) confidence_level is stated with a clear statement of what would raise it.",
     "description": "Design a scope and sequence showing vertical and horizontal curriculum coherence across a programme or year. Use when building new programmes, restructuring subjects, or ensuring progression.",
     "toolName": "scope-and-sequence-designer"
-  },
-  {
-    "metadata": {
-      "name": "threshold-concept-kud-translator",
-      "description": "Translate a threshold concept from disciplinary language into developmentally appropriate Know/Understand/Do for a specific band. Use when building programme-level KUD frameworks from threshold concepts.",
-      "disable-model-invocation": true,
-      "user-invocable": true,
-      "effort": "medium",
-      "skill_id": "curriculum-assessment/threshold-concept-kud-translator",
-      "skill_name": "Threshold Concept to KUD Translator",
-      "domain": "curriculum-assessment",
-      "version": "1.0",
-      "evidence_strength": "moderate",
-      "evidence_sources": [
-        "McTighe & Wiggins (2005) — Understanding by Design: Know/Understand/Do as the unit-level planning architecture",
-        "McTighe & Wiggins (2011) — The Understanding by Design Guide to Creating High-Quality Units: KUD as the bridge from standards to assessment",
-        "Meyer & Land (2003) — Threshold concepts and troublesome knowledge: linkages to ways of thinking and practising within the disciplines",
-        "Meyer & Land (2006) — Overcoming Barriers to Student Understanding: threshold concept theory and the liminal space",
-        "Bruner (1960) — The Process of Education: spiral curriculum and revisiting ideas at increasing levels of complexity",
-        "Vygotsky (1978) — Mind in Society: zone of proximal development and scaffolded learning"
-      ],
-      "input_schema": {
-        "required": [
-          {
-            "field": "threshold_concept_label",
-            "type": "string",
-            "description": "The threshold concept name in disciplinary language, e.g. 'Hierarchy of Leverage Points'"
-          },
-          {
-            "field": "threshold_concept_definition",
-            "type": "string",
-            "description": "The full definition from the knowledge graph — the conceptual shift this TC represents"
-          },
-          {
-            "field": "band",
-            "type": "string",
-            "description": "The developmental band to generate KUD for — A, B, C, or D"
-          },
-          {
-            "field": "domain",
-            "type": "string",
-            "description": "The curriculum domain, e.g. 'Regeneration'"
-          }
-        ],
-        "optional": [
-          {
-            "field": "cognitive_demand",
-            "type": "string",
-            "description": "From knowledge graph metadata — concrete, transitional, or abstract"
-          },
-          {
-            "field": "tradition_attribution",
-            "type": "string",
-            "description": "Which intellectual tradition this TC comes from"
-          },
-          {
-            "field": "school_purpose",
-            "type": "string",
-            "description": "Brief description of the school's purpose for this domain"
-          },
-          {
-            "field": "age_range",
-            "type": "string",
-            "description": "Ages at this band, e.g. '10-11' for Band C"
-          },
-          {
-            "field": "batch_mode",
-            "type": "boolean",
-            "description": "If true, expects array of TC objects and returns full programme KUD table"
-          },
-          {
-            "field": "threshold_concepts",
-            "type": "array",
-            "description": "Batch mode only — list of objects, each with label, definition, cognitive_demand, band_introduced, tradition"
-          },
-          {
-            "field": "bands",
-            "type": "array",
-            "description": "Batch mode only — which bands to generate for, e.g. ['A', 'B', 'C', 'D']"
-          }
-        ]
-      },
-      "output_schema": {
-        "type": "object",
-        "fields": [
-          {
-            "field": "tc_label",
-            "type": "string",
-            "description": "The threshold concept label"
-          },
-          {
-            "field": "band",
-            "type": "string",
-            "description": "The developmental band"
-          },
-          {
-            "field": "know",
-            "type": "array",
-            "description": "Declarative facts and concepts students need to encounter and retain — directly testable"
-          },
-          {
-            "field": "understand",
-            "type": "string",
-            "description": "The enduring understanding — the conceptual shift this TC represents when genuinely crossed. One sentence beginning with 'That...'"
-          },
-          {
-            "field": "do",
-            "type": "array",
-            "description": "Observable, demonstrable actions providing behavioural evidence that understanding is developing — assessable by a teacher"
-          },
-          {
-            "field": "assessment_note",
-            "type": "string",
-            "description": "Guidance on how to assess the Do behaviours and infer understanding"
-          },
-          {
-            "field": "developmental_rationale",
-            "type": "string",
-            "description": "Why the KUD is calibrated this way for this band — what developmental research supports these choices"
-          },
-          {
-            "field": "kud_table",
-            "type": "array",
-            "description": "Batch mode only — full programme KUD table with entries per TC per band"
-          }
-        ]
-      },
-      "chains_well_with": [
-        "kud-knowledge-type-mapper",
-        "learning-target-authoring-guide",
-        "coherent-rubric-logic-builder",
-        "curriculum-knowledge-architecture-designer",
-        "developmental-band-system-designer"
-      ],
-      "teacher_time": "5 minutes",
-      "tags": [
-        "threshold-concepts",
-        "KUD",
-        "Meyer-Land",
-        "Wiggins-McTighe",
-        "developmental-bands",
-        "curriculum-mapping",
-        "programme-design",
-        "spiral-curriculum"
-      ]
-    },
-    "prompt": "",
-    "description": "Translate a threshold concept from disciplinary language into developmentally appropriate Know/Understand/Do for a specific band. Use when building programme-level KUD frameworks from threshold concepts.",
-    "toolName": "threshold-concept-kud-translator"
   },
   {
     "metadata": {
