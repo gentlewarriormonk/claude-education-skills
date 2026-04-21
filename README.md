@@ -56,7 +56,8 @@ Connect via the MCP server to access all 111 skills in any Claude conversation â
 ### Claude Code CLI
 
 ```
-/plugin install GarethManning/claude-education-skills
+/plugin marketplace add GarethManning/claude-education-skills
+/plugin install claude-education-skills
 ```
 
 Skills load with progressive disclosure â€” metadata only until a skill is actually needed.

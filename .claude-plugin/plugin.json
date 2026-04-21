@@ -3,9 +3,10 @@
   "display_name": "Claude Education Skills Library",
   "version": "2.0.0",
   "description": "106 evidence-based pedagogical skills for educators. Curriculum design, assessment, learning science, wellbeing, professional learning, and more.",
-  "author": "Gareth Manning",
+  "author": {
+    "name": "Gareth Manning",
+    "url": "https://github.com/GarethManning"
+  },
   "homepage": "https://github.com/GarethManning/claude-education-skills",
-  "license": "CC BY-SA 4.0",
-  "skills": "skills/",
-  "min_claude_version": "claude-sonnet-4-6"
+  "license": "CC BY-SA 4.0"
 }
