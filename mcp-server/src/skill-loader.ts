@@ -17,9 +17,15 @@ const IGNORED_FILES = new Set([
 const IGNORED_DIRS = new Set(["schemas", "mcp-server", ".git", "node_modules"]);
 
 function extractPrompt(content: string): string {
+  // Case 1: ## Prompt followed by a fenced code block (most common)
   const promptMatch = content.match(/## Prompt\s*\n+```[^\n]*\n([\s\S]*?)```/);
   if (promptMatch) return promptMatch[1].trim();
 
+  // Case 2: # Prompt (h1) with ## subheadings inside — stop at next h1
+  const h1Match = content.match(/^# Prompt[ \t]*\n([\s\S]*?)(?=^# [^#])/m);
+  if (h1Match) return h1Match[1].trim();
+
+  // Case 3: ## Prompt without code block — stop at next ## or ---
   const sectionMatch = content.match(/## Prompt\s*\n+([\s\S]*?)(?=\n## |\n---\s*$)/);
   if (sectionMatch) return sectionMatch[1].trim();
 
