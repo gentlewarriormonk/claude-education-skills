@@ -266,6 +266,23 @@ Source code, local setup, and development instructions: [`mcp-server/`](mcp-serv
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for inclusion criteria. The standard is high intentionally — every skill must be grounded in named evidence, honestly rated, and practically useful. The library's value depends on its rigour.
 
+### Workflow for adding or revising a skill
+
+After creating or editing a `SKILL.md`, run these steps before committing:
+
+```bash
+# 1. Regenerate the registry
+python3 scripts/generate-registry.py
+
+# 2. Rebuild the MCP server bundle — required after every skill addition or revision
+cd mcp-server && npm run bundle-skills && cd ..
+
+# 3. Stage both generated files alongside the skill
+git add skills/<domain>/<skill-name>/SKILL.md registry.json mcp-server/src/skills.json
+```
+
+**Why the bundle step matters:** the MCP server running on Vercel does not read `SKILL.md` files at deploy time. It serves a pre-built snapshot at `mcp-server/src/skills.json`. If you add or revise a skill without rebuilding the bundle and committing the result, the change will not appear in the live server — even after a Vercel redeploy. CI will catch this and fail the build.
+
 ---
 
 ## Credit

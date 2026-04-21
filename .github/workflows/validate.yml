@@ -23,3 +23,20 @@ jobs:
         run: |
           python3 scripts/generate-registry.py
           git diff --ignore-matching-lines='"generated"' --exit-code registry.json || (echo "registry.json is out of sync — run scripts/generate-registry.py" && exit 1)
+
+  bundle-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install mcp-server dependencies
+        working-directory: mcp-server
+        run: npm ci
+      - name: Rebuild skills bundle
+        working-directory: mcp-server
+        run: npm run bundle-skills
+      - name: Check bundle is in sync
+        run: |
+          git diff --exit-code mcp-server/src/skills.json || (echo "mcp-server/src/skills.json is out of sync — run: cd mcp-server && npm run bundle-skills" && exit 1)
