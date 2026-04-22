@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "generated": "2026-04-21T14:12:56.834709+00:00",
+  "generated": "2026-04-22T17:52:10.090352+00:00",
   "standard": "agent-skills-1.0",
   "total_skills": 111,
   "domains": [
@@ -17,7 +17,7 @@
     {
       "id": "curriculum-assessment",
       "label": "Curriculum & Assessment",
-      "skill_count": 14
+      "skill_count": 13
     },
     {
       "id": "eal-language-development",
@@ -57,7 +57,7 @@
     {
       "id": "original-frameworks",
       "label": "Original Frameworks",
-      "skill_count": 5
+      "skill_count": 6
     },
     {
       "id": "professional-learning",
@@ -779,7 +779,7 @@
       "name": "criterion-referenced-rubric-generator",
       "display_name": "Criterion-Referenced Rubric Generator",
       "domain": "curriculum-assessment",
-      "description": "Generate a criterion-referenced rubric with descriptive performance levels for a specific task and objective. Use when creating marking guides, setting expectations, or designing assessments.",
+      "description": "Generate a criterion-referenced rubric with descriptive performance levels for a specific task and objective. Use when creating marking guides, setting expectations, or designing assessments. For Manning methodology programmes using five levels where Competent equals success, use the coherent-rubric-logic-builder instead. This skill is for general curriculum assessment contexts.",
       "disable_model_invocation": false,
       "evidence_strength": "strong",
       "tags": [
@@ -902,42 +902,6 @@
         "input_field": null
       },
       "path": "skills/curriculum-assessment/differentiation-adapter/SKILL.md"
-    },
-    {
-      "id": "curriculum-assessment/dispositional-knowledge-assessment-designer",
-      "name": "dispositional-knowledge-assessment-designer",
-      "display_name": "Dispositional Knowledge Assessment Designer",
-      "domain": "curriculum-assessment",
-      "description": "Design multi-informant assessment approaches for dispositional competencies like curiosity or resilience. Use when assessing character strengths or competencies that written tests cannot capture.",
-      "disable_model_invocation": true,
-      "evidence_strength": "moderate",
-      "tags": [
-        "dispositional-knowledge",
-        "assessment",
-        "multi-informant",
-        "coaching-feedback",
-        "developmental-bands",
-        "agency",
-        "collaboration",
-        "self-regulation",
-        "observation",
-        "self-reflection"
-      ],
-      "teacher_time": "5 minutes",
-      "chains_with": [
-        "learning-target-authoring-guide",
-        "coherent-rubric-logic-builder",
-        "developmental-band-system-designer",
-        "curriculum-knowledge-architecture-designer",
-        "kud-knowledge-type-mapper"
-      ],
-      "chain_edges": {
-        "receives_from": [],
-        "feeds_into": [],
-        "output_field": null,
-        "input_field": null
-      },
-      "path": "skills/curriculum-assessment/dispositional-knowledge-assessment-designer/SKILL.md"
     },
     {
       "id": "curriculum-assessment/formative-assessment-technique-selector",
@@ -2529,7 +2493,7 @@
       "name": "coherent-rubric-logic-builder",
       "display_name": "Coherent Rubric Logic Builder",
       "domain": "original-frameworks",
-      "description": "Build a five-level rubric with internally coherent logic for a specific learning target within a developmental band. Use when creating rubrics for competency-based assessment systems.",
+      "description": "Build a five-level rubric with internally coherent logic for a specific learning target within a developmental band. Use for Manning methodology programmes \u2014 five levels, Competent = success. For general curriculum rubrics where Manning methodology does not apply, use the criterion-referenced rubric generator instead.",
       "disable_model_invocation": true,
       "evidence_strength": "emerging",
       "tags": [
@@ -2594,6 +2558,42 @@
         "input_field": null
       },
       "path": "skills/original-frameworks/developmental-band-system-designer/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/dispositional-knowledge-assessment-designer",
+      "name": "dispositional-knowledge-assessment-designer",
+      "display_name": "Dispositional Knowledge Assessment Designer",
+      "domain": "original-frameworks",
+      "description": "Design multi-informant assessment approaches for dispositional competencies like curiosity or resilience. Use when assessing character strengths or competencies that written tests cannot capture.",
+      "disable_model_invocation": true,
+      "evidence_strength": "moderate",
+      "tags": [
+        "dispositional-knowledge",
+        "assessment",
+        "multi-informant",
+        "coaching-feedback",
+        "developmental-bands",
+        "agency",
+        "collaboration",
+        "self-regulation",
+        "observation",
+        "self-reflection"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "learning-target-authoring-guide",
+        "coherent-rubric-logic-builder",
+        "developmental-band-system-designer",
+        "curriculum-knowledge-architecture-designer",
+        "kud-knowledge-type-mapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/dispositional-knowledge-assessment-designer/SKILL.md"
     },
     {
       "id": "original-frameworks/learning-target-authoring-guide",

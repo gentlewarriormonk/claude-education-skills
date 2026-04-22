@@ -8,9 +8,9 @@ effort: medium
 
 # EXISTING FIELDS
 
-skill_id: "curriculum-assessment/dispositional-knowledge-assessment-designer"
+skill_id: "original-frameworks/dispositional-knowledge-assessment-designer"
 skill_name: "Dispositional Knowledge Assessment Designer"
-domain: "curriculum-assessment"
+domain: "original-frameworks"
 version: "1.0"
 evidence_strength: "moderate"
 evidence_sources:
@@ -35,10 +35,10 @@ input_schema:
       description: "One sentence beginning 'The ability to...'"
     - field: "band"
       type: "string"
-      description: "Which developmental band — A, B, C, or D"
+      description: "Which developmental band — A, B, C, D, E, or F"
     - field: "band_descriptors"
       type: "string"
-      description: "The existing band-level descriptors for this competency (from Learning Target Authoring Guide output)"
+      description: "The observation indicator set for this LT from the LT authoring guide. Provide the band-level observation indicators (what the teacher notices), not an 'I can...' band statement."
     - field: "assessment_context"
       type: "string"
       description: "When and how assessment happens — e.g. end of term, ongoing, tied to a specific project"
@@ -54,7 +54,7 @@ input_schema:
       description: "From context engine: any caregiver observations if collected"
     - field: "school_feedback_structure"
       type: "string"
-      description: "Any existing feedback structure to integrate with — e.g. 'Reflection 360 at end of term', 'student-led conferences', 'portfolio reviews'"
+      description: "Any existing feedback structure to integrate with — e.g. 'end-of-term developmental review', 'student-led conferences', 'portfolio reviews'"
 output_schema:
   type: "object"
   fields:
@@ -106,14 +106,18 @@ Dispositional knowledge — agency, collaboration, ecological literacy, entrepre
 
 **Coaching vs evaluative feedback.** Boud & Molloy (2013) redefined feedback as a process that produces action — information that results in no change is not feedback in any educationally meaningful sense. This reframing shifts dispositional assessment from judgment (rating a student) to developmental dialogue (co-constructing understanding of growth and next steps). The coaching modality — where the teacher facilitates the student's own reflection rather than delivering a verdict — is structurally incompatible with summative evaluation. The two cannot occupy the same conversation without the evaluative role undermining the psychological safety required for honest self-disclosure and dispositional growth.
 
+**Documentation as inquiry.** Reggio Emilia pedagogical documentation (Malaguzzi; Krechevsky, Mardell, Rivard and Wilson, 2013) treats documentation as inquiry — observation generates questions rather than conclusions. This epistemological stance, treating observation notes as the beginning of professional inquiry rather than the end of an assessment process, directly informs the approach taken here. Rather than asking "what level is this student at?", the documentarian asks "what is this student's behaviour revealing, and what does it make me want to look for next?"
+
+**Ethnographic observation principles.** Thick description (Geertz, 1973), reflexivity, and the observer effect are all applicable to teacher observation of student dispositions. The observer effect — the act of formal observation changing what is observed — is the methodological grounding for the performative versus authentic guidance at Bands E and F, and supports prioritising naturalistic over announced observation contexts. Thick description — recording concrete, specific behaviour rather than abstract interpretations — is the basis for the observation note format guidance throughout this skill.
+
 ## Input Schema
 
 The teacher must provide:
 - **Competency name:** The dispositional competency. *e.g. "Agency" / "Collaboration" / "Self-Regulation" / "Ecological Literacy" / "Creative Confidence" / "Regenerative Mindset"*
 - **Competency definition:** One sentence beginning "The ability to..." *e.g. "The ability to initiate, plan, and complete meaningful work with increasing independence and purpose" / "The ability to work with others to produce outcomes that no individual could achieve alone"*
-- **Band:** Which developmental band — A, B, C, or D. *e.g. "Band D (ages 12–14)"*
+- **Band:** Which developmental band — A, B, C, D, E, or F. *e.g. "Band D (ages 12–14)" / "Band E (ages 13–15)" / "Band F (ages 15–17)"*
 - **Band descriptors:** The existing band-level descriptors for this competency. *e.g. "I can identify opportunities for action and take responsibility for planning and executing my own projects, seeking support when needed and adapting my approach based on feedback and changing conditions"*
-- **Assessment context:** When and how. *e.g. "End of term, feeding into Reflection 360 session with student, teacher, and parents" / "Ongoing, documented through project portfolio" / "Mid-year review, part of student-led conference"*
+- **Assessment context:** When and how. *e.g. "End of term, feeding into developmental review session with student, teacher, and parents" / "Ongoing, documented through project portfolio" / "Mid-year review, part of student-led conference"*
 
 Optional (injected by context engine if available):
 - **Existing observation data:** Notes already collected
@@ -152,6 +156,7 @@ Apply these evidence-based principles:
    - Specify frequency: how often should the teacher deliberately observe? What contexts are richest for observation?
    - Specify format: brief dated notes, not formal observation forms. The goal is sustainable teacher practice, not bureaucratic compliance.
    - Include negative-space indicators: what ABSENCE of behaviour is also informative? (A student who never initiates is evidence, not just a student who does.)
+   - **Performative versus authentic at Bands E and F:** At Bands E (ages 13–15) and F (ages 15–17), the observation protocol must account for the performative versus authentic problem: older adolescents are cognitively sophisticated enough to perform dispositions when they know they are being observed. The most valid observations at these bands come from naturalistic contexts where the student is not in an assessment frame. Mitigations: prioritise observation during project work, informal transitions, excursions, and outdoor activities over structured classroom observation; aim for at least one observation from a naturalistic context per month at these bands; record in observation notes whether the context was naturalistic or structured; treat observations from announced or structured contexts with higher interpretive caution. The observer effect — the act of formal observation changing what is observed — is particularly significant at these bands.
 
 2. **Student Self-Reflection Tool design (Zimmerman, 2000, 2002):**
    - MUST be calibrated to the developmental band:
@@ -159,6 +164,8 @@ Apply these evidence-based principles:
      - **Band B (ages 8–10):** Slightly more reflective. "What did you do when...?" "What was hard about...?" Begin connecting actions to patterns but keep it concrete.
      - **Band C (ages 10–12):** Emerging metacognition. "When do you find it easiest to [competency]? When is it hardest? Why do you think that is?" Begin comparing across contexts.
      - **Band D (ages 12–14):** Full metacognitive reflection. "How has your [competency] changed this term? What evidence would you point to? Where is it strongest and where does it still need development?" Invite the student to interpret their own patterns.
+     - **Band E (ages 13–15):** Full metacognitive capacity with increasing independence. Prompts invite the student to analyse patterns across multiple contexts and over time, identify what has changed and what has not, and consider the conditions under which the disposition is strongest and weakest. Students at this band can handle critical self-examination.
+     - **Band F (ages 15–17):** Near-autonomous self-direction. Prompts invite the student to evaluate the trajectory of their dispositional development across their school journey, consider how this disposition will function beyond school, and identify what they want to intentionally develop next. The student is treated as a near-peer in the conversation.
    - NEVER use self-rating scales (1-5, agree/disagree). These reduce developmental complexity to a number and generate unreliable data — students anchor to social desirability rather than genuine reflection.
    - Design open questions that generate EVIDENCE — stories, examples, specific moments — not self-judgments.
    - Include 4–6 questions maximum. More than this produces fatigue and superficial responses.
@@ -176,7 +183,7 @@ Apply these evidence-based principles:
    - Specifically address:
      a. **Pattern identification:** What patterns appear across sources? What does the student consistently do, across contexts and informants?
      b. **Contradiction handling:** What to do when sources disagree — e.g. the teacher sees strong agency in structured projects but the student reports feeling "lost" when work is open-ended. Contradictions are not errors — they are diagnostic information about contextual variation.
-     c. **Sufficient evidence:** How much evidence constitutes a confident developmental judgment? Rule of thumb: at least 3 independent observations showing a consistent pattern over at least 4 weeks. A single impressive moment is an event, not a developmental shift.
+     c. **Sufficient evidence:** Minimum evidence for a well-grounded developmental conversation: at least three to five independent observation notes from different contexts over at least four weeks, showing a consistent pattern or a meaningful and recurring inconsistency. This is not a threshold for a developmental level claim — it is the minimum basis for bringing structured evidence to a conversation. A single impressive moment is an event, not a pattern.
      d. **Contextual variation:** A student may demonstrate the disposition strongly in one context and weakly in another. This is NORMAL, not a problem. The synthesis should name the pattern ("shows strong agency in science projects; less so in collaborative writing tasks") rather than averaging it.
    - The output of synthesis is a developmental narrative, not a score. "Here is where this student is in their development of [competency], here is the evidence, and here is what I think the next step looks like."
 
@@ -187,6 +194,8 @@ Apply these evidence-based principles:
       - **Band A/B:** Affirm and name what you see. "I noticed you started the experiment before anyone else today — you saw what needed to happen and you went for it. That's agency." Do NOT present a score, a band level, or a comparison. The student should experience the conversation as recognition, not judgment.
       - **Band C:** Begin sharing patterns and inviting student interpretation. "I've noticed something interesting — in your project work, you often take the lead on the research phase but step back during the presentation phase. What do you think is going on there?" Share the observation; invite the student to make meaning.
       - **Band D:** Full transparency. Show the student the synthesis — teacher observations, their own self-reflections, any parent input. Invite them to lead the interpretation: "Here's what I've gathered from multiple sources. What patterns do you see? What does this tell you about your agency right now?" The student at Band D should be developing the metacognitive capacity to assess their own dispositional development.
+      - **Band E:** Deep inquiry partnership. Share all evidence and position yourself as a thinking partner, not an evaluator. Invite the student to examine the conditions under which the disposition appears strongly and where it does not — and to consider what this pattern reveals about their developmental edge. The student at Band E can sustain extended self-analysis and benefits from being challenged to look across multiple contexts and time periods rather than only reflecting on recent events.
+      - **Band F:** Near-peer dialogue. The student drives the entire conversation. The teacher's primary role is to offer observations as data points that the student can accept, question, or contextualise. Invite the student to situate their dispositional development in the context of their wider school journey and their anticipated life beyond school. The conversation is less a feedback session and more a collaborative stocktaking between near-peers.
 
    b. **Coaching questions at each band level:**
       - Design 3–4 questions per band that the teacher can use in the developmental conversation.
@@ -203,9 +212,9 @@ Apply these evidence-based principles:
       - The teacher records this goal and references it in the next conversation: "Last time you said you wanted to try starting your own research questions instead of using mine. How has that gone?"
 
 6. **Integration with Existing Feedback Structures:**
-   - If a school feedback structure is provided (Reflection 360, student-led conference, portfolio review, etc.), design specific guidance on how to integrate the dispositional evidence into that structure.
+   - If a school feedback structure is provided (developmental review, student-led conference, portfolio review, etc.), design specific guidance on how to integrate the dispositional evidence into that structure.
    - If no structure is provided, offer general guidance on where dispositional assessment evidence fits in common feedback formats.
-   - Key principle: dispositional evidence should COMPLEMENT, not replace, other assessment data. A Reflection 360 might include academic progress (from rubrics and learning targets) AND dispositional development (from this assessment approach). The two use different evidence types and different language.
+   - Key principle: dispositional evidence should COMPLEMENT, not replace, other assessment data. A developmental review might include academic progress (from rubrics and learning targets) AND dispositional development (from this assessment approach). The two use different evidence types and different language.
 
 Return your output in this exact format:
 
@@ -358,12 +367,12 @@ Provide an honest, itemised estimate of teacher time per student per term for ea
 - **Total per student per term:** Sum the components. Then multiply by class size to show the full-class investment. Be honest — if the total is significant, say so. Name it as a real cost and explain that the question is not "Is this faster than a rubric?" (it isn't) but "Does this produce a more valid and useful picture of dispositional development?" (it does).
 - **Sustainability strategies:** Provide 3–4 specific strategies for managing the workload — e.g., rotating which competencies receive full assessment each term, integrating observation into existing circulation practice, identifying the minimum viable approach if the full version is unsustainable.
 
-**Self-check before returning output:** Verify that (a) NOTHING in the output looks like a rubric, a score, or a summative grade, (b) the self-reflection tool uses open questions, not rating scales, (c) the observation protocol uses prompts for noticing, not a checklist, (d) the developmental conversation guide calibrates transparency to the band level, (e) parent input is genuinely optional and jargon-free, (f) the synthesis guide addresses contradictions and contextual variation explicitly, and (g) time estimates are honest.
+**Self-check before returning output:** Verify that (a) nothing in the output looks like a rubric or a score, (b) the observation protocol uses prompts for noticing not checklists, (c) the sufficiency framing refers to conversation readiness not developmental level claims, (d) Bands E and F are addressed throughout with performative versus authentic guidance where the band warrants it, (e) all school-specific references have been removed, (f) the hermeneutic moderation framing is present in how contradictions are addressed, (g) parent input is genuinely optional and jargon-free, (h) the synthesis guide addresses contradictions and contextual variation explicitly, and (i) time estimates are honest.
 ```
 
 ## Example Output
 
-**Scenario:** *Competency name: "Agency" / Competency definition: "The ability to initiate, plan, and complete meaningful work with increasing independence and purpose" / Band: "Band D (ages 12–14)" / Band descriptors: "I can identify opportunities for action and take responsibility for planning and executing my own projects, seeking support when needed and adapting my approach based on feedback and changing conditions" / Assessment context: "End of term, feeding into a Reflection 360 session with student, teacher, and parents present" / School feedback structure: "Reflection 360 — a 30-minute session at the end of each term where the student, their mentor teacher, and their parents/caregivers meet. The student leads the session, presenting evidence of their learning and development. The teacher provides feedback and the family asks questions and shares their perspective."*
+**Scenario:** *Competency name: "Agency" / Competency definition: "The ability to initiate, plan, and complete meaningful work with increasing independence and purpose" / Band: "Band D (ages 12–14)" / Band descriptors: "I can identify opportunities for action and take responsibility for planning and executing my own projects, seeking support when needed and adapting my approach based on feedback and changing conditions" / Assessment context: "End of term, feeding into a developmental review session with student, teacher, and parents present" / School feedback structure: "Developmental review — a 30-minute session at the end of each term where the student, their mentor teacher, and their parents/caregivers meet. The student leads the session, presenting evidence of their learning and development. The teacher provides feedback and the family asks questions and shares their perspective."*
 
 ---
 
@@ -372,7 +381,7 @@ Provide an honest, itemised estimate of teacher time per student per term for ea
 **Competency:** Agency
 **Definition:** The ability to initiate, plan, and complete meaningful work with increasing independence and purpose
 **Band:** Band D (ages 12–14)
-**Assessment context:** End of term, feeding into Reflection 360 session with student, mentor teacher, and parents
+**Assessment context:** End of term, feeding into developmental review session with student, mentor teacher, and parents
 
 ### 1. Observation Protocol
 
@@ -422,7 +431,7 @@ Notice when a student consistently does NOT initiate, does NOT adapt plans, does
 
 **Teacher guidance for using this tool:**
 
-- Give the student the reflection prompts 2–3 days before the Reflection 360 session. They should have time to think, not answer under pressure.
+- Give the student the reflection prompts 2–3 days before the developmental review session. They should have time to think, not answer under pressure.
 - These can be written responses, audio recordings, or conversation notes — whatever format the student is most comfortable with. The medium doesn't matter; the quality of reflection does.
 - Do NOT grade the reflections. Read them for evidence — stories, examples, and patterns that either confirm or complicate your observations.
 - If a student's self-reflection contradicts your observations, this is valuable information, not an error. It may reveal that the student experiences their agency differently from how you see it — or that agency manifests differently in contexts you don't observe.
@@ -451,13 +460,13 @@ Notice when a student consistently does NOT initiate, does NOT adapt plans, does
 
 **Note on use:**
 
-Parent input will be used alongside teacher observations and the student's own reflections to build a full developmental picture. It will be shared at the Reflection 360 session with the student present — there are no secrets. If something feels sensitive, please note that and the mentor teacher will handle it with care. Not all families will respond, and that is genuinely fine — the assessment approach is designed to work with or without this input.
+Parent input will be used alongside teacher observations and the student's own reflections to build a full developmental picture. It will be shared at the developmental review session with the student present — there are no secrets. If something feels sensitive, please note that and the mentor teacher will handle it with care. Not all families will respond, and that is genuinely fine — the assessment approach is designed to work with or without this input.
 
 ### 4. Synthesis Guide
 
 **Bringing evidence together:**
 
-Before the Reflection 360, the mentor teacher gathers three evidence sources:
+Before the developmental review session, the mentor teacher gathers three evidence sources:
 1. **Teacher observation notes** — the running record from across the term (from the Observation Protocol above)
 2. **Student self-reflection** — the written or recorded responses to the reflection prompts
 3. **Parent/caregiver input** — if provided
@@ -486,14 +495,11 @@ Do NOT resolve contradictions by averaging or by privileging one source. Name th
 
 **Sufficient evidence threshold:**
 
-A confident developmental narrative requires:
-- At least **5 teacher observation entries** over at least **4 weeks** showing a consistent pattern (or a meaningful inconsistency)
-- At least **one student self-reflection** that generates specific examples (not generic self-assessments)
-- Parent input is valuable but NOT required for sufficiency
+Minimum evidence for a well-grounded developmental conversation: at least three to five independent observation notes from different contexts over at least four weeks, showing a consistent pattern or a meaningful and recurring inconsistency. This is not a threshold for a developmental level claim — it is the minimum basis for bringing structured evidence to a conversation. A single impressive moment is an event, not a pattern.
 
-If you have fewer than 5 observations, your narrative should explicitly note limited evidence: "Based on the observations I have, I see [pattern] — but I have limited data and this picture may be incomplete."
+Parent input is valuable but NOT required for sufficiency. If evidence is below this minimum, the developmental narrative should note limited evidence explicitly: "Based on the observations I have, I see [pattern] — but I have limited data and this picture may be incomplete."
 
-A single impressive moment (one day of exceptional agency) is an event, not evidence of development. Development is a pattern over time. Similarly, a single lapse does not negate a developmental trajectory.
+A single lapse does not negate a developmental trajectory, just as a single exceptional day does not establish one. Development is a pattern over time, visible only across multiple independent observations.
 
 **Contextual variation:**
 
@@ -553,9 +559,9 @@ Close the conversation by asking the student to identify one thing they want to 
 
 ### 6. Integration with Feedback Structures
 
-**Integrating with the Reflection 360:**
+**Integration with the developmental review session:**
 
-The Reflection 360 is a 30-minute session where the student, mentor teacher, and parents/caregivers meet, with the student leading. Here is how to integrate the dispositional assessment:
+The developmental review is a 30-minute session where the student, mentor teacher, and parents/caregivers meet, with the student leading. Here is how to integrate the dispositional assessment:
 
 **Before the session (teacher preparation — 20 minutes):**
 - Complete the synthesis (Steps 1–4 above). Write the 3–5 sentence developmental narrative.
@@ -574,7 +580,7 @@ The Reflection 360 is a 30-minute session where the student, mentor teacher, and
 
 5. **Goal** (1 minute): The student states one agency goal for next term, in their own words. Everyone hears it.
 
-**What the Reflection 360 should NOT include:**
+**What the developmental review session should NOT include:**
 - A band level or score for agency. The family should leave understanding their child's developmental pattern, not their rating.
 - Comparison to other students or to a class average.
 - A teacher monologue about the student's strengths and weaknesses. The student leads; the teacher adds evidence; the family contributes perspective.
@@ -595,7 +601,7 @@ The Reflection 360 is a 30-minute session where the student, mentor teacher, and
 
 **Synthesis:** 15–20 minutes per student to complete the four-step synthesis and write the developmental narrative. **This is the most demanding step.** It cannot be reduced without losing quality. It is also the step where the teacher's professional judgment is most critical.
 
-**Developmental conversation / Reflection 360 agency segment:** 8–10 minutes per student within the existing session.
+**Developmental conversation / developmental review agency segment:** 8–10 minutes per student within the existing session.
 
 **Total per student per term: approximately 100–135 minutes.** For a class of 25, this represents approximately 42–56 hours per term — a significant investment. This is honest. Multi-informant dispositional assessment is more labour-intensive than rubric-based assessment. The question is not "Is this faster?" (it isn't) but "Does this produce a more valid and more useful picture of dispositional development?" (it does).
 
@@ -603,6 +609,22 @@ The Reflection 360 is a 30-minute session where the student, mentor teacher, and
 - Not every competency needs this full approach every term. Rotate: assess agency in depth in Term 1, collaboration in Term 2, self-regulation in Term 3.
 - Observation notes can be integrated into existing practice — noticing while circulating during project work, not as a separate task.
 - If the workload is genuinely unsustainable, the minimum viable approach is: teacher observations + student self-reflection + developmental conversation. Drop the parent input and the formal synthesis — but keep the conversation.
+
+---
+
+## Evaluative Expertise and New Teacher Induction
+
+Observation protocols scaffold the development of evaluative expertise but cannot substitute for it. Evaluative expertise — the felt sense of what authentic self-regulation looks like versus performed self-regulation, or what genuine empathy looks like versus socially appropriate empathy performance — develops through experience, reflection, and calibration with skilled colleagues. A teacher in their first year using this protocol will produce lower-quality observations than a teacher with several years of experience, not because they are less diligent but because they have not yet developed that felt sense of quality. This professional capacity might be called pedagogical observation knowledge — it is distinct from pedagogical content knowledge and is rarely named or taught in teacher education.
+
+Schools implementing this skill should provide new teachers with: structured examples of observation notes from experienced practitioners with discussion of what made the observations useful; regular moderation conversations where teachers share and compare observations of the same students; and explicit time to develop their observational practice before using it for any consequential purpose.
+
+---
+
+## Observer Positionality and Professional Reflexivity
+
+Teacher observation of student dispositions is shaped by the teacher's own relationship to those dispositions. A teacher whose self-regulation is primarily expressed through quiet internal processing may underobserve a student whose regulation is loud and external. A teacher from a high-context culture may misread a student's reserved boundary-setting behaviour as disengagement. A teacher who values verbal articulacy may notice confident self-reflection more readily than tentative but genuine self-reflection.
+
+This is an inherent feature of all observation, not a failure of professionalism. The appropriate response is professional reflexivity: teachers should periodically ask themselves which dispositions they find easiest to recognise and value, and which they find harder to notice or appreciate. Moderation conversations between teachers are the structural mechanism for surfacing and correcting observer positioning over time.
 
 ---
 
@@ -616,4 +638,4 @@ The Reflection 360 is a 30-minute session where the student, mentor teacher, and
 
 4. **The developmental conversation requires significant skill from the teacher.** The conversation guide scaffolds the structure and provides coaching questions, but the quality of the conversation depends on the teacher's ability to listen, to respond authentically, to hold space for the student's self-assessment without correcting or evaluating, and to maintain relational trust. A teacher who reads the coaching questions mechanically will produce a worse outcome than a teacher who has no guide but has strong relational instincts. The guide is a scaffold, not a substitute for professional judgment and relational competence. Schools should consider providing professional development on coaching conversations before implementing this approach at scale.
 
-5. **The observation protocol depends on teacher interpretation.** Two teachers observing the same student may notice different things and interpret the same behaviour differently. One teacher might see a student working alone as "showing independence" while another sees it as "avoiding collaboration." This interpretive variability is inherent in observation-based assessment. It can be partially mitigated through moderation — teachers discussing their observations of the same student — but it cannot be eliminated. The skill produces a more valid picture than a rubric (which imposes false precision) but a less reliable one (different assessors may reach different conclusions). This is an honest trade-off.
+5. **When two teachers reach different conclusions about the same student, this is information about contextual variation, not an interrater reliability failure.** Both observers may be accurate: they have seen different aspects of the disposition in different contexts. The response is a moderation conversation exploring what the variation reveals about the student's dispositional development across contexts — not averaging the observations, not deciding who is right. The pattern of variation across contexts is itself the most informative piece of evidence. This hermeneutic approach to moderation — treating divergent observations as a prompt for professional inquiry rather than a scoring problem to resolve — is a fundamental difference from psychometric reliability frameworks, which assume a single true score that reliable raters converge on. Dispositional development does not have a single true score; it has a pattern of enacted behaviour across contexts, and divergent teacher observations may both be faithfully representing real parts of that pattern.

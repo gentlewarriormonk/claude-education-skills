@@ -29,7 +29,7 @@ input_schema:
       description: "One sentence beginning 'The ability to...'"
     - field: "band_range"
       type: "string"
-      description: "Which developmental bands this LT set covers — e.g. Bands A-D"
+      description: "Which developmental bands this LT set covers — e.g. Bands A-D or Bands A-F"
     - field: "programme_purpose"
       type: "string"
       description: "Why this competency matters for this school's mission — the upstream 'why'"
@@ -60,7 +60,7 @@ output_schema:
       description: "One-sentence 'I can...' definitions for each LT, with Knowledge Type, Assessment Route, and Prerequisites fields"
     - field: "band_statements_or_observation_indicators"
       type: "object"
-      description: "Type 1 and Type 2: full A-D band statement progression. Type 3: observation indicator sets per band (no rubric)"
+      description: "Type 1 and Type 2: full A-F band statement progression. Type 3: observation indicator sets per band (no rubric)"
     - field: "quality_check"
       type: "object"
       description: "Full v4.0 checklist — single-construct, compound knowledge-type, no inline examples, observable verbs, vertical coherence, horizontal coherence, knowledge type checks, assessment route verification"
@@ -91,7 +91,7 @@ Critical distinction: LTs describe destinations, not content. A band statement d
 
 ## Evidence Foundation
 
-Manning developed the Learning Target Authoring Guide through iterative curriculum design at REAL School Budapest, documented in v4.0 (2026). The methodology addresses a specific problem: most competency-based curricula have poorly written learning targets. Common failure modes include: targets that use unobservable verbs ("Understands the water cycle" — how do you observe understanding?), targets that are topic lists disguised as competencies ("Knows the causes of WWI" — this is content, not capability), targets that lack developmental progression (the same statement at every band level with "simple" and "complex" bolted on), compound targets that assess multiple things simultaneously ("Analyses and evaluates sources to construct an argument" — which part is the student struggling with?), and — the most insidious — dispositional targets assessed through rubrics (a rubric scored on a scenario task does not tell you whether a student has developed the disposition; it tells you whether they can perform it when asked). Black & Wiliam (1998) established that effective formative assessment requires clear, shared learning intentions. If the teacher doesn't know precisely what they're looking for, they cannot provide useful feedback, and students cannot self-assess. LTs are the unit of clarity: specific enough to assess, broad enough to apply across multiple projects and contexts. Wiggins & McTighe (2005) provide the backwards design framework, which Manning extends by adding an upstream "why" layer. Standard UBD starts with given curriculum goals. Purpose-driven backwards design starts with the school's mission and asks: Why does this competency exist in our curriculum? What would we lose if we removed it? This upstream questioning prevents the accumulation of competencies that nobody can justify but nobody dares remove. Bloom's taxonomy (1956, revised 2001) provides the verb hierarchy that constrains LT writing: observable, assessable verbs (identify, describe, compare, explain, justify, analyse, evaluate, create) replace unobservable verbs (understand, know, appreciate, be aware of). Vygotsky's (1978) ZPD informs band-level specification: each band statement describes what students can do WITH APPROPRIATE SUPPORT at that developmental stage — the upper edge of the ZPD.
+Manning developed the Learning Target Authoring Guide through iterative curriculum design, documented in v4.0 (2026). The methodology addresses a specific problem: most competency-based curricula have poorly written learning targets. Common failure modes include: targets that use unobservable verbs ("Understands the water cycle" — how do you observe understanding?), targets that are topic lists disguised as competencies ("Knows the causes of WWI" — this is content, not capability), targets that lack developmental progression (the same statement at every band level with "simple" and "complex" bolted on), compound targets that assess multiple things simultaneously ("Analyses and evaluates sources to construct an argument" — which part is the student struggling with?), and — the most insidious — dispositional targets assessed through rubrics (a rubric scored on a scenario task does not tell you whether a student has developed the disposition; it tells you whether they can perform it when asked). Black & Wiliam (1998) established that effective formative assessment requires clear, shared learning intentions. If the teacher doesn't know precisely what they're looking for, they cannot provide useful feedback, and students cannot self-assess. LTs are the unit of clarity: specific enough to assess, broad enough to apply across multiple projects and contexts. Wiggins & McTighe (2005) provide the backwards design framework, which Manning extends by adding an upstream "why" layer. Standard UBD starts with given curriculum goals. Purpose-driven backwards design starts with the school's mission and asks: Why does this competency exist in our curriculum? What would we lose if we removed it? This upstream questioning prevents the accumulation of competencies that nobody can justify but nobody dares remove. Bloom's taxonomy (1956, revised 2001) provides the verb hierarchy that constrains LT writing: observable, assessable verbs (identify, describe, compare, explain, justify, analyse, evaluate, create) replace unobservable verbs (understand, know, appreciate, be aware of). Vygotsky's (1978) ZPD informs band-level specification: each band statement describes what students can do WITH APPROPRIATE SUPPORT at that developmental stage — the upper edge of the ZPD.
 
 ## Input Schema
 
@@ -131,7 +131,7 @@ THE THREE TYPES:
 
 **Type 3 — Dispositional Knowledge.** Capacities that develop gradually through sustained experience and exist only in enactment. Cannot be assessed through a single task. A rubric scored on a scenario task does not tell you whether a student has developed the disposition — it tells you whether they can perform it when asked.
 - Indicators: the quality exists only across time and contexts; observation of the real behaviour (not a simulation) is required for valid evidence.
-- Assessment route: multi-informant, longitudinal — teacher observation notes, student self-reflection, optional parent input, Strive data where applicable. Synthesised in Reflection 360 developmental conversation. NOT a summative grade. NO RUBRIC.
+- Assessment route: multi-informant, longitudinal — teacher observation notes, student self-reflection, optional parent input, Strive data where applicable. Synthesised in developmental conversation. NOT a summative grade. NO RUBRIC.
 
 CLASSIFICATION DECISION TREE — apply to EVERY emerging LT strand:
 
@@ -197,9 +197,11 @@ Default pattern: DO / CHECK / DECIDE
 Best for: academic disciplines, arts, performance, scientific practice. Also appropriate for Type 1 wellbeing science knowledge.
 Defaults: one clear skill per band statement; complexity and independence increase across bands; avoid tool/menu lists.
 
+Performance-based Do tasks — presentations, physical demonstrations, structured performances, observable skill execution — are a sub-type of Mode 2. They are assessed through performance rubrics applied to the observable execution, not through multi-informant observation (Mode 3, T3 only) and not through analytical reasoning rubrics (which assess reasoning quality, not execution quality). Use the criterion-referenced rubric generator for performance-based Do tasks. Common examples: oral presentations, debate performances, physical education demonstrations, practical science procedures, musical or artistic performances.
+
 **Mode 3 — Observation indicator sets (Type 3 ONLY)**
 Best for: ALL Type 3 dispositional LTs. This mode is mandatory for Type 3 — not optional.
-Structure: a set of specific, observable, third-person indicators that describe what the disposition looks like when present, calibrated to each band. These are NOT assessed with a rubric — they inform the observation notes and the Reflection 360 conversation.
+Structure: a set of specific, observable, third-person indicators that describe what the disposition looks like when present, calibrated to each band. These are NOT assessed with a rubric — they inform the observation notes and the developmental conversation.
 
 Format:
 ```
@@ -235,11 +237,11 @@ Type 3 evidence pathway:
   - Band B: describe one pattern you noticed in yourself this term
   - Band C: compare what you noticed with what your teacher observed
   - Band D: analyse a pattern across contexts and explain what shifted
-- Parent/caregiver noticing prompts (optional): three plain-language "what do you notice?" questions sent home two weeks before Reflection 360.
+- Parent/caregiver noticing prompts (optional): three plain-language "what do you notice?" questions sent home two weeks before developmental conversations.
 - Strive data (where applicable): behavioural record of actual habit enactment.
-- Synthesised in the Reflection 360 developmental conversation. NOT a summative grade.
+- Synthesised in the developmental conversation. NOT a summative grade.
 
-Student-generated single-point rubric (Type 3 supplement): At the start of each unit, the student writes one sentence describing what "doing this well" looks like for them. This becomes the reference point for teacher observation and Reflection 360 — not a school-wide criterion. Bands A-B generate this collaboratively with the teacher. Bands C-D write it independently. Band D students review and revise at mid-unit as a metacognitive act.
+Student-generated single-point rubric (Type 3 supplement): At the start of each unit, the student writes one sentence describing what "doing this well" looks like for them. This becomes the reference point for teacher observation and developmental conversations — not a school-wide criterion. Bands A-B generate this collaboratively with the teacher. Bands C-D write it independently. Band D students review and revise at mid-unit as a metacognitive act. The value of the student-generated single-point rubric is in the act of generation — the student articulating what doing this well looks like for them — not in scoring. It is never used for grading.
 
 ═══════════════════════════════════════════════════════════════
 DECOMPOSITION LOGIC
@@ -285,7 +287,7 @@ Knowledge type checks:
 - [ ] No Type 3 element is buried inside a Type 1 or Type 2 LT statement
 
 Coherence checks:
-- [ ] Vertical coherence: clear A-D progression for all LTs
+- [ ] Vertical coherence: clear A-F progression for all LTs
 - [ ] Horizontal coherence: each Learning Target Definition accurately describes what all its band levels do
 - [ ] Progression uses appropriate levers (independence / complexity / scope / reasoning / transfer)
 
@@ -445,7 +447,7 @@ Student self-reflection prompts:
 - [ ] No Type 3 element is buried inside a Type 1 or Type 2 LT
 
 **Coherence checks:**
-- [ ] Vertical coherence (clear A-D progression)
+- [ ] Vertical coherence (clear A-F progression)
 - [ ] Horizontal coherence (LT definition describes all band levels)
 - [ ] Progression uses levers, not topic escalation
 
@@ -606,7 +608,7 @@ COMPOUND KNOWLEDGE-TYPE FLAG: The original competency definition bundles all thr
 **LT3: Self-Regulation as Practice**
 - **Definition:** "I can regulate my responses to stress across different settings. [Assessed through multi-informant observation — see observation protocol.]"
 - **Knowledge Type:** Type 3
-- **Assessment Route:** Multi-informant observation — teacher notes, student self-reflection, parent input, Strive data. Synthesised in Reflection 360 developmental conversation. Not a summative grade.
+- **Assessment Route:** Multi-informant observation — teacher notes, student self-reflection, parent input, Strive data. Synthesised in the developmental conversation. Not a summative grade.
 - **Prerequisites:** LT1 (Understanding the Stress Response) and LT2 (Regulation Strategy Analysis) must be established. The Type 3 observation is only valid evidence once the student has the knowledge and analytical repertoire in place.
 - **Rationale:** This is the enacted disposition. A student who can describe regulation (LT1) and analyse strategy selection (LT2) but does not regulate in real situations has not developed self-regulation. This LT captures what the others cannot — actual practice over time.
 
@@ -716,7 +718,7 @@ Student self-reflection prompts:
 
 2. **LT3 is knowledge-contingent — timing matters.** The Type 3 observation pathway for LT3 should not begin until LT1 and LT2 prerequisites are reasonably established. Observing a student's self-regulation before they have the knowledge and strategy repertoire produces invalid evidence.
 
-3. **Disagreement between sources is information, not error.** If a teacher's observation notes and a student's self-reflection diverge on LT3, this is developmental information to surface in the Reflection 360 conversation — not a problem to resolve before the conversation.
+3. **Disagreement between sources is information, not error.** If a teacher's observation notes and a student's self-reflection diverge on LT3, this is developmental information to surface in the developmental conversation — not a problem to resolve before the conversation.
 
 4. **The disposition is not the capability.** A student may score well on LT1 and LT2 (they know the science and can reason about strategies) but show limited evidence on LT3 (they don't regulate in practice). This is not an assessment failure — it is a genuine and important finding. The three LTs exist precisely to make this visible.
 
@@ -730,4 +732,4 @@ Student self-reflection prompts:
 
 3. **The 2-LT default may not suit all competencies.** Some competencies decompose naturally into 2 strands; others resist clean decomposition. Knowledge-type splits may require 3 LTs where 2 seemed sufficient. The methodology provides the tests (coverage, distinctness, assessability, knowledge-type) but the designer must exercise judgment about when to follow the default and when to deviate.
 
-4. **Type 3 assessment is harder to implement than Type 1 or Type 2.** Multi-informant observation requires infrastructure (retrievable notes, self-reflection protocols, Reflection 360 scheduling) that most schools do not yet have in place. This is a real constraint. The answer is not to route Type 3 LTs through rubrics for convenience — that produces the illusion of measurement. The answer is to build the infrastructure incrementally.
+4. **Type 3 assessment is harder to implement than Type 1 or Type 2.** Multi-informant observation requires infrastructure (retrievable notes, self-reflection protocols, developmental conversation scheduling) that most schools do not yet have in place. This is a real constraint. The answer is not to route Type 3 LTs through rubrics for convenience — that produces the illusion of measurement. The answer is to build the infrastructure incrementally.

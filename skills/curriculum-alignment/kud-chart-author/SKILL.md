@@ -308,6 +308,12 @@ Run all six checks before producing final output. For each check, report PASS or
 
 ---
 
+## SCHOOL-AGNOSTIC OUTPUTS
+
+SCHOOL-AGNOSTIC OUTPUTS: Generated KUD charts must not reference any school-specific units, programmes, curriculum documents, or named courses. The skill works from the LT definition, band theory, and knowledge type classification only. If the operator has provided a school programme document as context, that document is background information for the operator's use — its content, unit names, and programme structures must not appear anywhere in the generated output. Any output referencing a named school unit or programme is invalid and must be regenerated without that reference.
+
+---
+
 ## OUTPUT FORMAT
 
 Return output in this structure:

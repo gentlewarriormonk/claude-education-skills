@@ -1,7 +1,7 @@
 ---
 # AGENT SKILLS STANDARD FIELDS (v2)
 name: criterion-referenced-rubric-generator
-description: "Generate a criterion-referenced rubric with descriptive performance levels for a specific task and objective. Use when creating marking guides, setting expectations, or designing assessments."
+description: "Generate a criterion-referenced rubric with descriptive performance levels for a specific task and objective. Use when creating marking guides, setting expectations, or designing assessments. For Manning methodology programmes using five levels where Competent equals success, use the coherent-rubric-logic-builder instead. This skill is for general curriculum assessment contexts."
 disable-model-invocation: false
 user-invocable: true
 effort: medium

@@ -1,7 +1,7 @@
 ---
 # AGENT SKILLS STANDARD FIELDS (v2)
 name: coherent-rubric-logic-builder
-description: "Build a five-level rubric with internally coherent logic for a specific learning target within a developmental band. Use when creating rubrics for competency-based assessment systems."
+description: "Build a five-level rubric with internally coherent logic for a specific learning target within a developmental band. Use for Manning methodology programmes — five levels, Competent = success. For general curriculum rubrics where Manning methodology does not apply, use the criterion-referenced rubric generator instead."
 disable-model-invocation: true
 user-invocable: true
 effort: medium
@@ -26,7 +26,7 @@ input_schema:
       description: "The exact LT band statement being assessed — a specific 'I can...' statement from one band"
     - field: "band"
       type: "string"
-      description: "Which developmental band this rubric is for — A, B, C, or D"
+      description: "Which developmental band this rubric is for — A, B, C, D, E, or F"
     - field: "product_or_performance"
       type: "string"
       description: "What students will produce or do to demonstrate the LT — the specific assessment task"
@@ -79,7 +79,7 @@ This skill builds a complete, coherent rubric for a learning target or project a
 
 ## Evidence Foundation
 
-Manning developed the rubric logic through curriculum design at REAL School Budapest, documented in the Rubric Logic Guide v2.1 (January 2026). The five-level scale is anchored by two complementary frameworks: Burch's (1970) four stages of competence — unconscious incompetence (doesn't know they don't know), conscious incompetence (knows they don't know), conscious competence (can do it with deliberate effort), unconscious competence (can do it automatically) — provides the developmental logic for the levels. Haring et al.'s (1978) instructional hierarchy — acquisition, fluency, retention, generalisation, adaptation — maps to the levels and determines the appropriate instructional response: a student at Emerging needs guided acquisition practice, not homework; a student at Competent is ready for independent application. Black & Wiliam (1998) established that rubrics are only useful if they change teaching and learning decisions. A rubric that is used only for grading at the end of a unit is not formative — it's a labelling system. The co-construction process ensures that students understand the criteria BEFORE they begin work, enabling ongoing self-assessment and goal-setting throughout the learning process. Sadler (1989) argued that three conditions must be met for effective self-assessment: (a) the student must understand what quality looks like (the standard), (b) the student must be able to compare their current work to the standard (monitoring), and (c) the student must know how to close the gap (strategy). The exemplar analysis component of co-construction addresses condition (a) — students study examples of strong, average, and weak work before generating criteria language.
+Manning developed the rubric logic through curriculum design, documented in the Rubric Logic Guide v2.1 (January 2026). The five-level scale is anchored by two complementary frameworks: Burch's (1970) four stages of competence — unconscious incompetence (doesn't know they don't know), conscious incompetence (knows they don't know), conscious competence (can do it with deliberate effort), unconscious competence (can do it automatically) — provides the developmental logic for the levels. Haring et al.'s (1978) instructional hierarchy — acquisition, fluency, retention, generalisation, adaptation — maps to the levels and determines the appropriate instructional response: a student at Emerging needs guided acquisition practice, not homework; a student at Competent is ready for independent application. Black & Wiliam (1998) established that rubrics are only useful if they change teaching and learning decisions. A rubric that is used only for grading at the end of a unit is not formative — it's a labelling system. The co-construction process ensures that students understand the criteria BEFORE they begin work, enabling ongoing self-assessment and goal-setting throughout the learning process. Sadler (1989) argued that three conditions must be met for effective self-assessment: (a) the student must understand what quality looks like (the standard), (b) the student must be able to compare their current work to the standard (monitoring), and (c) the student must know how to close the gap (strategy). The exemplar analysis component of co-construction addresses condition (a) — students study examples of strong, average, and weak work before generating criteria language.
 
 ## Input Schema
 
