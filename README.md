@@ -284,15 +284,6 @@ The server exposes:
 
 Source code, local setup, and development instructions: [`mcp-server/`](mcp-server/)
 
-### Roadmap
-
-| Feature | Status |
-|---------|--------|
-| Layer 1 — Skill Library (109 skills) | Complete |
-| MCP Server (112 tools, live) | Complete |
-| Layer 2 — Context Engine | In design |
-| Layer 3 — Orchestrator | In design |
-
 ---
 
 ## Contributing
