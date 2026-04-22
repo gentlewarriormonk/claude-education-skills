@@ -9,6 +9,17 @@ An open-source library of 111 evidence-based pedagogical skills for curriculum d
 
 ---
 
+## Feedback & Contributions
+
+I'd love to hear your thoughts. If you have suggestions, find bugs, or want to contribute:
+
+- Email: gareth.manning@gmail.com
+- X: https://x.com/worldteacherman
+- LinkedIn: https://www.linkedin.com/in/gareth-manning-a404b387/
+- Open a Pull Request or Issue on GitHub
+
+---
+
 **I'm an educator — [start here](#try-it-now)**
 No setup required. Install the plugin and start teaching.
 
@@ -62,9 +73,28 @@ Connect via the MCP server to access all 111 skills in any Claude conversation �
 
 Skills load with progressive disclosure — metadata only until a skill is actually needed.
 
-### API / Programmatic Access
+### Local (via npx)
 
-Connect to the live MCP server:
+```bash
+npx claude-education-skills
+```
+
+### Claude Code (stdio)
+
+Add to your Claude Code config:
+
+```json
+{
+  "mcpServers": {
+    "claude-education-skills": {
+      "command": "npx",
+      "args": ["claude-education-skills"]
+    }
+  }
+}
+```
+
+### Remote (Vercel)
 
 ```
 https://mcp-server-sigma-sooty.vercel.app/mcp
@@ -115,7 +145,7 @@ Claude returns a complete week-by-week schedule showing when to teach new conten
 ## What Makes This Different
 
 **Evidence is the filter — including knowing what to exclude.**
-Every skill is grounded in named research: specific authors, specific studies, specific findings. Frameworks that lack empirical support — including learning styles, VAK, and other widely-circulated but poorly-evidenced approaches — are not included. The library documents exactly what was excluded and why in [EXCLUSIONS.md](EXCLUSIONS.md). For any school or faculty trying to separate evidence from convention, that document is worth reading on its own.
+Every skill is grounded in named research: specific authors, specific studies, specific findings. Frameworks that lack empirical support — including learning styles, VAK, and other widely-circulated but poorly-evidenced approaches — are not included. The library documents exactly what was excluded and why in [EXCLUSIONS.md](docs/EXCLUSIONS.md). For any school or faculty trying to separate evidence from convention, that document is worth reading on its own.
 
 **Evidence strength is rated transparently.**
 
@@ -136,7 +166,7 @@ YAML schema headers, typed input and output fields, chaining metadata, and compo
 
 ---
 
-## The 14 Domains
+## The 15 Domains
 
 | # | Domain | Skills | Focus |
 |---|--------|--------|-------|
@@ -154,12 +184,13 @@ YAML schema headers, typed input and output fields, chaining metadata, and compo
 | 12 | **AI Learning Science** | 14 | Adaptive hints, erroneous examples, digital worked examples, spacing algorithms, AI feedback, tutoring dialogue, learning analytics, collaborative learning, cognitive tutoring, self-explanation, metacognitive monitoring, productive failure, worked example transitions, formative assessment loops |
 | 13 | **Montessori & Alternative Evidence-Based Approaches** | 4 | Three-part lessons, prepared environment design, mixed-age learning, uninterrupted work cycles |
 | 14 | **Original Frameworks** | 5 | SEEDS regenerative inquiry, developmental band systems, learning target authoring, rubric logic, self-determined project design |
+| 15 | **Curriculum Alignment** | 4 | Coverage audit, KUD chart authoring, developmental band translation, scope and sequence |
 
 ---
 
 ## Architecture
 
-The library is Layer 1 of a three-layer system. See [ARCHITECTURE.md](ARCHITECTURE.md) for the full design.
+The library is Layer 1 of a three-layer system. See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full design.
 
 **Layer 1 — Skill Library** (this repository, complete and available now)
 111 skills across 15 domains. Each skill encodes a specific, evidence-grounded instructional or curriculum design decision. Works standalone today.

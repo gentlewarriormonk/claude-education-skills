@@ -7,10 +7,10 @@ Each skill encodes a specific, evidence-grounded instructional or curriculum des
 ## Key Documentation
 
 - [README.md](https://github.com/GarethManning/claude-education-skills/blob/main/README.md): Full overview, architecture, usage, and domain table
-- [ARCHITECTURE.md](https://github.com/GarethManning/claude-education-skills/blob/main/ARCHITECTURE.md): Three-layer system design and MCP server roadmap
-- [EXCLUSIONS.md](https://github.com/GarethManning/claude-education-skills/blob/main/EXCLUSIONS.md): What was excluded and why (learning styles, VAK, unsupported frameworks)
-- [EVIDENCE.md](https://github.com/GarethManning/claude-education-skills/blob/main/EVIDENCE.md): Evidence standards, rating methodology, and source references
-- [IMPLEMENTATIONS.md](https://github.com/GarethManning/claude-education-skills/blob/main/IMPLEMENTATIONS.md): Known implementations and use cases
+- [ARCHITECTURE.md](https://github.com/GarethManning/claude-education-skills/blob/main/docs/ARCHITECTURE.md): Three-layer system design and MCP server roadmap
+- [EXCLUSIONS.md](https://github.com/GarethManning/claude-education-skills/blob/main/docs/EXCLUSIONS.md): What was excluded and why (learning styles, VAK, unsupported frameworks)
+- [EVIDENCE.md](https://github.com/GarethManning/claude-education-skills/blob/main/docs/EVIDENCE.md): Evidence standards, rating methodology, and source references
+- [IMPLEMENTATIONS.md](https://github.com/GarethManning/claude-education-skills/blob/main/docs/IMPLEMENTATIONS.md): Known implementations and use cases
 
 ## Skill Domains (100 skills across 14 domains)
 
