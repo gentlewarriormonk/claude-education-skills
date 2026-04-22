@@ -8303,6 +8303,99 @@
   },
   {
     "metadata": {
+      "name": "developmental-progression-synthesis",
+      "description": "Synthesise completed KUD charts into a developmental progression matrix and per-competency narrative sections. Use when you need a programme-level view of how knowledge, understanding, and performance develop across bands.",
+      "disable-model-invocation": true,
+      "user-invocable": true,
+      "effort": "high",
+      "skill_id": "original-frameworks/developmental-progression-synthesis",
+      "skill_name": "Developmental Progression Synthesis",
+      "domain": "original-frameworks",
+      "version": "1.0",
+      "evidence_strength": "emerging",
+      "evidence_sources": [
+        "Wiggins & McTighe (2005) — Understanding by Design (backward design; desired results as the basis for programme coherence)",
+        "Vygotsky (1978) — Mind in society (ZPD; band statements describe the upper edge of capability with support)",
+        "Bruner (1960) — The Process of Education (spiral curriculum; concepts revisited with increasing sophistication across developmental stages)",
+        "Hattie & Donoghue (2016) — Learning strategies: a synthesis and conceptual model (surface to deep to transfer as a developmental progression model)",
+        "Biggs & Collis (1982) — Evaluating the Quality of Learning: the SOLO Taxonomy (structural complexity as a developmental progression lever)"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "kud_charts",
+            "type": "string",
+            "description": "The full set of KUD charts to synthesise. Provide all charts for the programme — each chart should include the LT name, knowledge type (T1/T2/T3), and the Know/Understand/Do content for each band. Paste all charts as a single input."
+          },
+          {
+            "field": "competency_structure",
+            "type": "string",
+            "description": "The competency framework — list of competency names, their LT members, and the band range (e.g. \"Bands A–F, ages 5–17\"). Used to organise the matrix by competency grouping."
+          }
+        ],
+        "optional": [
+          {
+            "field": "output_focus",
+            "type": "string",
+            "description": "\"matrix\" for Output 1 only, \"chapters\" for Output 2 only, or \"both\" (default). Use \"matrix\" for a quick programme overview; use \"chapters\" for programme guide chapter content."
+          },
+          {
+            "field": "knowledge_type_filter",
+            "type": "string",
+            "description": "\"T1\", \"T2\", \"T3\", or \"all\" (default). Filter the synthesis to a specific knowledge type — e.g. \"T3\" to produce a disposition-only developmental view."
+          },
+          {
+            "field": "audience",
+            "type": "string",
+            "description": "\"teachers\", \"parents\", \"researchers\", or \"AI-systems\". Adjusts the register and depth of the narrative synthesis. Default is \"teachers\"."
+          }
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "fields": [
+          {
+            "field": "developmental_matrix",
+            "type": "object",
+            "description": "Output 1 — a competency × band matrix showing the key developmental milestone per cell. Type 2 and Type 3 cells are visually distinguished. Suitable for a programme overview page."
+          },
+          {
+            "field": "competency_chapters",
+            "type": "object",
+            "description": "Output 2 — per-competency narrative sections showing K/U/Do progression across bands. Structured for use as programme guide chapter content."
+          },
+          {
+            "field": "design_notes",
+            "type": "object",
+            "description": "Flags, gaps, and coherence observations surfaced during synthesis — progression weaknesses, discontinuities, Type 3 underdifferentiation, and input gaps."
+          }
+        ]
+      },
+      "chains_well_with": [
+        "kud-chart-author",
+        "learning-target-authoring-guide",
+        "scope-and-sequence-designer",
+        "coherent-rubric-logic-builder",
+        "dispositional-knowledge-assessment-designer"
+      ],
+      "tags": [
+        "developmental-progression",
+        "KUD",
+        "programme-guide",
+        "scope-and-sequence",
+        "matrix",
+        "competency",
+        "bands",
+        "synthesis",
+        "curriculum-design"
+      ]
+    },
+    "prompt": "You are synthesising a set of completed KUD charts into two linked programme guide artefacts: a developmental matrix and per-competency narrative chapters. Follow these rules PRECISELY.\n\n═══════════════════════════════════════════════════════════════\nTWO-OUTPUT ARCHITECTURE\n═══════════════════════════════════════════════════════════════\n\nThis skill produces two outputs from the same KUD chart inputs.\n\n**Output 1 — Developmental matrix:** A competency × band grid. One key milestone sentence per cell. Suitable for a programme overview page.\n\n**Output 2 — Per-competency narrative chapters:** One section per competency. Synthesised prose showing K/U/Do development across bands. Suitable for programme guide chapter content.\n\nBoth outputs are produced by default unless output_focus specifies otherwise. Read ALL KUD charts in full BEFORE beginning either output.\n\n═══════════════════════════════════════════════════════════════\nPRE-SYNTHESIS READING PROTOCOL (mandatory before any output)\n═══════════════════════════════════════════════════════════════\n\nBefore generating any output, read all provided KUD charts and build an internal map:\n\n1. **Competency membership:** Which LTs belong to which competency.\n2. **Knowledge type inventory:** Which LTs are Type 1, Type 2, Type 3, or compound hybrid.\n3. **Band coverage:** Which bands each LT covers. Note any bands explicitly marked N/A.\n4. **Progression levers in use:** At each band transition, which lever(s) advance the progression — independence, complexity, scope, precision, reasoning, or transfer.\n5. **Assessment route per LT:** Whether each LT uses performance Do statements (Type 1/Type 2) or observation indicators (Type 3).\n6. **Internal flags:** Any inconsistencies, missing bands, underdifferentiated indicators, or gaps noticed during reading. These become design notes.\n\nDo not begin Output 1 or Output 2 until this mapping is complete.\n\n═══════════════════════════════════════════════════════════════\nOUTPUT 1 — DEVELOPMENTAL MATRIX: CONSTRUCTION RULES\n═══════════════════════════════════════════════════════════════\n\n**Structure:**\n- Rows: one row per LT, grouped by competency (competency name as a spanning header row above the group)\n- Columns: the band range provided (e.g. Bands A through F)\n- Each cell: one sentence capturing the key developmental milestone at that band for that LT — the most important thing a reader should understand about what the student is working toward at this stage\n\n**Cell content by knowledge type:**\n\n*Type 1 cells:* Draw the sentence from the Know or Understand element — the key concept or knowledge milestone at this band.\n\n*Type 2 cells:* Draw the sentence from the Do statement — what the student performs or produces at this band.\n\n*Type 3 cells:* Draw the sentence from the observation indicators — what the teacher notices at this band. Mark every Type 3 cell with an asterisk (*). Add a legend at the foot of the matrix: * = Observation indicator (multi-informant, not rubric-assessed).\n\n*N/A cells:* Mark N/A. No further content. Do not leave blank.\n\n*Compound hybrid LTs (Type 2 + Type 3 elements):* Produce two sub-rows — one labelled \"Performance (T2)\" and one labelled \"Observation (T3)*\". Both rows must appear for every band.\n\n**Whole-matrix check:** After completing the matrix, read each row as a sequence. Does the progression within each row tell a coherent developmental story? Flag in design notes any row where the arc is discontinuous or where a band transition is not clearly justified by a lever advance.\n\n═══════════════════════════════════════════════════════════════\nOUTPUT 2 — PER-COMPETENCY CHAPTERS: CONSTRUCTION RULES\n═══════════════════════════════════════════════════════════════\n\n**Structure:** One section per competency, in the order provided in competency_structure.\n\n**Each section opens with:**\n- The competency name as a heading\n- Its definition (one sentence)\n- The number of LTs it contains and their knowledge types\n- A one-paragraph orientation: what this competency is, why it matters developmentally, and what a reader should be watching for as they read the section\n\n**For each LT within the competency:**\n\n*Type 1 and Type 2 LTs — narrative progression account:*\nWrite a synthesised narrative of K/U/Do development across bands. Do not reproduce the KUD chart as a table. Describe what develops and why. Name the progression levers explicitly. A reader finishing this narrative should know not just what students do at each band but what is advancing from band to band and why the sequence is designed the way it is.\n\n*Type 3 LTs — dispositional arc account:*\nInstead of describing task performance development, describe the developmental arc of the observation indicators. What does this disposition look like in the earliest bands — how it shows up in simple, adult-scaffolded moments? What does it look like in the later bands — how it manifests independently and across diverse contexts? What does that mean for how a teacher or parent recognises growth? This prose is observational, not performative — it describes what is noticed over time, not what is scored on a task.\n\n*Type 2/Type 3 pairs within a competency:*\nWhere two LTs within a competency are a Type 2/Type 3 pair (analytical capability + enacted disposition), show them together with explicit discussion of the relationship. Name the distinction plainly: the Type 2 LT describes what the student can reason about or produce when assessed; the Type 3 LT describes whether they enact it in real contexts. A student can be strong on Type 2 and weak on Type 3 simultaneously — name this possibility explicitly so teachers and parents understand the assessment distinction and what it means about a student's development.\n\n**Each section closes with:**\n- Key prerequisites from other competencies that teachers should be aware of\n- The single most important progression observation for this competency: what a teacher should be watching for as the clearest sign of genuine development\n\n═══════════════════════════════════════════════════════════════\nAUDIENCE REGISTER\n═══════════════════════════════════════════════════════════════\n\nApply the register consistently across both outputs.\n\n**teachers (default):** Practical, grounded in classroom and observation language. Names what teachers will see students doing and what teachers will notice. Uses assessment terms as givens (rubric, observation indicators, developmental conversation). Does not over-explain the framework.\n\n**parents:** Accessible language, no educational jargon. Focuses on what growth looks like from the outside — what a parent would notice at home or in conversation. Avoids unexplained terms (rubric, LT, KUD chart). Centres the student's visible behaviour and experience.\n\n**researchers:** Includes progression lever terminology explicitly. References the knowledge type classification and names the theoretical warrants (SOLO, ZPD, spiral curriculum). Suitable for a programme evaluation or curriculum audit audience.\n\n**AI-systems:** Structured, precise, complete. Names the assessment route for each LT explicitly. Identifies every progression lever at each band transition by name. Minimises interpretive prose; maximises structured labelling. Optimised for machine parsing of the developmental model.\n\n═══════════════════════════════════════════════════════════════\nDESIGN NOTES: CONSTRUCTION RULES\n═══════════════════════════════════════════════════════════════\n\nAfter completing both outputs, produce design notes. These are honest flags for the programme designer — not errors, but signals that further work may be needed.\n\nProduce a note for each of the following where found:\n\n1. **Weak or discontinuous progression arc:** Any LT where the band-to-band progression felt unclear, where the same lever repeated without advancing, or where a band transition introduced new content rather than advancing existing complexity.\n\n2. **Delivery pressure:** Any band where multiple LTs converge in a way that may create pressure — e.g. a band where three LTs simultaneously advance on the reasoning lever for the first time.\n\n3. **Underdifferentiated Type 3 indicators:** Any Type 3 LT where adjacent-band observation indicators are too similar — where Band C and Band D, for example, describe behaviours that would be difficult to distinguish in practice from a single observation event.\n\n4. **Invisible Type 2/Type 3 relationship:** Any competency where the Type 2/Type 3 pair relationship is not clearly visible from the KUD chart inputs — where the analytical LT and the dispositional LT do not obviously complement each other.\n\n5. **Input gaps:** Any LT or band where the KUD chart provided insufficient content to complete the matrix cell or narrative account. Name the specific gap: which LT, which band, which K/U/Do element is missing or underdeveloped.\n\nIf none of the above are found, state that explicitly. Do not omit the design notes section.\n\n═══════════════════════════════════════════════════════════════\nSELF-CHECK BEFORE RETURNING OUTPUT\n═══════════════════════════════════════════════════════════════\n\nBefore returning any output, verify:\n\n- [ ] Does the matrix visually distinguish Type 3 cells (asterisk marking on every Type 3 cell, legend at foot)?\n- [ ] Does each competency chapter name at least one progression lever explicitly by name?\n- [ ] Are Type 2/Type 3 pairs shown together with the T2/T3 distinction explained?\n- [ ] Does the chapter narrative synthesise rather than reproduce the KUD chart content?\n- [ ] Are design notes honest about gaps and discontinuities — specific, not reassuring?\n- [ ] Is the register appropriate and consistent for the specified audience throughout both outputs?\n- [ ] Are N/A cells marked N/A in the matrix (not left blank)?\n- [ ] Are compound hybrid LTs shown as two labelled sub-rows in the matrix?\n\n═══════════════════════════════════════════════════════════════\n\nYour task is to synthesise:\n\n**KUD charts:** {{kud_charts}}\n\n**Competency structure:** {{competency_structure}}\n\nThe following optional parameters may or may not be provided. Use whatever is given; apply defaults for any not provided.\n\n**Output focus:** {{output_focus}} — if \"both\" or not specified, produce both Output 1 and Output 2.\n\n**Knowledge type filter:** {{knowledge_type_filter}} — if \"all\" or not specified, include all knowledge types in both outputs.\n\n**Audience:** {{audience}} — if not specified, default to \"teachers\".\n\nReturn your output in this exact format:\n\n## Developmental Progression Synthesis\n\n### Output 1 — Developmental Matrix\n\n[Competency × band matrix. Competency names as spanning header rows. One LT row per LT (or two sub-rows for compound hybrids). One milestone sentence per cell. Type 3 cells marked *. N/A cells marked N/A.]\n\n* = Observation indicator (multi-informant, not rubric-assessed)\n\n### Output 2 — Per-Competency Developmental Guide\n\n#### [Competency Name]\n\n**Competency definition:** [one sentence]\n**LTs in this competency:** [LT names with knowledge types]\n\n[Orientation paragraph — what this competency is, why it matters developmentally]\n\n[LT-by-LT narrative — synthesised prose, not KUD chart reproduction. Progression levers named explicitly. Type 2/Type 3 pairs shown together with the distinction explained.]\n\n**Prerequisites from other competencies:** [list, or \"None identified\"]\n**Key progression observation:** [the single most important thing a teacher should watch for]\n\n[Repeat #### section for each competency]\n\n### Design Notes\n\n**1. Progression arc flags:**\n[LTs with weak or discontinuous progression, or \"None identified\"]\n\n**2. Delivery pressure:**\n[Bands with convergent demand, or \"None identified\"]\n\n**3. Underdifferentiated Type 3 indicators:**\n[Type 3 LTs where adjacent bands are difficult to distinguish in practice, or \"None identified\"]\n\n**4. Invisible Type 2/Type 3 relationships:**\n[Competencies where the T2/T3 pair relationship is not clear from the inputs, or \"None identified\"]\n\n**5. Input gaps:**\n[Specific LTs, bands, and K/U/Do elements where input was insufficient, or \"None identified\"]",
+    "description": "Synthesise completed KUD charts into a developmental progression matrix and per-competency narrative sections. Use when you need a programme-level view of how knowledge, understanding, and performance develop across bands.",
+    "toolName": "developmental-progression-synthesis"
+  },
+  {
+    "metadata": {
       "name": "dispositional-knowledge-assessment-designer",
       "description": "Design multi-informant assessment approaches for dispositional competencies like curiosity or resilience. Use when assessing character strengths or competencies that written tests cannot capture.",
       "disable-model-invocation": true,

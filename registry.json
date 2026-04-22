@@ -1,8 +1,8 @@
 {
   "version": "2.0",
-  "generated": "2026-04-22T18:09:33.786603+00:00",
+  "generated": "2026-04-22T18:23:24.638432+00:00",
   "standard": "agent-skills-1.0",
-  "total_skills": 112,
+  "total_skills": 113,
   "domains": [
     {
       "id": "ai-learning-science",
@@ -57,7 +57,7 @@
     {
       "id": "original-frameworks",
       "label": "Original Frameworks",
-      "skill_count": 7
+      "skill_count": 8
     },
     {
       "id": "professional-learning",
@@ -2558,6 +2558,41 @@
         "input_field": null
       },
       "path": "skills/original-frameworks/developmental-band-system-designer/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/developmental-progression-synthesis",
+      "name": "developmental-progression-synthesis",
+      "display_name": "Developmental Progression Synthesis",
+      "domain": "original-frameworks",
+      "description": "Synthesise completed KUD charts into a developmental progression matrix and per-competency narrative sections. Use when you need a programme-level view of how knowledge, understanding, and performance develop across bands.",
+      "disable_model_invocation": true,
+      "evidence_strength": "emerging",
+      "tags": [
+        "developmental-progression",
+        "KUD",
+        "programme-guide",
+        "scope-and-sequence",
+        "matrix",
+        "competency",
+        "bands",
+        "synthesis",
+        "curriculum-design"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "kud-chart-author",
+        "learning-target-authoring-guide",
+        "scope-and-sequence-designer",
+        "coherent-rubric-logic-builder",
+        "dispositional-knowledge-assessment-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/developmental-progression-synthesis/SKILL.md"
     },
     {
       "id": "original-frameworks/dispositional-knowledge-assessment-designer",
