@@ -56,32 +56,27 @@ That is one use case. The same library can power school-wide curriculum audits, 
 
 ---
 
-## Installation
+## Using the Library
 
-Three ways to use the library, depending on your setup:
+### Claude.ai, Claude Desktop, or Cowork (easiest)
 
-### Claude.ai / Claude Desktop / Cowork
-
-Connect via the MCP server to access all 111 skills in any Claude conversation — add `https://mcp-server-sigma-sooty.vercel.app/mcp` under **Settings → Connectors**. Skills activate when your conversation matches their topic. A dedicated Skills Directory listing is in progress.
-
-### Claude Code CLI
+Add the MCP server URL under Settings → Connectors:
 
 ```
-/plugin marketplace add GarethManning/claude-education-skills
-/plugin install claude-education-skills
+https://mcp-server-sigma-sooty.vercel.app/mcp
 ```
 
-Skills load with progressive disclosure — metadata only until a skill is actually needed.
+That's it. All 111 skills become available in your conversations immediately. Skills activate automatically when your conversation matches their topic — you don't need to call them by name.
 
-### Local (via npx)
+### Claude Code (local via npx)
+
+Run the server locally without any account or deployment:
 
 ```bash
 npx claude-education-skills
 ```
 
-### Claude Code (stdio)
-
-Add to your Claude Code config:
+Or add it permanently to your Claude Code config:
 
 ```json
 {
@@ -94,13 +89,20 @@ Add to your Claude Code config:
 }
 ```
 
-### Remote (Vercel)
+### Claude Code CLI (plugin)
+
+```
+/plugin marketplace add GarethManning/claude-education-skills
+/plugin install claude-education-skills
+```
+
+Skills load with progressive disclosure — metadata only until a skill is actually needed.
+
+### Remote MCP (API / programmatic)
 
 ```
 https://mcp-server-sigma-sooty.vercel.app/mcp
 ```
-
-Use this when you're building tools or agents that need to call skills programmatically. Four meta-tools provide discovery: `list_skills`, `find_skills`, `suggest_skills`, and `get_skill_details`.
 
 ## What Changed in v2
 
