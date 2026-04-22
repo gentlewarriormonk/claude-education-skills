@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "generated": "2026-04-22T18:06:18.944201+00:00",
+  "generated": "2026-04-22T18:09:33.786603+00:00",
   "standard": "agent-skills-1.0",
   "total_skills": 112,
   "domains": [
@@ -779,7 +779,7 @@
       "name": "criterion-referenced-rubric-generator",
       "display_name": "Criterion-Referenced Rubric Generator",
       "domain": "curriculum-assessment",
-      "description": "Generate a criterion-referenced rubric with descriptive performance levels for a specific task and objective. Use when creating marking guides, setting expectations, or designing assessments. For Manning methodology programmes using five levels where Competent equals success, use the coherent-rubric-logic-builder instead. This skill is for general curriculum assessment contexts.",
+      "description": "Generate a criterion-referenced rubric with descriptive performance levels for a task or objective. Use for marking guides and general curriculum contexts. For Manning programmes where Competent = success, use coherent-rubric-logic-builder instead.",
       "disable_model_invocation": false,
       "evidence_strength": "strong",
       "tags": [
@@ -2493,7 +2493,7 @@
       "name": "coherent-rubric-logic-builder",
       "display_name": "Coherent Rubric Logic Builder",
       "domain": "original-frameworks",
-      "description": "Build a five-level rubric with internally coherent logic for a specific learning target within a developmental band. Use for Manning methodology programmes \u2014 five levels, Competent = success. For general curriculum rubrics where Manning methodology does not apply, use the criterion-referenced rubric generator instead.",
+      "description": "Build a five-level rubric with coherent logic for a learning target within a developmental band. Use for Manning methodology programmes where Competent = success. For general curriculum rubrics, use criterion-referenced-rubric-generator instead.",
       "disable_model_invocation": true,
       "evidence_strength": "emerging",
       "tags": [
@@ -2711,7 +2711,7 @@
       "name": "single-point-rubric-designer",
       "display_name": "Single-Point Rubric Designer",
       "domain": "original-frameworks",
-      "description": "Design a single-point rubric for a learning target, self-assessment goal, or assessment task. Use when you want a focused criterion statement with space for evidence of growth and strength \u2014 for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with or without a developmental band system.",
+      "description": "Design a single-point rubric with one criterion and open columns for evidence. Use for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with any learning target, with or without a band system.",
       "disable_model_invocation": true,
       "evidence_strength": "moderate",
       "tags": [

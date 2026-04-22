@@ -1,7 +1,7 @@
 ---
 # AGENT SKILLS STANDARD FIELDS (v2)
 name: coherent-rubric-logic-builder
-description: "Build a five-level rubric with internally coherent logic for a specific learning target within a developmental band. Use for Manning methodology programmes — five levels, Competent = success. For general curriculum rubrics where Manning methodology does not apply, use the criterion-referenced rubric generator instead."
+description: "Build a five-level rubric with coherent logic for a learning target within a developmental band. Use for Manning methodology programmes where Competent = success. For general curriculum rubrics, use criterion-referenced-rubric-generator instead."
 disable-model-invocation: true
 user-invocable: true
 effort: medium

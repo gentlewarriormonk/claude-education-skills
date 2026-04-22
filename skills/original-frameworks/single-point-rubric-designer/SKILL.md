@@ -1,7 +1,7 @@
 ---
 # AGENT SKILLS STANDARD FIELDS (v2)
 name: single-point-rubric-designer
-description: "Design a single-point rubric for a learning target, self-assessment goal, or assessment task. Use when you want a focused criterion statement with space for evidence of growth and strength — for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with or without a developmental band system."
+description: "Design a single-point rubric with one criterion and open columns for evidence. Use for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with any learning target, with or without a band system."
 disable-model-invocation: true
 user-invocable: true
 effort: low
