@@ -421,11 +421,21 @@ Band D indicators — the teacher notices:
 - The student [specific observable behaviour]
 - The student [specific observable behaviour]
 
+Band E indicators — the teacher notices:
+- The student [specific observable behaviour]
+- The student [specific observable behaviour]
+
+Band F indicators — the teacher notices:
+- The student [specific observable behaviour]
+- The student [specific observable behaviour]
+
 Student self-reflection prompts:
 - Band A: [prompt]
 - Band B: [prompt]
 - Band C: [prompt]
 - Band D: [prompt]
+- Band E: [prompt]
+- Band F: [prompt]
 
 ### Quality Check
 
