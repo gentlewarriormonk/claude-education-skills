@@ -1,8 +1,8 @@
 {
   "version": "2.0",
-  "generated": "2026-04-23T13:11:07.765923+00:00",
+  "generated": "2026-04-24T11:40:33.979775+00:00",
   "standard": "agent-skills-1.0",
-  "total_skills": 113,
+  "total_skills": 114,
   "domains": [
     {
       "id": "ai-learning-science",
@@ -62,7 +62,7 @@
     {
       "id": "professional-learning",
       "label": "Professional Learning",
-      "skill_count": 9
+      "skill_count": 10
     },
     {
       "id": "questioning-discussion",
@@ -2904,6 +2904,40 @@
         "input_field": null
       },
       "path": "skills/professional-learning/lesson-study-cycle-designer/SKILL.md"
+    },
+    {
+      "id": "professional-learning/panel-review",
+      "name": "panel-review",
+      "display_name": "Panel review \u2014 seven-role independent-mode review of framework artefacts",
+      "domain": "professional-learning",
+      "description": "Seven-role depersonalised panel review of framework artefacts (KUD, criterion bank, LT definition, crosswalk, scope-and-sequence) in sequential-isolation mode. Gate rule mean>=88 AND no role<70.",
+      "disable_model_invocation": true,
+      "evidence_strength": "medium",
+      "tags": [
+        "panel-review",
+        "quality-assurance",
+        "framework-validation",
+        "professional-learning",
+        "curriculum-review"
+      ],
+      "teacher_time": "30 minutes",
+      "chains_with": [
+        "kud-chart-author",
+        "learning-target-authoring-guide",
+        "curriculum-crosswalk",
+        "coverage-audit",
+        "coherent-rubric-logic-builder",
+        "criterion-referenced-rubric-generator",
+        "scope-and-sequence-designer",
+        "developmental-progression-synthesis"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/professional-learning/panel-review/SKILL.md"
     },
     {
       "id": "professional-learning/pedagogical-content-knowledge-developer",
