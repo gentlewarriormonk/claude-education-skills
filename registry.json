@@ -1,8 +1,8 @@
 {
   "version": "2.0",
-  "generated": "2026-04-24T11:57:24.624947+00:00",
+  "generated": "2026-05-07T12:20:18.275572+00:00",
   "standard": "agent-skills-1.0",
-  "total_skills": 114,
+  "total_skills": 124,
   "domains": [
     {
       "id": "ai-learning-science",
@@ -38,6 +38,11 @@
       "id": "global-cross-cultural-pedagogies",
       "label": "Global & Cross-Cultural Pedagogies",
       "skill_count": 9
+    },
+    {
+      "id": "historical-thinking",
+      "label": "Historical Thinking",
+      "skill_count": 10
     },
     {
       "id": "literacy-critical-thinking",
@@ -1897,6 +1902,373 @@
         "input_field": null
       },
       "path": "skills/global-cross-cultural-pedagogies/variation-theory-task-designer/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/central-historical-question-evaluator",
+      "name": "central-historical-question-evaluator",
+      "display_name": "Central Historical Question Evaluator",
+      "domain": "historical-thinking",
+      "description": "Evaluate a teacher-drafted central historical question for its capacity to drive genuine historical inquiry. Use when assessing whether a question will generate real evidence-weighing or produce shallow responses.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "historical-questions",
+        "inquiry",
+        "document-based-lessons",
+        "historical-thinking",
+        "lesson-design",
+        "DIG"
+      ],
+      "teacher_time": "2 minutes",
+      "chains_with": [
+        "document-based-lesson-designer",
+        "historical-document-set-curator",
+        "historical-source-adapter",
+        "sourcing-skill-builder",
+        "corroboration-skill-builder",
+        "backwards-design-unit-planner",
+        "hinge-question-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/central-historical-question-evaluator/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/close-reading-skill-builder",
+      "name": "close-reading-skill-builder",
+      "display_name": "Close Reading Skill Builder",
+      "domain": "historical-thinking",
+      "description": "Build students' capacity to read historical documents closely \u2014 attending to word choice, tone, and rhetoric as evidence of perspective. Use when students summarise sources without analysing language.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "close-reading",
+        "historical-thinking",
+        "disciplinary-literacy",
+        "language-analysis",
+        "document-analysis",
+        "rhetoric",
+        "DIG"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "sourcing-skill-builder",
+        "contextualisation-skill-builder",
+        "corroboration-skill-builder",
+        "historical-thinking-strategy-modelling-guide",
+        "document-based-lesson-designer",
+        "historical-source-adapter",
+        "historical-thinking-assessment-designer",
+        "disciplinary-writing-scaffold",
+        "text-complexity-analyser"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/close-reading-skill-builder/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/contextualisation-skill-builder",
+      "name": "contextualisation-skill-builder",
+      "display_name": "Contextualisation Skill Builder",
+      "domain": "historical-thinking",
+      "description": "Build students' capacity to place historical documents in their temporal and social context. Use when students read sources without considering what was happening at the time, or know the context but don't deploy it.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "contextualisation",
+        "historical-thinking",
+        "disciplinary-literacy",
+        "document-analysis",
+        "chronological-reasoning",
+        "DIG"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "sourcing-skill-builder",
+        "close-reading-skill-builder",
+        "corroboration-skill-builder",
+        "historical-thinking-strategy-modelling-guide",
+        "document-based-lesson-designer",
+        "historical-thinking-assessment-designer",
+        "lesson-opening-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/contextualisation-skill-builder/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/corroboration-skill-builder",
+      "name": "corroboration-skill-builder",
+      "display_name": "Corroboration Skill Builder",
+      "domain": "historical-thinking",
+      "description": "Build students' capacity to compare accounts across multiple historical sources \u2014 identifying agreements, contradictions, and gaps. Use when students treat individual documents as complete answers rather than partial perspectives.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "corroboration",
+        "historical-thinking",
+        "disciplinary-literacy",
+        "multi-document-reasoning",
+        "evidence-weighing",
+        "document-analysis",
+        "DIG"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "sourcing-skill-builder",
+        "close-reading-skill-builder",
+        "contextualisation-skill-builder",
+        "historical-thinking-strategy-modelling-guide",
+        "document-based-lesson-designer",
+        "historical-document-set-curator",
+        "historical-thinking-assessment-designer",
+        "argument-structure-scaffold-generator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/corroboration-skill-builder/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/document-based-lesson-designer",
+      "name": "document-based-lesson-designer",
+      "display_name": "Document-Based Lesson Designer",
+      "domain": "historical-thinking",
+      "description": "Design a complete document-based history lesson using the Reading Like a Historian four-part structure. Use when planning a primary source inquiry lesson or converting a textbook lesson into document-based investigation.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "lesson-design",
+        "document-based-lessons",
+        "historical-thinking",
+        "primary-sources",
+        "disciplinary-literacy",
+        "activity-structure",
+        "RLH",
+        "DIG"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "central-historical-question-evaluator",
+        "historical-document-set-curator",
+        "historical-source-adapter",
+        "historical-thinking-strategy-modelling-guide",
+        "sourcing-skill-builder",
+        "close-reading-skill-builder",
+        "contextualisation-skill-builder",
+        "corroboration-skill-builder",
+        "historical-thinking-assessment-designer",
+        "backwards-design-unit-planner",
+        "discussion-protocol-selector"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/document-based-lesson-designer/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/historical-document-set-curator",
+      "name": "historical-document-set-curator",
+      "display_name": "Historical Document Set Curator",
+      "domain": "historical-thinking",
+      "description": "Design a document set for a document-based lesson \u2014 selecting and sequencing sources for analytical tension around a central question. Use when assembling sources for a new lesson or when an existing set produces flat responses.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "document-sets",
+        "historical-thinking",
+        "primary-sources",
+        "source-selection",
+        "lesson-design",
+        "corroboration",
+        "representation",
+        "DIG"
+      ],
+      "teacher_time": "5 minutes",
+      "chains_with": [
+        "central-historical-question-evaluator",
+        "historical-source-adapter",
+        "document-based-lesson-designer",
+        "historical-thinking-strategy-modelling-guide",
+        "sourcing-skill-builder",
+        "corroboration-skill-builder",
+        "historical-thinking-assessment-designer"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/historical-document-set-curator/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/historical-source-adapter",
+      "name": "historical-source-adapter",
+      "display_name": "Historical Source Adapter",
+      "domain": "historical-thinking",
+      "description": "Adapt a historical primary source for classroom use \u2014 modifying complexity and length while preserving features for sourcing, close reading, and corroboration. Use when a primary source is too complex for the target age group.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "source-adaptation",
+        "historical-thinking",
+        "primary-sources",
+        "accessibility",
+        "disciplinary-literacy",
+        "differentiation",
+        "DIG"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "document-based-lesson-designer",
+        "historical-document-set-curator",
+        "central-historical-question-evaluator",
+        "sourcing-skill-builder",
+        "close-reading-skill-builder",
+        "text-complexity-analyser",
+        "vocabulary-tiering-tool",
+        "language-demand-analyser",
+        "scaffolded-task-modifier"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/historical-source-adapter/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/historical-thinking-assessment-designer",
+      "name": "historical-thinking-assessment-designer",
+      "display_name": "Historical Thinking Assessment Designer",
+      "domain": "historical-thinking",
+      "description": "Design formative assessments that make students' historical thinking visible \u2014 revealing whether they source, close-read, contextualise, and corroborate. Use when assessing historical thinking skills or planning a diagnostic.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "assessment",
+        "historical-thinking",
+        "formative-assessment",
+        "HATs",
+        "diagnostic",
+        "sourcing",
+        "close-reading",
+        "contextualisation",
+        "corroboration",
+        "DIG"
+      ],
+      "teacher_time": "4 minutes",
+      "chains_with": [
+        "document-based-lesson-designer",
+        "sourcing-skill-builder",
+        "close-reading-skill-builder",
+        "contextualisation-skill-builder",
+        "corroboration-skill-builder",
+        "assessment-validity-checker",
+        "formative-assessment-technique-selector",
+        "criterion-referenced-rubric-generator",
+        "gap-analysis-from-student-work",
+        "historical-source-adapter"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/historical-thinking-assessment-designer/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/historical-thinking-strategy-modelling-guide",
+      "name": "historical-thinking-strategy-modelling-guide",
+      "display_name": "Historical Thinking Strategy Modelling Guide",
+      "domain": "historical-thinking",
+      "description": "Design a teacher think-aloud that models historical thinking strategies with a specific document. Use when planning explicit strategy instruction or when students follow a protocol without understanding the underlying reasoning.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "modelling",
+        "think-aloud",
+        "historical-thinking",
+        "explicit-instruction",
+        "worked-example",
+        "strategy-instruction",
+        "DIG"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "sourcing-skill-builder",
+        "close-reading-skill-builder",
+        "contextualisation-skill-builder",
+        "corroboration-skill-builder",
+        "document-based-lesson-designer",
+        "historical-source-adapter",
+        "think-aloud-script-generator",
+        "explicit-instruction-sequence-builder"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/historical-thinking-strategy-modelling-guide/SKILL.md"
+    },
+    {
+      "id": "historical-thinking/sourcing-skill-builder",
+      "name": "sourcing-skill-builder",
+      "display_name": "Sourcing Skill Builder",
+      "domain": "historical-thinking",
+      "description": "Build students' capacity to interrogate a historical source before reading \u2014 asking who authored it, when, why, and what this means for reliability. Use when students read documents without attending to authorship.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "sourcing",
+        "historical-thinking",
+        "primary-sources",
+        "disciplinary-literacy",
+        "document-analysis",
+        "Wineburg",
+        "DIG"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "close-reading-skill-builder",
+        "contextualisation-skill-builder",
+        "corroboration-skill-builder",
+        "historical-thinking-strategy-modelling-guide",
+        "document-based-lesson-designer",
+        "historical-source-adapter",
+        "historical-thinking-assessment-designer",
+        "source-credibility-evaluation-protocol"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/historical-thinking/sourcing-skill-builder/SKILL.md"
     },
     {
       "id": "literacy-critical-thinking/argument-structure-scaffold-generator",

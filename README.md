@@ -1,11 +1,11 @@
 # Claude Education Skills Library
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-1.0-blue)](https://agentskills.io)
-[![Skills](https://img.shields.io/badge/skills-111-blue)](https://github.com/GarethManning/claude-education-skills)
+[![Skills](https://img.shields.io/badge/skills-124-blue)](https://github.com/GarethManning/claude-education-skills)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Last Commit](https://img.shields.io/github/last-commit/GarethManning/claude-education-skills)](https://github.com/GarethManning/claude-education-skills/commits/main)
 
-An open-source library of 111 evidence-based pedagogical skills for curriculum design, lesson planning, and assessment — usable today by any educator with access to Claude, and engineered for AI agent orchestration.
+An open-source library of 124 evidence-based pedagogical skills for curriculum design, lesson planning, and assessment — usable today by any educator with access to Claude, and engineered for AI agent orchestration.
 
 ---
 
@@ -168,7 +168,7 @@ YAML schema headers, typed input and output fields, chaining metadata, and compo
 
 ---
 
-## The 15 Domains
+## The 16 Domains
 
 | # | Domain | Skills | Focus |
 |---|--------|--------|-------|
@@ -187,6 +187,7 @@ YAML schema headers, typed input and output fields, chaining metadata, and compo
 | 13 | **Montessori & Alternative Evidence-Based Approaches** | 4 | Three-part lessons, prepared environment design, mixed-age learning, uninterrupted work cycles |
 | 14 | **Original Frameworks** | 5 | SEEDS regenerative inquiry, developmental band systems, learning target authoring, rubric logic, self-determined project design |
 | 15 | **Curriculum Alignment** | 4 | Coverage audit, KUD chart authoring, developmental band translation, scope and sequence |
+| 16 | **Historical Thinking** | 10 | Sourcing, close reading, contextualisation, corroboration, document-based lesson design, document set curation, source adaptation, strategy modelling, assessment design, central question evaluation |
 
 ---
 
@@ -195,7 +196,7 @@ YAML schema headers, typed input and output fields, chaining metadata, and compo
 The library is Layer 1 of a three-layer system. See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full design.
 
 **Layer 1 — Skill Library** (this repository, complete and available now)
-111 skills across 15 domains. Each skill encodes a specific, evidence-grounded instructional or curriculum design decision. Works standalone today.
+124 skills across 16 domains. Each skill encodes a specific, evidence-grounded instructional or curriculum design decision. Works standalone today.
 
 **Layer 2 — Context Engine** *(in design)*
 Holds persistent information about students, classes, curriculum sequences, and assessment history. When connected, skill outputs become personalised — not generic advice about retrieval practice, but a specific retrieval schedule for this class based on what they have already learned and been assessed on.
@@ -279,7 +280,7 @@ Connect from Claude.ai by adding the URL under **Integrations > MCP Servers**. C
 ```
 
 The server exposes:
-- **115 tools** (111 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
+- **128 tools** (124 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
 - **109 prompts** (for clients that surface MCP prompts)
 
 Source code, local setup, and development instructions: [`mcp-server/`](mcp-server/)

@@ -25,6 +25,7 @@ DOMAIN_LABELS = {
     "questioning-discussion": "Questioning & Discussion",
     "self-regulated-learning": "Self-Regulated Learning",
     "wellbeing-motivation-agency": "Wellbeing, Motivation & Agency",
+    "historical-thinking": "Historical Thinking",
 }
 
 
