@@ -9,6 +9,52 @@ An open-source library of 131 evidence-based pedagogical skills for curriculum d
 
 ---
 
+## Get Started
+
+Works with Claude, Codex, and any tool that supports the Agent Skills standard.
+
+### Claude
+
+**CoWork (easiest)** — go to **Customize → (+) Add Plugin** and paste:
+
+```
+https://github.com/GarethManning/education-agent-skills
+```
+
+**Claude Code CLI** — install from the repo URL:
+
+```
+claude plugin install https://github.com/GarethManning/education-agent-skills
+```
+
+**Claude.ai / Claude Desktop (MCP server)** — add under **Settings → Connectors**:
+
+```
+https://mcp-server-sigma-sooty.vercel.app/mcp
+```
+
+### OpenAI Codex
+
+Clone the repo and install as a plugin, or copy individual skill folders to `~/.codex/skills/`:
+
+```bash
+git clone https://github.com/GarethManning/education-agent-skills.git
+# Global access to a single skill:
+cp -r skills/<domain>/<skill-name> ~/.codex/skills/
+```
+
+### Any Agent Skills-compatible tool
+
+Copy skill folders from `skills/` into your agent's skills directory. Each skill is a folder containing `SKILL.md` with name/description frontmatter — no dependencies, no build step.
+
+### Manual (no setup)
+
+1. Open any skill file in the repository (under `skills/`)
+2. Copy the prompt block
+3. Paste it into any AI and fill in the fields for your class or context
+
+---
+
 ## Feedback & Contributions
 
 I'd love to hear your thoughts. If you have suggestions, find bugs, or want to contribute:
@@ -56,82 +102,6 @@ That is one use case. The same library can power school-wide curriculum audits, 
 
 ---
 
-## Using the Library
-
-### CoWork (native plugin — easiest)
-
-Go to **Customize → (+) Add Plugin** and paste the GitHub URL:
-
-```
-https://github.com/GarethManning/education-agent-skills
-```
-
-CoWork reads `.claude-plugin/plugin.json` and installs all 131 skills automatically.
-
-### Claude.ai or Claude Desktop (via MCP server)
-
-Add the MCP server URL under **Settings → Connectors**:
-
-```
-https://mcp-server-sigma-sooty.vercel.app/mcp
-```
-
-On first use: click the **+** icon in the message bar → select **Connectors** → find Claude Education Skills and toggle it on. Skills activate automatically in every conversation — no manual activation needed.
-
-### Claude Code (local via npx)
-
-Run the server locally without any account or deployment:
-
-```bash
-npx education-agent-skills
-```
-
-Or add it permanently to your Claude Code config:
-
-```json
-{
-  "mcpServers": {
-    "education-agent-skills": {
-      "command": "npx",
-      "args": ["education-agent-skills"]
-    }
-  }
-}
-```
-
-### Claude Code CLI (plugin)
-
-```
-/plugin marketplace add GarethManning/education-agent-skills
-/plugin install education-agent-skills
-```
-
-Or install directly from the repo URL:
-
-```
-claude plugin install https://github.com/GarethManning/education-agent-skills
-```
-
-Skills load with progressive disclosure — metadata only until a skill is actually needed.
-
-### Remote MCP (API / programmatic)
-
-```
-https://mcp-server-sigma-sooty.vercel.app/mcp
-```
-
-## What Changed in v2
-
-The library is now compliant with the **Agent Skills 1.0 open standard**. What this means in practice:
-
-- **One-command install** — no manual setup, no copy-pasting prompts
-- **Progressive disclosure** — skill metadata loads first; full skill content loads only when activated, keeping context lean
-- **Auto-activation** — skills trigger when your conversation matches their description, without explicit invocation
-- **Machine-readable registry** — `registry.json` indexes all skills with descriptions, tags, chaining metadata, and domain grouping for programmatic consumption
-- **Backward compatible** — the MCP server, direct prompt use, and all existing workflows continue to work unchanged
-
----
-
 ## Try It Now
 
 ### With the plugin (recommended)
@@ -148,7 +118,7 @@ No API key. No technical setup. No dependencies.
 
 1. Open any skill file in the repository (under `skills/`)
 2. Copy the prompt block
-3. Paste it into Claude and fill in the fields for your class or context
+3. Paste it into any AI and fill in the fields for your class or context
 
 **Example:** Open `skills/memory-learning-science/spaced-practice-scheduler/SKILL.md` and provide:
 
@@ -157,36 +127,6 @@ No API key. No technical setup. No dependencies.
 - Lessons per week: 3
 
 Claude returns a complete week-by-week schedule showing when to teach new content and when to revisit previous topics at expanding intervals — with specific retrieval activities for each review slot. The schedule follows Cepeda et al.'s (2006) meta-analysis on optimal spacing intervals, includes interleaving across topics, and comes with practical guidance on what to do when review reveals gaps.
-
----
-
-## Install as Agent Skills
-
-### Claude.ai (MCP server)
-
-Already live at `mcp-server-sigma-sooty.vercel.app/mcp` — add as a custom MCP server in Claude settings under **Settings → Connectors**.
-
-### Claude Code
-
-Clone the repo and add `skills/` to your Claude Code skills path, or symlink individual skills to `~/.claude/skills/`.
-
-```bash
-git clone https://github.com/GarethManning/education-agent-skills.git
-```
-
-### OpenAI Codex
-
-Clone the repo. Install as a plugin from the cloned directory, or copy individual skill folders to `~/.codex/skills/` for global access.
-
-```bash
-git clone https://github.com/GarethManning/education-agent-skills.git
-# Copy a skill for global access:
-cp -r skills/<domain>/<skill-name> ~/.codex/skills/
-```
-
-### Any Agent Skills-compatible tool
-
-Copy skill folders from `skills/` into your agent's skills directory. Each skill follows the open Agent Skills standard (SKILL.md with name/description frontmatter).
 
 ---
 
