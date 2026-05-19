@@ -1,6 +1,6 @@
 # Claude Education Skills Library
 
-> An open-source library of 131 evidence-based agent skills for curriculum design, lesson planning, and assessment. Designed for direct educator use and programmatic AI agent access.
+> An open-source library of 152 evidence-based agent skills for curriculum design, lesson planning, and assessment. Designed for direct educator use and programmatic AI agent access.
 
 Each skill encodes a specific, evidence-grounded instructional or curriculum design decision. Skills include YAML frontmatter with typed input/output schemas, evidence strength ratings, and chaining metadata. This is Layer 1 of a planned three-layer education AI system (skill library → context engine → orchestrator).
 
@@ -12,22 +12,27 @@ Each skill encodes a specific, evidence-grounded instructional or curriculum des
 - [EVIDENCE.md](https://github.com/GarethManning/education-agent-skills/blob/main/docs/EVIDENCE.md): Evidence standards, rating methodology, and source references
 - [IMPLEMENTATIONS.md](https://github.com/GarethManning/education-agent-skills/blob/main/docs/IMPLEMENTATIONS.md): Known implementations and use cases
 
-## Skill Domains (131 skills across 17 domains)
+## Skill Domains (152 skills across 19 domains)
 
-- [memory-learning-science/](https://github.com/GarethManning/education-agent-skills/tree/main/memory-learning-science): 8 skills — retrieval practice, spaced practice, interleaving, cognitive load, dual coding, elaborative interrogation, feedback
-- [self-regulated-learning/](https://github.com/GarethManning/education-agent-skills/tree/main/self-regulated-learning): 5 skills — metacognition, self-regulation scaffolds, goal-setting, study strategy selection, error analysis
-- [explicit-instruction/](https://github.com/GarethManning/education-agent-skills/tree/main/explicit-instruction): 5 skills — gradual release, checking for understanding, lesson openings, think-alouds, practice design
-- [questioning-discussion/](https://github.com/GarethManning/education-agent-skills/tree/main/questioning-discussion): 4 skills — Socratic questioning, discussion protocols, dialogic teaching, hinge questions
-- [literacy-critical-thinking/](https://github.com/GarethManning/education-agent-skills/tree/main/literacy-critical-thinking): 7 skills — argument structure, disciplinary writing, reading comprehension, source evaluation, media literacy
-- [eal-language-development/](https://github.com/GarethManning/education-agent-skills/tree/main/eal-language-development): 5 skills — language demand analysis, vocabulary tiering, scaffolded task modification, sentence frames
-- [curriculum-assessment/](https://github.com/GarethManning/education-agent-skills/tree/main/curriculum-assessment): 9 skills — backwards design, rubric generation, formative assessment, differentiation, learning progressions, PBL
-- [wellbeing-motivation-agency/](https://github.com/GarethManning/education-agent-skills/tree/main/wellbeing-motivation-agency): 12 skills — motivation, self-efficacy, wellbeing-learning connections, student agency, belonging
-- [professional-learning/](https://github.com/GarethManning/education-agent-skills/tree/main/professional-learning): 7 skills — lesson observation, reflective practice, PD design, data interpretation
-- [global-cross-cultural-pedagogies/](https://github.com/GarethManning/education-agent-skills/tree/main/global-cross-cultural-pedagogies): 9 skills — variation theory, CPA sequences, culturally responsive teaching, Ubuntu, place-based inquiry
-- [environmental-experiential-learning/](https://github.com/GarethManning/education-agent-skills/tree/main/environmental-experiential-learning): 6 skills — outdoor learning, biophilic design, experiential learning cycles, service learning
-- [ai-learning-science/](https://github.com/GarethManning/education-agent-skills/tree/main/ai-learning-science): 14 skills — adaptive hints, erroneous examples, AI feedback, cognitive tutoring, metacognitive monitoring, productive failure
-- [montessori-alternative-approaches/](https://github.com/GarethManning/education-agent-skills/tree/main/montessori-alternative-approaches): 4 skills — three-part lessons, prepared environment, mixed-age learning, uninterrupted work cycles
-- [original-frameworks/](https://github.com/GarethManning/education-agent-skills/tree/main/original-frameworks): 5 practitioner frameworks — clearly labelled as original, not research-backed
+- [memory-learning-science/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/memory-learning-science): 8 skills — retrieval practice, spaced practice, interleaving, cognitive load, dual coding, elaborative interrogation, feedback
+- [self-regulated-learning/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/self-regulated-learning): 5 skills — metacognition, self-regulation scaffolds, goal-setting, study strategy selection, error analysis
+- [explicit-instruction/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/explicit-instruction): 5 skills — gradual release, checking for understanding, lesson openings, think-alouds, practice design
+- [questioning-discussion/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/questioning-discussion): 5 skills — Socratic questioning, discussion protocols, dialogic teaching, hinge questions
+- [literacy-critical-thinking/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/literacy-critical-thinking): 7 skills — argument structure, disciplinary writing, reading comprehension, source evaluation, media literacy
+- [eal-language-development/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/eal-language-development): 5 skills — language demand analysis, vocabulary tiering, scaffolded task modification, sentence frames
+- [curriculum-assessment/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/curriculum-assessment): 13 skills — backwards design, rubric generation, formative assessment, differentiation, learning progressions, PBL
+- [curriculum-alignment/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/curriculum-alignment): 4 skills — coverage audit, KUD chart authoring, developmental band translation, scope and sequence
+- [wellbeing-motivation-agency/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/wellbeing-motivation-agency): 12 skills — motivation, self-efficacy, wellbeing-learning connections, student agency, belonging
+- [professional-learning/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/professional-learning): 10 skills — lesson observation, reflective practice, PD design, data interpretation
+- [global-cross-cultural-pedagogies/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/global-cross-cultural-pedagogies): 9 skills — variation theory, CPA sequences, culturally responsive teaching, Ubuntu, place-based inquiry
+- [environmental-experiential-learning/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/environmental-experiential-learning): 6 skills — outdoor learning, biophilic design, experiential learning cycles, service learning
+- [ai-learning-science/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/ai-learning-science): 14 skills — adaptive hints, erroneous examples, AI feedback, cognitive tutoring, metacognitive monitoring, productive failure
+- [ai-literacy/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/ai-literacy): 7 skills — AI output auditing, hallucination fact-checking, prompt literacy, expertise interrogation, AI Socratic dialogue
+- [montessori-alternative-approaches/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/montessori-alternative-approaches): 4 skills — three-part lessons, prepared environment, mixed-age learning, uninterrupted work cycles
+- [historical-thinking/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/historical-thinking): 10 skills — sourcing, close reading, contextualisation, corroboration, document-based lesson design
+- [inclusive-design/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/inclusive-design): 3 skills — UDL lesson auditing, options design across engagement/representation/action, proactive barrier anticipation
+- [systems-thinking/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/systems-thinking): 8 skills — systems awareness iceberg, aspirational iceberg, hexagon complexity mapper, leverage and response design, mental model mapper, agency circles, ladder of inference, systems wellbeing impact
+- [original-frameworks/](https://github.com/GarethManning/education-agent-skills/tree/main/skills/original-frameworks): 17 practitioner frameworks — clearly labelled as original, not research-backed; includes H3Uni systems methods (scoping, Three Horizons, dilemma navigation, multi-perspective decision wheel), SEEDS regenerative inquiry, developmental band systems, and composite orchestrators
 
 ## For AI Agents
 
@@ -45,7 +50,7 @@ teacher_time: "5 minutes"
 tags: [...]
 ```
 
-To use programmatically: navigate to the relevant domain folder, select a skill by evidence strength or tags, extract the prompt block, and inject the typed inputs. A full MCP server (list_skills, get_skill, search_skills) is planned — see ARCHITECTURE.md.
+To use programmatically: navigate to the relevant domain folder, select a skill by evidence strength or tags, extract the prompt block, and inject the typed inputs. A live MCP server is available at `https://mcp-server-sigma-sooty.vercel.app/mcp` (auth token required — see README).
 
 ## Licence
 

@@ -1,7 +1,7 @@
 # Education Agent Skills Library — Claude Code Entry Point
 
 ## What this is
-147 evidence-based education skills across 19 domains for curriculum design, lesson planning, and assessment. CC BY-SA 4.0. Works in Claude Code, Claude.ai (via MCP), and OpenAI Codex. Includes a live MCP server at mcp-server-sigma-sooty.vercel.app/mcp, a CoWork plugin (.claude-plugin/), and a Codex plugin (.codex-plugin/).
+152 evidence-based education skills across 19 domains for curriculum design, lesson planning, and assessment. CC BY-SA 4.0. Works in Claude Code, Claude.ai (via MCP), and OpenAI Codex. Includes a live MCP server at mcp-server-sigma-sooty.vercel.app/mcp, a CoWork plugin (.claude-plugin/), and a Codex plugin (.codex-plugin/).
 
 ## Stack
 TypeScript (77.9%), Python (16.7%). Playwright for testing. Skills are structured markdown (SKILL.md) with YAML frontmatter. MCP server in mcp-server/ subdirectory. CI via GitHub Actions.

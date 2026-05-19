@@ -1,11 +1,11 @@
 # Education Agent Skills Library
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-1.0-blue)](https://agentskills.io)
-[![Skills](https://img.shields.io/badge/skills-147-blue)](https://github.com/GarethManning/education-agent-skills)
+[![Skills](https://img.shields.io/badge/skills-152-blue)](https://github.com/GarethManning/education-agent-skills)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Last Commit](https://img.shields.io/github/last-commit/GarethManning/education-agent-skills)](https://github.com/GarethManning/education-agent-skills/commits/main)
 
-An open-source library of 147 evidence-based pedagogical skills for curriculum design, lesson planning, and assessment — works in Claude Code, Claude.ai (via MCP), and OpenAI Codex, and engineered for AI agent orchestration.
+An open-source library of 152 evidence-based pedagogical skills for curriculum design, lesson planning, and assessment — works in Claude Code, Claude.ai (via MCP), and OpenAI Codex, and engineered for AI agent orchestration.
 
 > [!IMPORTANT]
 > **Hosted MCP access now requires an auth token.**
@@ -189,21 +189,21 @@ YAML schema headers, typed input and output fields, chaining metadata, and compo
 | 1 | **Memory & Learning Science** | 8 | Retrieval practice, spacing, interleaving, cognitive load, dual coding, elaborative interrogation, feedback |
 | 2 | **Self-Regulated Learning & Metacognition** | 5 | Self-regulation scaffolds, metacognitive prompts, goal-setting, study strategy selection, error analysis |
 | 3 | **Explicit & Direct Instruction** | 5 | Gradual release sequences, checking for understanding, lesson openings, think-alouds, practice design |
-| 4 | **Questioning, Discussion & Dialogue** | 4 | Socratic questioning, discussion protocols, dialogic teaching moves, hinge questions |
+| 4 | **Questioning, Discussion & Dialogue** | 5 | Socratic questioning, discussion protocols, dialogic teaching moves, hinge questions |
 | 5 | **Literacy, Writing & Critical Thinking** | 7 | Argument structure, disciplinary writing, reading comprehension, source evaluation, text complexity, media literacy, critical thinking |
 | 6 | **EAL/D & Language Development** | 5 | Language demand analysis, vocabulary tiering, scaffolded task modification, sentence frames, sheltered instruction |
-| 7 | **Curriculum Design & Assessment** | 15 | Backwards design, competency unpacking, rubric generation, assessment validity, formative assessment, differentiation, gap analysis, learning progressions, PBL, threshold concept translation |
+| 7 | **Curriculum Design & Assessment** | 13 | Backwards design, competency unpacking, rubric generation, assessment validity, formative assessment, differentiation, gap analysis, learning progressions, PBL, threshold concept translation |
 | 8 | **Wellbeing, Motivation & Student Agency** | 12 | Motivation diagnostics, self-efficacy, wellbeing-learning connections, agency scaffolds, belonging, and related practices |
-| 9 | **Professional Learning & Teacher Development** | 9 | Lesson observation, reflective practice, PD session design, data interpretation, and related practices |
+| 9 | **Professional Learning & Teacher Development** | 10 | Lesson observation, reflective practice, PD session design, data interpretation, and related practices |
 | 10 | **Global & Cross-Cultural Pedagogies** | 9 | Variation theory, CPA sequences, phenomenon-based learning, culturally responsive teaching, Ubuntu, place-based inquiry, Reggio documentation, emergent projects, cross-cultural validity |
 | 11 | **Environmental & Experiential Learning** | 6 | Outdoor learning, biophilic design, ecological inquiry, experiential learning cycles, interdisciplinary connections, service learning |
 | 12 | **AI Learning Science** | 14 | Adaptive hints, erroneous examples, digital worked examples, spacing algorithms, AI feedback, tutoring dialogue, learning analytics, collaborative learning, cognitive tutoring, self-explanation, metacognitive monitoring, productive failure, worked example transitions, formative assessment loops |
 | 13 | **AI Literacy** | 7 | AI output auditing, hallucination fact-checking, prompt literacy, expertise interrogation, learning boundary mapping, AI Socratic dialogue, disciplinary AI reliability |
 | 14 | **Montessori & Alternative Evidence-Based Approaches** | 4 | Three-part lessons, prepared environment design, mixed-age learning, uninterrupted work cycles |
-| 15 | **Original Frameworks** | 11 | SEEDS regenerative inquiry, developmental band systems, learning target authoring, rubric logic, self-determined project design, dispositional assessment, single-point rubrics; three composite orchestrators (place-based curriculum, regenerative project design, compassionate systems awareness) |
+| 15 | **Original Frameworks** | 17 | SEEDS regenerative inquiry, H3Uni systems methods (scoping, Three Horizons, dilemma navigation, multi-perspective decision wheel), developmental band systems, learning target authoring, rubric logic, self-determined project design, dispositional assessment, single-point rubrics; composite orchestrators (assessment design, inclusive design, place-based curriculum, regenerative project design, compassionate systems awareness) |
 | 16 | **Curriculum Alignment** | 4 | Coverage audit, KUD chart authoring, developmental band translation, scope and sequence |
 | 17 | **Historical Thinking** | 10 | Sourcing, close reading, contextualisation, corroboration, document-based lesson design, document set curation, source adaptation, strategy modelling, assessment design, central question evaluation |
-| 18 | **Systems Thinking** | 5 | Systems awareness iceberg, aspirational iceberg, mental model mapper, agency circles for systems action, ladder of inference |
+| 18 | **Systems Thinking** | 8 | Systems awareness iceberg, aspirational iceberg, hexagon complexity mapper, leverage and response design, mental model mapper, agency circles for systems action, ladder of inference, systems wellbeing impact |
 | 19 | **Inclusive Design** | 3 | UDL lesson auditing, options design across engagement/representation/action, proactive barrier anticipation before delivery |
 
 ---
@@ -243,8 +243,8 @@ Connect from Claude.ai by adding the URL under **Integrations > MCP Servers**. C
 ```
 
 The server exposes:
-- **149 tools** (145 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
-- **145 prompts** (for clients that surface MCP prompts)
+- **156 tools** (152 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
+- **152 prompts** (for clients that surface MCP prompts)
 
 Source code, local setup, and development instructions: [`mcp-server/`](mcp-server/)
 
